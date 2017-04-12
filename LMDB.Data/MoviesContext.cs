@@ -30,6 +30,8 @@
         {
             modelBuilder.Configurations.Add(new UserConfiguration());
 
+            modelBuilder.Configurations.Add(new ContributorConfiguration());
+
             base.OnModelCreating(modelBuilder);
         }
 

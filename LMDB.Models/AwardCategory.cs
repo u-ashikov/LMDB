@@ -16,8 +16,8 @@
 
         public virtual ICollection<Movie> Movies { get; set; } = new HashSet<Movie>();
 
-        //public virtual ICollection<Actor> Actors { get; set; } = new HashSet<Actor>();
+        public virtual ICollection<Actor> Actors { get; set; } = new HashSet<Actor>();
 
-        // virtual ICollection<Director> Directors { get; set; } = new HashSet<Director>();
+        public virtual ICollection<Director> Directors { get; set; } = new HashSet<Director>();
     }
 }
