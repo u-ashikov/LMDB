@@ -37,9 +37,9 @@
             //        m.MapRightKey("FavouriteMovieId");
             //    });
 
-            //this.HasMany(u => u.Comments)
-            //    .WithRequired(c => c.Author)
-            //    .WillCascadeOnDelete(false);
+            this.HasMany(u => u.Comments)
+                .WithRequired(c => c.Author)
+                .WillCascadeOnDelete(false);
         }
     }
 }

@@ -26,6 +26,8 @@
 
         public virtual DbSet<Contributor> Contributors { get; set; }
 
+        public virtual DbSet<Comment> Comments { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new UserConfiguration());

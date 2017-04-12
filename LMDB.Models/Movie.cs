@@ -15,7 +15,8 @@
         //public int ReviewId { get; set; }
         //public virtual Review Review { get; set; }
         public virtual ICollection<Actor> Actors { get; set; } = new HashSet<Actor>();
-        //public virtual ICollection<Comment> Comments { get; set; } = new HashSet<Comment>();
+
+        public virtual ICollection<Comment> Comments { get; set; } = new HashSet<Comment>();
 
         public virtual ICollection<AwardCategory> Awards { get; set; } = new HashSet<AwardCategory>();
 
