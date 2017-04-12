@@ -1,4 +1,4 @@
-﻿namespace LMDB.Web.ViewModels.Manage
+﻿namespace LMDB.ViewModels.Manage
 {
     using Microsoft.AspNet.Identity;
     using Microsoft.Owin.Security;
