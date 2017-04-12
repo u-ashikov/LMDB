@@ -1,6 +1,7 @@
 ﻿namespace LMDB.Data
 {
-    using LMDB.Models;
+    using System.Data.Entity;
+    using Models;
     using Microsoft.AspNet.Identity.EntityFramework;
 
     public class MoviesContext : IdentityDbContext<ApplicationUser>
@@ -10,6 +11,12 @@
         {
             //Test commit
         }
+
+        public virtual DbSet<Movie> Movies { get; set; }
+        public virtual DbSet<Award> Awards { get; set; }
+        public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<Genre> Genres { get; set; }
+        public virtual DbSet<AwardCategory> AwardCategories { get; set; }
 
         public static MoviesContext Create()
         {
