@@ -22,6 +22,12 @@
 
         public virtual ICollection<AwardCategory> Awards { get; set; } = new HashSet<AwardCategory>();
 
-        public virtual ICollection<Genre> Genres { get; set; } = new HashSet<Genre>();        
+        public virtual ICollection<Genre> Genres { get; set; } = new HashSet<Genre>();
+
+        public virtual ICollection<ApplicationUser> Likes { get; set; } = new HashSet<ApplicationUser>();
+
+        public virtual ICollection<ApplicationUser> Dislikes { get; set; } = new HashSet<ApplicationUser>();
+
+        public virtual ICollection<ApplicationUser> MovieFans { get; set; } = new HashSet<ApplicationUser>();      
     }
 }
