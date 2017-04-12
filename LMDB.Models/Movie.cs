@@ -10,8 +10,6 @@
 
         public DateTime DateReleased { get; set; }
 
-        public int Likes { get; set; } = 0;
-
         //public int DirectorId  { get; set; }
         //public virtual Director Director{ get; set; }
         //public int ReviewId { get; set; }
