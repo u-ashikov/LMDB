@@ -11,7 +11,7 @@
                 .WillCascadeOnDelete(false);
 
             this.HasRequired(r => r.ReviewedMovie)
-                .WithMany(m => m.Reviews)
+                .WithOptional(m => m.Review)
                 .WillCascadeOnDelete(false);
         }
     }

@@ -40,6 +40,8 @@
 
             modelBuilder.Configurations.Add(new ReviewConfiguration());
 
+            modelBuilder.Configurations.Add(new MovieConfiguration());
+
             base.OnModelCreating(modelBuilder);
         }
 

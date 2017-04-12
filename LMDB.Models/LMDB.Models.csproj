@@ -65,6 +65,7 @@
     <Compile Include="Comment.cs" />
     <Compile Include="Configurations\ContributorConfiguration.cs" />
     <Compile Include="Configurations\CountryConfiguration.cs" />
+    <Compile Include="Configurations\MovieConfiguration.cs" />
     <Compile Include="Configurations\ReviewConfiguration.cs" />
     <Compile Include="Configurations\UserConfiguration.cs" />
     <Compile Include="Contributor.cs" />
