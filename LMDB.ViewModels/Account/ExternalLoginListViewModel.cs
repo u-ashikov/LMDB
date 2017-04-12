@@ -1,4 +1,4 @@
-﻿namespace LMDB.Web.ViewModels.Account
+﻿namespace LMDB.ViewModels.Account
 {
     public class ExternalLoginListViewModel
     {

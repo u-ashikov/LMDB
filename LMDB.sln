@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMDB.Data", "LMDB.Data\LMDB
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMDB.Models", "LMDB.Models\LMDB.Models.csproj", "{5E9963B8-6B81-4B66-BE48-91B7E8930364}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMDB.ViewModels", "LMDB.ViewModels\LMDB.ViewModels.csproj", "{999BF3FE-F00D-481E-BD4D-0124079DBBA3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{5E9963B8-6B81-4B66-BE48-91B7E8930364}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E9963B8-6B81-4B66-BE48-91B7E8930364}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5E9963B8-6B81-4B66-BE48-91B7E8930364}.Release|Any CPU.Build.0 = Release|Any CPU
+		{999BF3FE-F00D-481E-BD4D-0124079DBBA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{999BF3FE-F00D-481E-BD4D-0124079DBBA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{999BF3FE-F00D-481E-BD4D-0124079DBBA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{999BF3FE-F00D-481E-BD4D-0124079DBBA3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

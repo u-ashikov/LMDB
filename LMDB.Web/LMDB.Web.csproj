@@ -211,25 +211,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\Account\ExternalLoginConfirmationViewModel.cs" />
-    <Compile Include="ViewModels\Account\ExternalLoginListViewModel.cs" />
-    <Compile Include="ViewModels\Account\ForgotPasswordViewModel.cs" />
-    <Compile Include="ViewModels\Account\ForgotViewModel.cs" />
-    <Compile Include="ViewModels\Account\LoginViewModel.cs" />
-    <Compile Include="ViewModels\Account\RegisterViewModel.cs" />
-    <Compile Include="ViewModels\Account\ResetPasswordViewModel.cs" />
-    <Compile Include="ViewModels\Account\SendCodeViewModel.cs" />
-    <Compile Include="ViewModels\Account\VerifyCodeViewModel.cs" />
-    <Compile Include="ViewModels\Manage\AddPhoneNumberViewModel.cs" />
-    <Compile Include="ViewModels\Manage\ChangePasswordViewModel.cs" />
-    <Compile Include="ViewModels\Manage\ConfigureTwoFactorViewModel.cs" />
-    <Compile Include="ViewModels\Manage\FactorViewModel.cs" />
-    <Compile Include="ViewModels\Manage\IndexViewModel.cs" />
-    <Compile Include="ViewModels\Manage\ManageLoginsViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="ViewModels\Manage\SetPasswordViewModel.cs" />
-    <Compile Include="ViewModels\Manage\VerifyPhoneNumberViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -316,6 +299,10 @@
     <ProjectReference Include="..\LMDB.Models\LMDB.Models.csproj">
       <Project>{5E9963B8-6B81-4B66-BE48-91B7E8930364}</Project>
       <Name>LMDB.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LMDB.ViewModels\LMDB.ViewModels.csproj">
+      <Project>{999BF3FE-F00D-481E-BD4D-0124079DBBA3}</Project>
+      <Name>LMDB.ViewModels</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

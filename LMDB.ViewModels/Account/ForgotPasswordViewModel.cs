@@ -1,10 +1,11 @@
-﻿namespace LMDB.Web.ViewModels.Account
+﻿namespace LMDB.ViewModels.Account
 {
     using System.ComponentModel.DataAnnotations;
 
-    public class ForgotViewModel
+    public class ForgotPasswordViewModel
     {
         [Required]
+        [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
     }

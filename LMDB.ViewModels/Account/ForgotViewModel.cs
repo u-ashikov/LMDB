@@ -1,8 +1,8 @@
-﻿namespace LMDB.Web.ViewModels.Account
+﻿namespace LMDB.ViewModels.Account
 {
     using System.ComponentModel.DataAnnotations;
 
-    public class ExternalLoginConfirmationViewModel
+    public class ForgotViewModel
     {
         [Required]
         [Display(Name = "Email")]
