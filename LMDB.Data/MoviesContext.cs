@@ -8,6 +8,7 @@
         public MoviesContext()
             : base("MoviesContext", throwIfV1Schema: false)
         {
+            //Test commit
         }
 
         public static MoviesContext Create()
