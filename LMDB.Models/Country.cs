@@ -14,8 +14,6 @@
 
         public string Name { get; set; }
 
-        public string CountryCode { get; set; }
-
         public virtual ICollection<ApplicationUser> Users { get; set; }
 
         public virtual ICollection<Contributor> Contributors { get; set; }
