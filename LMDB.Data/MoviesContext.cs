@@ -3,6 +3,7 @@
     using System.Data.Entity;
     using Models;
     using Microsoft.AspNet.Identity.EntityFramework;
+    using Models.Configurations;
 
     public class MoviesContext : IdentityDbContext<ApplicationUser>
     {
@@ -22,6 +23,15 @@
         public virtual DbSet<AwardCategory> AwardCategories { get; set; }
 
         public virtual DbSet<Country> Countries { get; set; }
+
+        public virtual DbSet<Contributor> Contributors { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Configurations.Add(new UserConfiguration());
+
+            base.OnModelCreating(modelBuilder);
+        }
 
         public static MoviesContext Create()
         {
