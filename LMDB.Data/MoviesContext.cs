@@ -28,6 +28,8 @@
 
         public virtual DbSet<Comment> Comments { get; set; }
 
+        public virtual DbSet<Review> Reviews { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new UserConfiguration());
@@ -35,6 +37,8 @@
             modelBuilder.Configurations.Add(new ContributorConfiguration());
 
             modelBuilder.Configurations.Add(new CountryConfiguration());
+
+            modelBuilder.Configurations.Add(new ReviewConfiguration());
 
             base.OnModelCreating(modelBuilder);
         }

@@ -15,6 +15,7 @@
             this.DislikedMovies = new HashSet<Movie>();
             this.FavouriteMovies = new HashSet<Movie>();
             this.Comments = new HashSet<Comment>();
+            this.ReviewsWrited = new HashSet<Review>();
         }
 
         public string FirstName { get; set; }
@@ -40,6 +41,8 @@
         public virtual ICollection<Movie> FavouriteMovies { get; set; }
 
         public virtual ICollection<Comment> Comments { get; set; }
+
+        public virtual ICollection<Review> ReviewsWrited { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {

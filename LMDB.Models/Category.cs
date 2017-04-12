@@ -10,6 +10,6 @@
 
         public string Description { get; set; }
 
-        public ICollection<AwardCategory> AwardCategorieses { get; set; } = new HashSet<AwardCategory>();
+        public ICollection<AwardCategory> AwardCategories { get; set; } = new HashSet<AwardCategory>();
     }
 }
