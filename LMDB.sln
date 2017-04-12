@@ -5,6 +5,10 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMDB.Web", "LMDB.Web\LMDB.Web.csproj", "{CCF6D1C1-DD8A-484B-B5EF-B492B66EFA30}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMDB.Data", "LMDB.Data\LMDB.Data.csproj", "{803BA583-9521-48D8-8BF1-A500F82B9F31}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMDB.Models", "LMDB.Models\LMDB.Models.csproj", "{5E9963B8-6B81-4B66-BE48-91B7E8930364}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{CCF6D1C1-DD8A-484B-B5EF-B492B66EFA30}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CCF6D1C1-DD8A-484B-B5EF-B492B66EFA30}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CCF6D1C1-DD8A-484B-B5EF-B492B66EFA30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{803BA583-9521-48D8-8BF1-A500F82B9F31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{803BA583-9521-48D8-8BF1-A500F82B9F31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{803BA583-9521-48D8-8BF1-A500F82B9F31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{803BA583-9521-48D8-8BF1-A500F82B9F31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E9963B8-6B81-4B66-BE48-91B7E8930364}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E9963B8-6B81-4B66-BE48-91B7E8930364}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E9963B8-6B81-4B66-BE48-91B7E8930364}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E9963B8-6B81-4B66-BE48-91B7E8930364}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
