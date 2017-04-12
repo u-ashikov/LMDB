@@ -9,14 +9,19 @@
         public MoviesContext()
             : base("MoviesContext", throwIfV1Schema: false)
         {
-            //Test commit
         }
 
         public virtual DbSet<Movie> Movies { get; set; }
+
         public virtual DbSet<Award> Awards { get; set; }
+
         public virtual DbSet<Category> Categories { get; set; }
+
         public virtual DbSet<Genre> Genres { get; set; }
+
         public virtual DbSet<AwardCategory> AwardCategories { get; set; }
+
+        public virtual DbSet<Country> Countries { get; set; }
 
         public static MoviesContext Create()
         {
