@@ -34,6 +34,8 @@
 
             modelBuilder.Configurations.Add(new ContributorConfiguration());
 
+            modelBuilder.Configurations.Add(new CountryConfiguration());
+
             base.OnModelCreating(modelBuilder);
         }
 

@@ -6,10 +6,6 @@
     {
         public UserConfiguration()
         {
-            this.HasOptional(u => u.OriginCountry)
-                .WithMany(c => c.Users)
-                .WillCascadeOnDelete(false);
-
             //this.HasMany(u => u.LikedMovies)
             //    .WithMany(m => m.Likes)
             //    .Map(m =>
