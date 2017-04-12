@@ -58,7 +58,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationUser.cs" />
-    <Compile Include="Enums\Gender.cs" />
+    <Compile Include="Award.cs" />
+    <Compile Include="AwardCategory.cs" />
+    <Compile Include="Category.cs" />
+    <Compile Include="Genre.cs" />
     <Compile Include="Movie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
