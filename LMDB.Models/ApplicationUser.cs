@@ -1,6 +1,5 @@
 ﻿namespace LMDB.Models
 {
-    using Enums;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
     using System.Security.Claims;
