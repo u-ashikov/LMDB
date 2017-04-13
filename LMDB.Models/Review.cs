@@ -13,9 +13,9 @@
 
         public DateTime DatePublished { get; set; }
 
-        public int AuthorId { get; set; }
+        public string AuthorId { get; set; }
 
-        public int ReviewedMovieId { get; set; }
+        public int? ReviewedMovieId { get; set; }
 
         public virtual ApplicationUser Author { get; set; }
 

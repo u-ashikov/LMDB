@@ -8,11 +8,11 @@
         {
             this.HasRequired(r => r.Author)
                 .WithMany(a => a.ReviewsWrited)
+                .HasForeignKey(r=>r.AuthorId)
                 .WillCascadeOnDelete(false);
 
             this.HasRequired(r => r.ReviewedMovie)
-                .WithOptional(m => m.Review)
-                .WillCascadeOnDelete(false);
+                .WithOptional(m => m.Review);
         }
     }
 }
