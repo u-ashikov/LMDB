@@ -61,6 +61,10 @@
     <Compile Include="Migrations\201704131938353_InitialCreate.Designer.cs">
       <DependentUpon>201704131938353_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201704132152547_Init-g.cs" />
+    <Compile Include="Migrations\201704132152547_Init-g.Designer.cs">
+      <DependentUpon>201704132152547_Init-g.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MoviesContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -91,6 +95,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201704131938353_InitialCreate.resx">
       <DependentUpon>201704131938353_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704132152547_Init-g.resx">
+      <DependentUpon>201704132152547_Init-g.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
