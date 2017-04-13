@@ -1,101 +1,132 @@
 movieId,title,genres
-1,Toy Story (1995),Adventure|Animation|Children|Comedy|Fantasy
-2,Jumanji (1995),Adventure|Children|Fantasy
-3,Grumpier Old Men (1995),Comedy|Romance
-4,Waiting to Exhale (1995),Comedy|Drama|Romance
-5,Father of the Bride Part II (1995),Comedy
-6,Heat (1995),Action|Crime|Thriller
-7,Sabrina (1995),Comedy|Romance
-8,Tom and Huck (1995),Adventure|Children
-9,Sudden Death (1995),Action
-10,GoldenEye (1995),Action|Adventure|Thriller
-11,"American President, The (1995)",Comedy|Drama|Romance
-12,Dracula: Dead and Loving It (1995),Comedy|Horror
-13,Balto (1995),Adventure|Animation|Children
-14,Nixon (1995),Drama
-15,Cutthroat Island (1995),Action|Adventure|Romance
-16,Casino (1995),Crime|Drama
-17,Sense and Sensibility (1995),Drama|Romance
-18,Four Rooms (1995),Comedy
-19,Ace Ventura: When Nature Calls (1995),Comedy
-20,Money Train (1995),Action|Comedy|Crime|Drama|Thriller
-21,Get Shorty (1995),Comedy|Crime|Thriller
-22,Copycat (1995),Crime|Drama|Horror|Mystery|Thriller
-23,Assassins (1995),Action|Crime|Thriller
-24,Powder (1995),Drama|Sci-Fi
-25,Leaving Las Vegas (1995),Drama|Romance
-26,Othello (1995),Drama
-27,Now and Then (1995),Children|Drama
-28,Persuasion (1995),Drama|Romance
-29,"City of Lost Children, The (Cité des enfants perdus, La) (1995)",Adventure|Drama|Fantasy|Mystery|Sci-Fi
-30,Shanghai Triad (Yao a yao yao dao waipo qiao) (1995),Crime|Drama
-31,Dangerous Minds (1995),Drama
-32,Twelve Monkeys (a.k.a. 12 Monkeys) (1995),Mystery|Sci-Fi|Thriller
-33,Wings of Courage (1995),Adventure|Romance|IMAX
-34,Babe (1995),Children|Drama
-35,Carrington (1995),Drama|Romance
-36,Dead Man Walking (1995),Crime|Drama
-37,Across the Sea of Time (1995),Documentary|IMAX
-38,It Takes Two (1995),Children|Comedy
-39,Clueless (1995),Comedy|Romance
-40,"Cry, the Beloved Country (1995)",Drama
-41,Richard III (1995),Drama|War
-42,Dead Presidents (1995),Action|Crime|Drama
-43,Restoration (1995),Drama
-44,Mortal Kombat (1995),Action|Adventure|Fantasy
-45,To Die For (1995),Comedy|Drama|Thriller
-46,How to Make an American Quilt (1995),Drama|Romance
-47,Seven (a.k.a. Se7en) (1995),Mystery|Thriller
-48,Pocahontas (1995),Animation|Children|Drama|Musical|Romance
-49,When Night Is Falling (1995),Drama|Romance
-50,"Usual Suspects, The (1995)",Crime|Mystery|Thriller
-51,Guardian Angel (1994),Action|Drama|Thriller
-52,Mighty Aphrodite (1995),Comedy|Drama|Romance
-53,Lamerica (1994),Adventure|Drama
-54,"Big Green, The (1995)",Children|Comedy
-55,Georgia (1995),Drama
-56,Kids of the Round Table (1995),Adventure|Children|Fantasy
-57,Home for the Holidays (1995),Drama
-58,"Postman, The (Postino, Il) (1994)",Comedy|Drama|Romance
-59,"Confessional, The (Confessionnal, Le) (1995)",Drama|Mystery
-60,"Indian in the Cupboard, The (1995)",Adventure|Children|Fantasy
-61,Eye for an Eye (1996),Drama|Thriller
-62,Mr. Holland's Opus (1995),Drama
-63,Don't Be a Menace to South Central While Drinking Your Juice in the Hood (1996),Comedy|Crime
-64,Two if by Sea (1996),Comedy|Romance
-65,Bio-Dome (1996),Comedy
-66,Lawnmower Man 2: Beyond Cyberspace (1996),Action|Sci-Fi|Thriller
-67,Two Bits (1995),Drama
-68,French Twist (Gazon maudit) (1995),Comedy|Romance
-69,Friday (1995),Comedy
-70,From Dusk Till Dawn (1996),Action|Comedy|Horror|Thriller
-71,Fair Game (1995),Action
-72,Kicking and Screaming (1995),Comedy|Drama
-73,"Misérables, Les (1995)",Drama|War
-74,Bed of Roses (1996),Drama|Romance
-75,Big Bully (1996),Comedy|Drama
-76,Screamers (1995),Action|Sci-Fi|Thriller
-77,Nico Icon (1995),Documentary
-78,"Crossing Guard, The (1995)",Action|Crime|Drama|Thriller
-79,"Juror, The (1996)",Drama|Thriller
-80,"White Balloon, The (Badkonake sefid) (1995)",Children|Drama
-81,Things to Do in Denver When You're Dead (1995),Crime|Drama|Romance
-82,Antonia's Line (Antonia) (1995),Comedy|Drama
-83,Once Upon a Time... When We Were Colored (1995),Drama|Romance
-84,Last Summer in the Hamptons (1995),Comedy|Drama
-85,Angels and Insects (1995),Drama|Romance
-86,White Squall (1996),Action|Adventure|Drama
-87,Dunston Checks In (1996),Children|Comedy
-88,Black Sheep (1996),Comedy
-89,Nick of Time (1995),Action|Thriller
-90,"Journey of August King, The (1995)",Drama
-92,Mary Reilly (1996),Drama|Horror|Thriller
-93,Vampire in Brooklyn (1995),Comedy|Horror|Romance
-94,Beautiful Girls (1996),Comedy|Drama|Romance
-95,Broken Arrow (1996),Action|Adventure|Thriller
-96,In the Bleak Midwinter (1995),Comedy|Drama
-97,"Hate (Haine, La) (1995)",Crime|Drama
-98,Shopping (1994),Action|Thriller
-99,Heidi Fleiss: Hollywood Madam (1995),Documentary
-100,City Hall (1996),Drama|Thriller
-101,Bottle Rocket (1996),Adventure|Comedy|Crime|Romance
+141422,Suffragette (2015),Drama
+141668,War Room (2015),Drama
+141688,Legend (2015),Crime|Thriller
+141718,Deathgasm (2015),Comedy|Horror
+141749,The Danish Girl (2015),Drama
+141866,Green Room (2015),(no genres listed)
+141886,The Dress (1996),Comedy|Drama
+141890,Beasts of No Nation (2015),Drama|War
+141956,Contracted: Phase II (2015),Drama|Horror|Thriller
+142068,Tiger Orange (2014),Drama
+142192,Female on the Beach (1955),Crime|Drama|Mystery|Romance|Thriller
+142240,Romeos (2011),Drama
+142258,Listen to Me Marlon (2015),Documentary
+142422,The Night Before (2015),Comedy
+142448,Everest (2015),Adventure|Drama|Thriller
+142488,Spotlight (2015),Thriller
+142507,Pawn Sacrifice (2015),Drama
+142536,Burnt (2015),Drama
+142997,Hotel Transylvania 2 (2015),Animation|Comedy
+143255,Narcopolis (2014),Mystery|Sci-Fi|Thriller
+143257,Ashby (2015),Comedy|Drama
+143377,Glen Campbell: I'll Be Me (2014),Documentary|Drama
+143385,Bridge of Spies (2015),Drama|Thriller
+143410,Hyena Road,(no genres listed)
+143472,Into the Grizzly Maze (2015),Action|Horror|Thriller
+143657,The Invitation (2015),Horror|Thriller
+143859,"Hail, Caesar! (2016)",Comedy
+144172,February (2015),Horror
+144620,Goosebumps (2015),Adventure|Comedy|Horror
+144714,The Perfect Guy (2015),Drama|Thriller
+144976,Bone Tomahawk (2015),Horror|Western
+145150,The Dressmaker (2015),Comedy|Drama|Thriller
+145307,Strictly Business (1991),Comedy|Romance
+145775,Rubble Kings (2015),Documentary
+145839,Concussion (2015),Drama
+145935,"Peanuts Movie, The (2015)",Adventure|Animation|Children|Comedy
+146309,The Boy and the Beast (2015),Action|Adventure|Animation
+146443,Plan B (2009),Comedy|Drama|Romance
+146501,Land of Storms (2014),Drama
+146604,Naomi and Ely's No Kiss List (2015),Comedy|Drama|Romance
+146656,Creed (2015),Drama
+146682,Twinsters (2015),Documentary
+146688,Solace (2015),Fantasy|Mystery|Thriller
+147006,Bana Masal Anlatma (2015),Comedy|Drama
+147010,Thou Gild'st the Even (2013),Drama|Fantasy|Romance
+147037,Straight-Jacket (2004),Comedy
+147426,İtirazım Var (2014),Action|Crime|Drama
+147845,Manson Family Vacation (2015),Comedy|Drama|Thriller
+148168,Pek Yakında (2014),Action|Comedy|Drama
+148238,A Very Murray Christmas (2015),Comedy
+148372,Schneider vs. Bax (2015),Comedy|Thriller
+148482,Truth (2015),Drama
+148626,"Big Short, The (2015)",Drama
+148652,The Ridiculous 6 (2015),Comedy|Western
+148881,World of Tomorrow (2015),Animation|Comedy
+148888,Zoolander 2 (2016),Comedy
+148956,How to Be Single (2016),Comedy|Romance
+149352,Daddy's Home (2015),Comedy
+149354,Sisters (2015),Children|Comedy
+149406,Kung Fu Panda 3 (2016),Action|Adventure|Animation
+149532,Marco Polo: One Hundred Eyes (2015),(no genres listed)
+149572,A.R.O.G. (2008),Comedy|Fantasy
+149590,Standoff (2016),Thriller
+149606,Bajirao Mastani (2015),Romance|War
+149612,Swelter (2014),Action|Drama|Thriller
+149830,Pride and Prejudice and Zombies (2016),Comedy|Horror|Romance|Thriller
+150401,Close Range (2015),Action|Crime
+150548,Sherlock: The Abominable Bride (2016),Action|Crime|Drama|Mystery|Thriller
+150856,Making a Murderer (2015),Documentary
+151307,The Lovers and the Despot,(no genres listed)
+151639,The Boy (2016),Horror|Thriller
+152017,Me Before You (2016),Drama|Romance
+152025,SOMM: Into the Bottle (2016),Documentary
+152057,Miles Ahead (2016),Drama
+152077,10 Cloverfield Lane (2016),Thriller
+152079,London Has Fallen (2016),Action|Crime|Thriller
+152081,Zootopia (2016),Action|Adventure|Animation|Children|Comedy
+152091,The Brothers Grimsby (2016),Comedy
+152173,Michael Jackson's Thriller (1983),Horror
+152844,Demons (1971),Horror
+153584,The Last Days of Emma Blank (2009),Comedy
+155064,The Neon Demon (2016),Drama|Horror|Mystery
+155392,"Hello, My Name Is Doris (2016)",Drama
+155611,Life Is Sacred (2014),Documentary
+155820,Keanu (2016),Comedy
+156025,Ice Age: The Great Egg-Scapade (2016),Adventure|Animation|Children|Comedy
+156387,Sing Street (2016),Drama
+156607,The Huntsman Winter's War (2016),Action|Adventure|Drama|Fantasy
+156609,Neighbors 2: Sorority Rising (2016),Comedy
+156726,Hush (2016),Thriller
+157200,Money Monster (2016),Drama|Thriller
+157296,Finding Dory (2016),Adventure|Animation|Comedy
+157407,I Am Wrath (2016),Action|Crime|Drama|Thriller
+157667,Mother's Day (2016),Comedy
+158238,The Nice Guys (2016),Crime|Mystery|Thriller
+158314,Daniel Tosh: Completely Serious (2007),Comedy
+158528,The Shallows (2016),Drama|Thriller
+158783,The Handmaiden (2016),Drama|Romance|Thriller
+158956,Kill Command (2016),Action|Horror|Sci-Fi
+159093,Now You See Me 2 (2016),Action|Comedy|Thriller
+159462,The Video Dead (1987),Horror
+159690,Teenage Mutant Ninja Turtles: Out of the Shadows (2016),Action|Adventure|Comedy
+159755,Popstar: Never Stop Never Stopping (2016),Comedy
+159858,The Conjuring 2 (2016),Horror
+159972,Approaching the Unknown (2016),Drama|Sci-Fi|Thriller
+160080,Ghostbusters (2016),Action|Comedy|Horror|Sci-Fi
+160271,Central Intelligence (2016),Action|Comedy
+160438,Jason Bourne (2016),Action
+160440,The Maid's Room (2014),Thriller
+160563,The Legend of Tarzan (2016),Action|Adventure
+160565,The Purge: Election Year (2016),Action|Horror|Sci-Fi
+160567,Mike & Dave Need Wedding Dates (2016),Comedy
+160590,Survive and Advance (2013),(no genres listed)
+160656,Tallulah (2016),Drama
+160718,Piper (2016),Animation
+160954,Nerve (2016),Drama|Thriller
+161084,My Friend Rockefeller (2015),Documentary
+161155,Sunspring (2016),Sci-Fi
+161336,Author: The JT LeRoy Story (2016),Documentary
+161582,Hell or High Water (2016),Crime|Drama
+161594,Kingsglaive: Final Fantasy XV (2016),Action|Adventure|Animation|Drama|Fantasy|Sci-Fi
+161830,Body (2015),Drama|Horror|Thriller
+161918,Sharknado 4: The 4th Awakens (2016),Action|Adventure|Horror|Sci-Fi
+161944,The Last Brickmaker in America (2001),Drama
+162376,Stranger Things,Drama
+162542,Rustom (2016),Romance|Thriller
+162672,Mohenjo Daro (2016),Adventure|Drama|Romance
+163056,Shin Godzilla (2016),Action|Adventure|Fantasy|Sci-Fi
+163949,The Beatles: Eight Days a Week - The Touring Years (2016),Documentary
+164977,The Gay Desperado (1936),Comedy
+164979,"Women of '69, Unboxed",Documentary
