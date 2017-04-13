@@ -1,11 +1,14 @@
 ﻿namespace LMDB.Models
 {
     using System;
+    using System.ComponentModel.DataAnnotations;
 
     public class Review
     {
         public int Id { get; set; }
 
+        [Required]
+        [StringLength(5000)]
         public string Content { get; set; }
 
         public DateTime DatePublished { get; set; }

@@ -4,6 +4,7 @@
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     using System.Security.Claims;
     using System.Threading.Tasks;
 
@@ -18,14 +19,23 @@
             this.ReviewsWrited = new HashSet<Review>();
         }
 
+        [Required]
+        [RegularExpression(@"^[a-zA-Z]{1,50}$", ErrorMessage = "First name must contain only letters with maximum length 50!")]
         public string FirstName { get; set; }
 
+        [Required]
+        [RegularExpression(@"^[a-zA-Z]{1,50}$", ErrorMessage = "Last name must contain only letters with maximum length 50!")]
         public string LastName { get; set; }
 
+        [Required]
+        [RegularExpression(@"^[a-zA-Z0-9_]{5,15}$", ErrorMessage = "The username must contain only letters, numbers and underscore!")]
         public string Username { get; set; }
 
+        [Required]
+        [StringLength(20,MinimumLength = 6)]
         public string Password { get; set; }
 
+        [Required]
         public Gender Gender { get; set; }
 
         public int? OriginCountryId { get; set; }
