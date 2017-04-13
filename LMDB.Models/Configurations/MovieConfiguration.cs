@@ -10,7 +10,8 @@
                 .HasMaxLength(255);
 
             HasRequired(m => m.Director)
-                .WithMany(d => d.Movies)
+                .WithMany(d => d.DirectedMovies)
+                .HasForeignKey(m=>m.DirectorId)
                 .WillCascadeOnDelete(false);
 
             HasMany(m => m.Awards)
@@ -32,7 +33,7 @@
                 });
 
             HasMany(m => m.Actors)
-                .WithMany(g => g.Movies)
+                .WithMany(g => g.ParticipatedMovies)
                 .Map(m =>
                 {
                     m.ToTable("MovieActors");
@@ -41,7 +42,8 @@
                 });
 
             HasMany(m => m.Comments)
-                .WithRequired(g => g.CommentedMovie);
+                .WithRequired(g => g.CommentedMovie)
+                .WillCascadeOnDelete(false);
         }
     }
 }

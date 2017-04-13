@@ -11,7 +11,7 @@
 
         public int DirectorId  { get; set; }
 
-        public virtual Director Director{ get; set; }
+        public virtual Director Director { get; set; }
 
         public int? ReviewId { get; set; }
         public virtual Review Review { get; set; }
