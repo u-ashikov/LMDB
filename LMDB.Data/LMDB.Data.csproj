@@ -74,8 +74,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+<<<<<<< HEAD
     <None Include="Datasets\actors.csv" />
     <None Include="Datasets\directors.csv" />
+=======
+    <None Include="Datasets\countries.csv" />
+>>>>>>> origin/master
     <None Include="Datasets\movies.csv" />
     <None Include="packages.config" />
   </ItemGroup>
