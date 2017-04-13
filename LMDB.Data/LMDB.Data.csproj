@@ -75,6 +75,7 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="Datasets\actors.csv" />
+    <None Include="Datasets\categories.csv" />
     <None Include="Datasets\directors.csv" />
     <None Include="Datasets\countries.csv" />
     <None Include="Datasets\movies.csv" />
