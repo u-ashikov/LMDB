@@ -11,7 +11,7 @@
         [StringLength(1000)]
         public string Content { get; set; }
 
-        public int AuthorId { get; set; }
+        public string AuthorId { get; set; }
 
         public int CommentedMovieId { get; set; }
 

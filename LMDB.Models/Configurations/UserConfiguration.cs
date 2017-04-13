@@ -35,6 +35,7 @@
 
             this.HasMany(u => u.Comments)
                 .WithRequired(c => c.Author)
+                .HasForeignKey(c => c.AuthorId)
                 .WillCascadeOnDelete(false);
         }
     }
