@@ -10,7 +10,7 @@
         public MoviesContext()
             : base("MoviesContext", throwIfV1Schema: false)
         {
-            Database.SetInitializer(new DropCreateDatabaseAlways<MoviesContext>());
+            //Database.SetInitializer(new DropCreateDatabaseAlways<MoviesContext>());
         }
 
         public virtual DbSet<Movie> Movies { get; set; }
