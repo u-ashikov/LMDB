@@ -63,6 +63,7 @@
     <Compile Include="AwardCategory.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="Comment.cs" />
+    <Compile Include="Configurations\AwardCategoryConfiguration.cs" />
     <Compile Include="Configurations\ContributorConfiguration.cs" />
     <Compile Include="Configurations\CountryConfiguration.cs" />
     <Compile Include="Configurations\MovieConfiguration.cs" />
