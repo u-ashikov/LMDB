@@ -43,6 +43,8 @@
 
             modelBuilder.Configurations.Add(new MovieConfiguration());
 
+            modelBuilder.Configurations.Add(new AwardCategoryConfiguration());
+
             base.OnModelCreating(modelBuilder);
         }
 
