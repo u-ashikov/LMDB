@@ -5,7 +5,7 @@
 
     public class Review
     {
-        public int Id { get; set; }
+        public int ReviewedMovieId { get; set; }
 
         [Required]
         [StringLength(5000)]
@@ -14,8 +14,6 @@
         public DateTime DatePublished { get; set; }
 
         public string AuthorId { get; set; }
-
-        public int? ReviewedMovieId { get; set; }
 
         public virtual ApplicationUser Author { get; set; }
 

@@ -13,6 +13,8 @@
 
             this.HasRequired(r => r.ReviewedMovie)
                 .WithOptional(m => m.Review);
+
+            this.HasKey(r => r.ReviewedMovieId);
         }
     }
 }
