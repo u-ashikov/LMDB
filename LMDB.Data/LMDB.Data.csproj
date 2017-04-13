@@ -64,6 +64,13 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MoviesContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Seeders\ActorsSeeder.cs" />
+    <Compile Include="Seeders\AwardsSeeder.cs" />
+    <Compile Include="Seeders\CategoriesSeeder.cs" />
+    <Compile Include="Seeders\CountriesSeeder.cs" />
+    <Compile Include="Seeders\DirectorsSeeder.cs" />
+    <Compile Include="Seeders\GenresSeeder.cs" />
+    <Compile Include="Seeders\MoviesSeeder.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -1,5 +1,6 @@
 ﻿namespace LMDB.Data
 {
+    using Migrations;
     using System.Data.Entity;
     using Models;
     using Microsoft.AspNet.Identity.EntityFramework;
@@ -11,6 +12,7 @@
             : base("MoviesContext", throwIfV1Schema: false)
         {
             //Database.SetInitializer(new DropCreateDatabaseAlways<MoviesContext>());
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<MoviesContext, Configuration>());
         }
 
         public virtual DbSet<Movie> Movies { get; set; }

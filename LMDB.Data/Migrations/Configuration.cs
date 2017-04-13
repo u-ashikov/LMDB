@@ -1,11 +1,9 @@
 namespace LMDB.Data.Migrations
 {
-    using System;
-    using System.Data.Entity;
+    using Seeders;
     using System.Data.Entity.Migrations;
-    using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<LMDB.Data.MoviesContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<MoviesContext>
     {
         public Configuration()
         {
@@ -13,20 +11,15 @@ namespace LMDB.Data.Migrations
             ContextKey = "LMDB.Data.MoviesContext";
         }
 
-        protected override void Seed(LMDB.Data.MoviesContext context)
+        protected override void Seed(MoviesContext context)
         {
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+            CountriesSeeder.Seed(context);
+            AwardsSeeder.Seed(context);
+            CategoriesSeeder.Seed(context);
+            GenresSeeder.Seed(context);
+            DirectorsSeeder.Seed(context);
+            ActorsSeeder.Seed(context);
+            MoviesSeeder.Seed(context);
         }
     }
 }
