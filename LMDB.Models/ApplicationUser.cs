@@ -23,8 +23,6 @@
       
         public string LastName { get; set; }
 
-        public string Password { get; set; }
-
         public Gender Gender { get; set; }
 
         public int? OriginCountryId { get; set; }
