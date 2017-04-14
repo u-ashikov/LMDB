@@ -16,7 +16,7 @@ namespace LMDB.Data.Migrations
             CountriesSeeder.Seed(context);
             AwardsSeeder.Seed(context);
             CategoriesSeeder.Seed(context);
-            //AwardCategoriesSeeder.Seed(context);
+            AwardCategoriesSeeder.Seed(context);
             //DirectorsSeeder.Seed(context);
             ActorsSeeder.Seed(context);
             //MoviesSeeder.Seed(context);
