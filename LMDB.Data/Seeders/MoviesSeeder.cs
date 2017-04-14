@@ -25,8 +25,8 @@
             {
                 var line = movies[i].Split(',');
                 var indexOfYear = line[0].IndexOf('(');
-                var title = line[0].Substring(0, indexOfYear);
-                var year = int.Parse(line[0].Substring(indexOfYear + 1, line[0].Length - indexOfYear));
+                var title = line[0].Substring(0, indexOfYear - 1);
+                var year = int.Parse(line[0].Substring(indexOfYear + 1, 4));
                 var director = directors.Find(i%directorsCount + 1);
                 if (director == null) continue;
 
