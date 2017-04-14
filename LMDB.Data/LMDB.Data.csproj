@@ -78,7 +78,7 @@
     <Compile Include="Seeders\CategoriesSeeder.cs" />
     <Compile Include="Seeders\CountriesSeeder.cs" />
     <Compile Include="Seeders\DirectorsSeeder.cs" />
-    <Compile Include="Seeders\GenresSeeder.cs" />
+    <Compile Include="Seeders\AwardCategoriesSeeder.cs" />
     <Compile Include="Seeders\MoviesSeeder.cs" />
   </ItemGroup>
   <ItemGroup>

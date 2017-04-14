@@ -1,6 +1,6 @@
 ﻿namespace LMDB.Data.Seeders
 {
-    internal class GenresSeeder
+    internal class AwardCategoriesSeeder
     {
         public static void Seed(MoviesContext context)
         {
