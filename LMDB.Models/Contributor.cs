@@ -15,7 +15,9 @@
         [Required]
         [StringLength(50,MinimumLength = 1)]
         [RegularExpression(@"^[a-zA-Z\.\-]{1,50}$", ErrorMessage = "Last name must contain only letters with maximum length 50!")]
+
         public string LastName { get; set; }
+
         public string Biography { get; set; }
 
         public DateTime? Birthdate { get; set; }
