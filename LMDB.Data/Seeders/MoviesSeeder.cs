@@ -15,7 +15,7 @@
             var movies =
                 File.ReadAllText(docPath).Split(new[] {'\n', '\r'}, StringSplitOptions.RemoveEmptyEntries).ToArray();
 
-            var contributors = context.Directors;
+            var contributors = context.Contributors;
             var contributorsCount = contributors.Count();
             var rand = new Random();
 

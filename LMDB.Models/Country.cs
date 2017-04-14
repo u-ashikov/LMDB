@@ -8,7 +8,7 @@
         public Country()
         {
             this.Users = new HashSet<ApplicationUser>();
-            this.MovieContributors = new HashSet<Director>();
+            this.MovieContributors = new HashSet<Contributor>();
         }
 
         public int Id { get; set; }
@@ -19,6 +19,6 @@
 
         public virtual ICollection<ApplicationUser> Users { get; set; }
 
-        public virtual ICollection<Director> MovieContributors { get; set; }
+        public virtual ICollection<Contributor> MovieContributors { get; set; }
     }
 }

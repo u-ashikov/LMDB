@@ -2,7 +2,7 @@
 {
     using System.Data.Entity.ModelConfiguration;
 
-    public class ContributorConfiguration : EntityTypeConfiguration<Director>
+    public class ContributorConfiguration : EntityTypeConfiguration<Contributor>
     {
         public ContributorConfiguration()
         {
