@@ -9,18 +9,16 @@
     {
         public static void Seed(MoviesContext context)
         {
-            string[] file = {};
-            try
-            {
-                file = File.ReadAllLines("../../../../LMDB.Data/Datasets/actors.csv");
-            }
-            catch (DirectoryNotFoundException){ }
+            var webRootPath = System.Web.Hosting.HostingEnvironment.MapPath("~");
+            if (webRootPath == null) return;
+            var docPath = Path.GetFullPath(Path.Combine(webRootPath, "../LMDB.Data/Datasets/actors.csv"));
+            var actors = File.ReadAllText(docPath).Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries).ToArray();
 
             var countriesLen = context.Countries.Count();
             var rand = new Random();
-            for (int i = 1; i < file.Length; i++)
+            for (int i = 1; i < actors.Length; i++)
             {
-                var line = file[i].Split(',');
+                var line = actors[i].Split(',');
                 var firstName = line[0].Split(' ')[0];
                 var lastName = line[0].Split(' ')[1];
 

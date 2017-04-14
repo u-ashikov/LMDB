@@ -11,12 +11,13 @@
         public static void Seed(MoviesContext context)
         {
             var webRootPath = System.Web.Hosting.HostingEnvironment.MapPath("~");
+            if (webRootPath == null) return;
             var docPath = Path.GetFullPath(Path.Combine(webRootPath, "../LMDB.Data/Datasets/countries.csv"));
             var countries = File.ReadAllText(docPath).Split(new[] {'\n','\r'},StringSplitOptions.RemoveEmptyEntries).ToArray();
 
             for (int i = 1; i < countries.Length; i++)
             {
-                var country = new Country()
+                var country = new Country
                 {
                     Name = countries[i]
                 };
