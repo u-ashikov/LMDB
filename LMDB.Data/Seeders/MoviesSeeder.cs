@@ -15,8 +15,10 @@
             var movies =
                 File.ReadAllText(docPath).Split(new[] {'\n', '\r'}, StringSplitOptions.RemoveEmptyEntries).ToArray();
 
-            var contributors = context.Contributors;
-            var contributorsCount = contributors.Count();
+            var actors = context.Actors;
+            var actorsCount = actors.Count();
+            var directors = context.Directors;
+            var directorsCount = directors.Count();
             var rand = new Random();
 
             for (int i = 1; i < movies.Length; i++)
@@ -25,10 +27,8 @@
                 var indexOfYear = line[0].IndexOf('(');
                 var title = line[0].Substring(0, indexOfYear - 1);
                 var year = int.Parse(line[0].Substring(indexOfYear + 1, 4));
-                var director = contributors.Find(i%contributorsCount + 1);
-
-                if (director == null || (director is Actor)) continue;
-
+                var director = directors.Find(i% directorsCount + 1);
+                if (director == null) continue;
                 var movie = new Movie
                 {
                     Title = title,
@@ -45,8 +45,8 @@
 
                 for (int j = 0; j < 6; j++)
                 {
-                    //var actor = contributors.Find(j * i % contributorsCount + 1);
-                    //movie.a.Add(actor);
+                    var actor = actors.Find(j * i % actorsCount + 1);
+                    movie.Actors.Add(actor);
                 }
 
                 context.Movies.AddOrUpdate(m => m.Title, movie);
