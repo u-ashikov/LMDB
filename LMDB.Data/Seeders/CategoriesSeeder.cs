@@ -9,15 +9,12 @@
     {
         public static void Seed(MoviesContext context)
         {
-            string[] file;
+            string[] file = {};
             try
             {
                 file = File.ReadAllLines("../../../../LMDB.Data/Datasets/categories.csv");
             }
-            catch (DirectoryNotFoundException)
-            {
-                file = new string[] { };
-            }
+            catch (DirectoryNotFoundException) { }
 
             for (int i = 1; i < file.Length; i++)
             {

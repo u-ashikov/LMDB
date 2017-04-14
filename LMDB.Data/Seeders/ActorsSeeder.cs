@@ -9,15 +9,12 @@
     {
         public static void Seed(MoviesContext context)
         {
-            string[] file;
+            string[] file = {};
             try
             {
                 file = File.ReadAllLines("../../../../LMDB.Data/Datasets/actors.csv");
             }
-            catch (DirectoryNotFoundException)
-            {
-                file = new string[] { };
-            }
+            catch (DirectoryNotFoundException){ }
 
             var countriesLen = context.Countries.Count();
             var rand = new Random();
