@@ -15,6 +15,8 @@
             var actors = File.ReadAllText(docPath).Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries).ToArray();
 
             var countriesLen = context.Countries.Count();
+            var awards = context.AwardCategories.Local;
+
             var rand = new Random();
             for (int i = 1; i < actors.Length; i++)
             {
@@ -31,6 +33,12 @@
                     Birthdate = new DateTime(rand.Next(1940, 2000), i % 12 + 1, rand.Next(1, 28)),
                     CountryId = country?.Id
                 };
+
+                if (i % 2 == 0)
+                {
+                    var awardIndex = rand.Next(0, awards.Count - 1);
+                    actor.Awards.Add(awards[awardIndex]);
+                }
 
                 context.Actors.AddOrUpdate(a => new
                 {

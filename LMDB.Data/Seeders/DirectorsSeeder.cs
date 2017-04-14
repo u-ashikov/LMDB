@@ -31,6 +31,7 @@
                 {
                     FirstName = firstName,
                     LastName = lastName,
+                    Birthdate = new DateTime(random.Next(1940, 2000), i % 12 + 1, random.Next(1, 28)),
                     CountryId = countries[countryIndex].Id
                 };
 
