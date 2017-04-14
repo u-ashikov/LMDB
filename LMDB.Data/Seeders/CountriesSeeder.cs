@@ -3,25 +3,23 @@
     using System.Data.Entity.Migrations;
     using System.IO;
     using Models;
+    using System.Web;
+    using System.Linq;
+    using System;
+
     internal class CountriesSeeder
     {
         public static void Seed(MoviesContext context)
         {
-            string[] file = {};
-            try
-            {
-                file = File.ReadAllLines("../../../../LMDB.Data/Datasets/countries.csv");
-            }
-            catch (DirectoryNotFoundException){ }
+            var webRootPath = System.Web.Hosting.HostingEnvironment.MapPath("~");
+            var docPath = Path.GetFullPath(Path.Combine(webRootPath, "../LMDB.Data/Datasets/countries.csv"));
+            var countries = File.ReadAllText(docPath).Split(new[] {'\n','\r'},StringSplitOptions.RemoveEmptyEntries).ToArray();
 
-            for (int i = 1; i < file.Length; i++)
+            for (int i = 1; i < countries.Length; i++)
             {
-                var line = file[i].Split(',');
-                var countryName = line[0];
-
-                var country = new Country
+                var country = new Country()
                 {
-                    Name = countryName
+                    Name = countries[i]
                 };
 
                 context.Countries.AddOrUpdate(c => c.Name, country);
