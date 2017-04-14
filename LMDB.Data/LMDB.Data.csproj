@@ -70,6 +70,10 @@
     <Compile Include="Migrations\201704140924491_ActorGenderRemoved.Designer.cs">
       <DependentUpon>201704140924491_ActorGenderRemoved.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201704141402422_AddActorsAndDirectorsModels.cs" />
+    <Compile Include="Migrations\201704141402422_AddActorsAndDirectorsModels.Designer.cs">
+      <DependentUpon>201704141402422_AddActorsAndDirectorsModels.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MoviesContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -106,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201704140924491_ActorGenderRemoved.resx">
       <DependentUpon>201704140924491_ActorGenderRemoved.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704141402422_AddActorsAndDirectorsModels.resx">
+      <DependentUpon>201704141402422_AddActorsAndDirectorsModels.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
