@@ -23,13 +23,13 @@
                 var lastName = line[0].Split(' ')[1];
 
                 var country = context.Countries.Find(i*2%countriesLen + 1);
-
+                if (country == null) return;
                 var actor = new Actor
                 {
                     FirstName = firstName,
                     LastName = lastName,
                     Birthdate = new DateTime(rand.Next(1940, 2000), i % 12 + 1, rand.Next(1, 28)),
-                    Country = country
+                    CountryId = country.Id
                 };
 
                 context.Actors.AddOrUpdate(a => new

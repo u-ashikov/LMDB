@@ -18,7 +18,7 @@ namespace LMDB.Data.Migrations
             //CategoriesSeeder.Seed(context);
             //GenresSeeder.Seed(context);
             //DirectorsSeeder.Seed(context);
-            //ActorsSeeder.Seed(context);
+            ActorsSeeder.Seed(context);
             //MoviesSeeder.Seed(context);
         }
     }
