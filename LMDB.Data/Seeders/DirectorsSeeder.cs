@@ -36,13 +36,13 @@ namespace LMDB.Data.Seeders
                     CountryId = countries[countryIndex].Id
                 };
 
-                if (i % 2 == 0)
-                {
-                    var awardIndex = random.Next(0, awards.Count - 1);
-                    director.Awards.Add(awards[awardIndex]);
-                }
+                //if (i % 2 == 0)
+                //{
+                //    var awardIndex = random.Next(0, awards.Count - 1);
+                //    director.Awards.Add(awards[awardIndex]);
+                //}
 
-                context.Contributors.AddOrUpdate(d=> new { d.FirstName,d.LastName},director);
+                context.Directors.AddOrUpdate(d=> new { d.FirstName,d.LastName},director);
             }
 
             context.SaveChanges();

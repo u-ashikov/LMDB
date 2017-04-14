@@ -15,14 +15,14 @@
                     m.MapRightKey("ActorId");
                 });
 
-            HasMany(ac => ac.Directors)
-                .WithMany(d => d.Awards)
-                .Map(m =>
-                {
-                    m.ToTable("DirectorAwards");
-                    m.MapLeftKey("AwardCategoryId");
-                    m.MapRightKey("ADirectorId");
-                });
+            //HasMany(ac => ac.Directors)
+            //    .WithMany(d => d.Awards)
+            //    .Map(m =>
+            //    {
+            //        m.ToTable("DirectorAwards");
+            //        m.MapLeftKey("AwardCategoryId");
+            //        m.MapRightKey("ADirectorId");
+            //    });
         }
     }
 }

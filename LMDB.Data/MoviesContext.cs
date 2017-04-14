@@ -11,8 +11,8 @@
         public MoviesContext()
             : base("MoviesContext", throwIfV1Schema: false)
         {
-            //Database.SetInitializer(new DropCreateDatabaseAlways<MoviesContext>());
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<MoviesContext, Configuration>());
+            Database.SetInitializer(new DropCreateDatabaseAlways<MoviesContext>());
+            //Database.SetInitializer(new MigrateDatabaseToLatestVersion<MoviesContext, Configuration>());
         }
 
         public virtual DbSet<Movie> Movies { get; set; }
@@ -27,7 +27,7 @@
 
         public virtual DbSet<Country> Countries { get; set; }
 
-        public virtual DbSet<Contributor> Contributors { get; set; }
+        public virtual DbSet<Director> Directors { get; set; }
 
         public virtual DbSet<Comment> Comments { get; set; }
 

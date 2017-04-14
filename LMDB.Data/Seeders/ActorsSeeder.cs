@@ -32,7 +32,7 @@
                     CountryId = country.Id
                 };
 
-                context.Contributors.AddOrUpdate(a => new
+                context.Directors.AddOrUpdate(a => new
                 {
                     a.FirstName,
                     a.LastName

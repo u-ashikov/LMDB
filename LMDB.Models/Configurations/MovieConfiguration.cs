@@ -9,10 +9,10 @@
                 .IsRequired()
                 .HasMaxLength(255);
 
-            HasRequired(m => m.Director)
-                .WithMany(d => d.DirectedMovies)
-                .HasForeignKey(m=>m.DirectorId)
-                .WillCascadeOnDelete(false);
+            //HasRequired(m => m.Director)
+            //    .WithMany(d => d.DirectedMovies)
+            //    .HasForeignKey(m=>m.DirectorId)
+            //    .WillCascadeOnDelete(false);
 
             HasMany(m => m.Awards)
                 .WithMany(a => a.Movies)
