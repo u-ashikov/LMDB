@@ -1,47 +1,43 @@
 ﻿namespace LMDB.Data.Seeders
 {
-    using System;
-    using System.Data.Entity.Migrations;
-    using System.IO;
-    using System.Linq;
     using Models;
+    using System;
+    using System.IO;
+
     internal class DirectorsSeeder
     {
         public static void Seed(MoviesContext context)
         {
-            string[] file = {};
-            try
-            {
-                file = File.ReadAllLines("../../../../LMDB.Data/Datasets/directors.csv");
-            }
-            catch (DirectoryNotFoundException){ }
+            var random = new Random();
 
-            var countriesLen = context.Countries.Count();
-            var rand = new Random();
-            for (int i = 1; i < file.Length; i++)
-            {
-                var line = file[i].Split(',');
-                var firstName = line[0].Split(' ')[0];
-                var lastName = line[0].Split(' ')[1];
+            var webRootPath = System.Web.Hosting.HostingEnvironment.MapPath("~");
+            var docPath = Path.GetFullPath(Path.Combine(webRootPath, "../LMDB.Data/Datasets/directors.csv"));
+            var directors = File.ReadAllText(docPath).Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
 
-                var country = context.Countries.Find(i * 2 % countriesLen + 1);
+            var awards = context.Awards.Local;
+            var countries = context.Countries.Local;
 
-                var director = new Director
-                {
-                    FirstName = firstName,
-                    LastName = lastName,
-                    Birthdate = new DateTime(rand.Next(1940, 2000), i % 12 + 1, rand.Next(1, 28)),
-                    Country = country
-                };
+            //for (int i = 1; i < directors.Length; i++)
+            //{
+            //    var directorInfo = directors[i].Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            //    var firstName = directorInfo[0];
+            //    var lastName = directorInfo[1];
 
-                context.Directors.AddOrUpdate(d => new
-                {
-                    d.FirstName,
-                    d.LastName
-                }, director);
-            }
+            //    var countryIndex = random.Next(0, countries.Count - 1);
 
-            context.SaveChanges();
+            //    var director = new Director()
+            //    {
+            //        FirstName = firstName,
+            //        LastName = lastName,
+            //        CountryId = countries[countryIndex].Id
+            //    };
+
+            //    if (i%2 == 0)
+            //    {
+            //        var awardIndex = random.Next(0, awards.Count - 1);
+            //        director.Awards.Add(awards[awardIndex]);
+            //    }
+            //}
         }
     }
 }
