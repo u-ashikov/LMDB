@@ -33,7 +33,7 @@
                 });
 
             HasMany(m => m.Actors)
-                .WithMany(a => a.ParticipatedMovies)
+                .WithMany(g => g.ParticipatedMovies)
                 .Map(m =>
                 {
                     m.ToTable("MovieActors");

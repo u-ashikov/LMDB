@@ -32,8 +32,8 @@ namespace LMDB.Data.Seeders
                 var director = new Director
                 {
                     FirstName = firstName,
-                    LastName = lastName
-                    //CountryId = countries[countryIndex].Id
+                    LastName = lastName,
+                    CountryId = countries[countryIndex].Id
                 };
 
                 if (i % 2 == 0)
@@ -42,11 +42,10 @@ namespace LMDB.Data.Seeders
                     director.Awards.Add(awards[awardIndex]);
                 }
 
-                context.Directors.AddOrUpdate(d=> new { d.FirstName,d.LastName},director);
-                context.SaveChanges();
+                context.Contributors.AddOrUpdate(d=> new { d.FirstName,d.LastName},director);
             }
 
-           
+            context.SaveChanges();
 
         }
     }

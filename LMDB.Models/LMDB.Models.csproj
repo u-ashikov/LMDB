@@ -69,8 +69,9 @@
     <Compile Include="Configurations\MovieConfiguration.cs" />
     <Compile Include="Configurations\ReviewConfiguration.cs" />
     <Compile Include="Configurations\UserConfiguration.cs" />
-    <Compile Include="Director.cs" />
+    <Compile Include="Contributor.cs" />
     <Compile Include="Country.cs" />
+    <Compile Include="Director.cs" />
     <Compile Include="Enums\Gender.cs" />
     <Compile Include="Genre.cs" />
     <Compile Include="Movie.cs" />
