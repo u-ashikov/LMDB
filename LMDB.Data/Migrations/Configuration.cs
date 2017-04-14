@@ -19,7 +19,7 @@ namespace LMDB.Data.Migrations
             AwardCategoriesSeeder.Seed(context);
             DirectorsSeeder.Seed(context);
             ActorsSeeder.Seed(context);
-            MoviesSeeder.Seed(context);
+            //MoviesSeeder.Seed(context);
         }
     }
 }

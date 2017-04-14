@@ -44,21 +44,8 @@ namespace LMDB.Data.Seeders
                 context.Directors.Add(director);
             }
 
-            try
-            {
-                context.SaveChanges();
-            }
-            catch (DbEntityValidationException e)
-            {
-                foreach (var err in e.EntityValidationErrors)
-                {
-                    foreach (var error in err.ValidationErrors)
-                    {
-                        Console.WriteLine(error.ErrorMessage);
-                    }
-                }
-            }
-            
+            context.SaveChanges();
+
         }
     }
 }
