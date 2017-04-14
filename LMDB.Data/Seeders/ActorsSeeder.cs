@@ -19,8 +19,8 @@
             for (int i = 1; i < actors.Length; i++)
             {
                 var line = actors[i].Split(',');
-                var firstName = line[0].Split(' ')[0];
-                var lastName = line[0].Split(' ')[1];
+                var firstName = line[0].Split(new[] {' '},StringSplitOptions.RemoveEmptyEntries)[0];
+                var lastName = line[0].Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)[1];
 
                 var country = context.Countries.Find(i*2%countriesLen + 1);
                 if (country == null) return;
@@ -38,7 +38,6 @@
                     a.LastName
                 }, actor);
             }
-
             context.SaveChanges();
         }
     }
