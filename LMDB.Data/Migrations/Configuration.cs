@@ -7,7 +7,7 @@ namespace LMDB.Data.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
             ContextKey = "LMDB.Data.MoviesContext";
         }
 
