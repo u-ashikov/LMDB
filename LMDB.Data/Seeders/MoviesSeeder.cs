@@ -18,6 +18,8 @@
             var directors = context.Directors;
             var directorsCount = directors.Count();
 
+            var awards = context.AwardCategories.Local;
+
             var actors = context.Actors;
             var actorsCount = actors.Count();
 
@@ -55,6 +57,12 @@
                 {
                     var actor = actors.Find(j * i % actorsCount + 1);
                     movie.Actors.Add(actor);
+                }
+
+                if (i % 2 == 0)
+                {
+                    var awardIndex = rand.Next(0, awards.Count - 1);
+                    movie.Awards.Add(awards[awardIndex]);
                 }
 
                 context.Movies.AddOrUpdate(m => m.Title, movie);
