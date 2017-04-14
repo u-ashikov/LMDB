@@ -1,37 +1,16 @@
 ﻿namespace LMDB.Models
 {
-    using System;
-    using System.ComponentModel.DataAnnotations;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations.Schema;
 
-    public class Actor
+    [Table("Actors")]
+    public class Actor : Contributor
     {
-        public int Id { get; set; }
         public Actor()
         {
             this.Awards = new HashSet<AwardCategory>();
             this.ParticipatedMovies = new HashSet<Movie>();
         }
-
-        [Required]
-        [StringLength(50, MinimumLength = 1)]
-        [RegularExpression(@"^[a-zA-Z]{1,50}$", ErrorMessage = "First name must contain only letters with maximum length 50!")]
-        public string FirstName { get; set; }
-
-        [Required]
-        [StringLength(50, MinimumLength = 1)]
-        [RegularExpression(@"^[a-zA-Z\.\-]{1,50}$", ErrorMessage = "Last name must contain only letters with maximum length 50!")]
-        public string LastName { get; set; }
-
-        public string Biography { get; set; }
-
-        public DateTime? Birthdate { get; set; }
-
-        public byte[] Picture { get; set; }
-
-        public int? CountryId { get; set; }
-
-        public virtual Country Country { get; set; }
 
         public virtual ICollection<AwardCategory> Awards { get; set; }
 

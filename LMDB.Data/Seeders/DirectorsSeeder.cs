@@ -42,7 +42,7 @@ namespace LMDB.Data.Seeders
                     director.Awards.Add(awards[awardIndex]);
                 }
 
-                context.Directors.AddOrUpdate(d=> new { d.FirstName,d.LastName},director);
+                context.Contributors.AddOrUpdate(d=> new { d.FirstName,d.LastName},director);
             }
 
             context.SaveChanges();
