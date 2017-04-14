@@ -4,6 +4,7 @@ namespace LMDB.Data.Seeders
 {
     using Models;
     using System;
+    using System.Data.Entity.Migrations;
     using System.IO;
 
     internal class DirectorsSeeder
@@ -41,7 +42,7 @@ namespace LMDB.Data.Seeders
                     director.Awards.Add(awards[awardIndex]);
                 }
 
-                context.Directors.Add(director);
+                context.Contributors.AddOrUpdate(d=> new { d.FirstName,d.LastName},director);
             }
 
             context.SaveChanges();
