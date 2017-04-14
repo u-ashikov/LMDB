@@ -70,6 +70,18 @@
     <Compile Include="Migrations\201704140924491_ActorGenderRemoved.Designer.cs">
       <DependentUpon>201704140924491_ActorGenderRemoved.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201704141434489_DropTableContributors.cs" />
+    <Compile Include="Migrations\201704141434489_DropTableContributors.Designer.cs">
+      <DependentUpon>201704141434489_DropTableContributors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704141446306_AddDirectorModel.cs" />
+    <Compile Include="Migrations\201704141446306_AddDirectorModel.Designer.cs">
+      <DependentUpon>201704141446306_AddDirectorModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704141453478_AddActorModel.cs" />
+    <Compile Include="Migrations\201704141453478_AddActorModel.Designer.cs">
+      <DependentUpon>201704141453478_AddActorModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MoviesContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -106,6 +118,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201704140924491_ActorGenderRemoved.resx">
       <DependentUpon>201704140924491_ActorGenderRemoved.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704141434489_DropTableContributors.resx">
+      <DependentUpon>201704141434489_DropTableContributors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704141446306_AddDirectorModel.resx">
+      <DependentUpon>201704141446306_AddDirectorModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704141453478_AddActorModel.resx">
+      <DependentUpon>201704141453478_AddActorModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

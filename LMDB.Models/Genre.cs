@@ -5,6 +5,11 @@
 
     public class Genre
     {
+        public Genre()
+        {
+            this.Movies = new HashSet<Movie>();
+        }
+
         public int Id { get; set; }
 
         [Required, StringLength(50)]

@@ -11,7 +11,7 @@
 
             HasRequired(m => m.Director)
                 .WithMany(d => d.DirectedMovies)
-                .HasForeignKey(m=>m.DirectorId)
+                .HasForeignKey(m => m.DirectorId)
                 .WillCascadeOnDelete(false);
 
             HasMany(m => m.Awards)

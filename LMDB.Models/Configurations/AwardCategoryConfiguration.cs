@@ -21,7 +21,7 @@
                 {
                     m.ToTable("DirectorAwards");
                     m.MapLeftKey("AwardCategoryId");
-                    m.MapRightKey("ADirectorId");
+                    m.MapRightKey("DirectorId");
                 });
         }
     }

@@ -7,12 +7,13 @@
         public CountryConfiguration()
         {
             this.HasMany(c => c.Users)
-                .WithOptional(u => u.OriginCountry)
-                .WillCascadeOnDelete(false);
+                .WithOptional(u => u.OriginCountry);
 
-            this.HasMany(c => c.MovieContributors)
-                .WithOptional(mc => mc.Country)
-                .WillCascadeOnDelete(false);
+            this.HasMany(c => c.Directors)
+                .WithOptional(d => d.Country);
+
+            this.HasMany(c => c.Actors)
+                .WithOptional(a => a.Country);
         }
     }
 }
