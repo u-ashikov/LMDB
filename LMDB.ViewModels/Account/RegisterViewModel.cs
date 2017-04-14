@@ -1,9 +1,21 @@
 ﻿namespace LMDB.ViewModels.Account
 {
+    using Models.Enums;
     using System.ComponentModel.DataAnnotations;
 
     public class RegisterViewModel
     {
+        [Required]
+        public string Username { get; set; }
+
+        [Required]
+        public string FirstName { get; set; }
+
+        [Required]
+        public string LastName { get; set; }
+
+        public Gender Gender { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
