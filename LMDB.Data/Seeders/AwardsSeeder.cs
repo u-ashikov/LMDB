@@ -9,25 +9,18 @@
     {
         public static void Seed(MoviesContext context)
         {
-            string[] file = {};
-            try
+            var webRootPath = System.Web.Hosting.HostingEnvironment.MapPath("~");
+            var docPath = Path.GetFullPath(Path.Combine(webRootPath, "../LMDB.Data/Datasets/awards.csv"));
+            var awards = File.ReadAllText(docPath).Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
+
+            for (int i = 1; i < awards.Length; i++)
             {
-                file = File.ReadAllLines("../../../../LMDB.Data/Datasets/awards.csv");
-            }
-            catch (DirectoryNotFoundException){ }
+                var awardInfo = awards[i].Split(new[] {','}, StringSplitOptions.RemoveEmptyEntries);
 
-            for (int i = 1; i < file.Length; i++)
-            {
-                var awardName = file[i].Split(',')[0];
-                DateTime dateIntroduced;
-                var isDate = DateTime.TryParseExact(file[i].Split(',')[1],
-                    "dd/MM/yyyy",
-                    CultureInfo.InvariantCulture,
-                    DateTimeStyles.None, out dateIntroduced);
+                var awardName = awardInfo[0];
+                var dateIntroduced = DateTime.ParseExact(awardInfo[1],"dd/MM/yyyy",CultureInfo.InvariantCulture);
 
-                if (!isDate) continue;
-
-                var award = new Award
+                var award = new Award()
                 {
                     Name = awardName,
                     DateIntroduced = dateIntroduced
