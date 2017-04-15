@@ -89,24 +89,10 @@
 
         <ul class="menu">
             <li class="active"><a href="#">All<span>@Model.Item1.Count</span></a></li>
-            <li><a href="#">Action<span>15</span></a></li>
-            <li><a href="#">Animation<span>3</span></a></li>
-            <li><a href="#">Anime<span>13</span></a></li>
-            <li><a href="#">Adventure<span>11</span></a></li>
-            <li><a href="#">Comedy<span>1</span></a></li>
-            <li><a href="#">Crime<span>1</span></a></li>
-            <li><a href="#">Documentary<span>0</span></a></li>
-            <li><a href="#">Drama<span>7</span></a></li>
-            <li><a href="#">Fantasy<span>32</span></a></li>
-            <li><a href="#">History<span>65</span></a></li>
-            <li><a href="#">Horror<span>78</span></a></li>
-            <li><a href="#">Musical<span>12</span></a></li>
-            <li><a href="#">Mystery<span>3</span></a></li>
-            <li><a href="#">Sci-Fi<span>7</span></a></li>
-            <li><a href="#">Sport<span>87</span></a></li>
-            <li><a href="#">Thriller<span>45</span></a></li>
-            <li><a href="#">War<span>47</span></a></li>
-            <li><a href="#">Western<span>19</span></a></li>
+            @foreach (var category in Model.Item2)
+            {
+                <li><a href="#">@category.Name<span>@category.Movies.Count</span></a></li>
+            }
         </ul>
     </div>
 
