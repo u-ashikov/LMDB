@@ -1,7 +1,4 @@
-﻿using System;
-using System.Linq;
-
-namespace LMDB.Web.Controllers
+﻿namespace LMDB.Web.Controllers
 {
     using System.Collections.Generic;
     using System.Data.Entity;
@@ -13,6 +10,8 @@ namespace LMDB.Web.Controllers
     using AutoMapper;
     using System.IO;
     using System.Web;
+    using System;
+    using System.Linq;
 
     public class MovieController : Controller
     {
