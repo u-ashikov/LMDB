@@ -47,9 +47,6 @@
                 .ForMember(d => d.Actors, mo => mo.MapFrom(src => src.Actors.Select(a => $"{a.FirstName} {a.LastName}").ToList()))
                 .ForMember(d => d.Genres, mo => mo.MapFrom(src => src.Genres.Select(g => g.Name).ToList()))
                 .ForMember(d => d.Awards, mo => mo.MapFrom(src => src.Awards.Select(a => a.Category.Name).ToList()));
-
-                cfg.CreateMap<MovieCreateViewModel, Movie>()
-                .ForMember(d => d.Poster, mo => mo.MapFrom(src => GetBytesFromFile(src.MoviePoster)));
             });
         }
 

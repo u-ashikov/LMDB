@@ -16,8 +16,6 @@
 
         public string Actors { get; set; }
 
-        public int[] AwardCategories { get; set; }
-
         public HttpPostedFileBase MoviePoster { get; set; }
     }
 }

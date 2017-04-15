@@ -11,6 +11,8 @@ namespace LMDB.Web.Controllers
     using LMDB.Models;
     using LMDB.ViewModels.Movie;
     using AutoMapper;
+    using System.IO;
+    using System.Web;
 
     public class MovieController : Controller
     {
@@ -47,8 +49,6 @@ namespace LMDB.Web.Controllers
         // GET: Movie/Create
         public ActionResult Create()
         {
-            ViewBag.DirectorId = new SelectList(db.Directors, "Id", "FirstName");
-            ViewBag.Id = new SelectList(db.Reviews, "ReviewedMovieId", "Content");
             return View();
         }
 
@@ -57,18 +57,18 @@ namespace LMDB.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Title,DateReleased,DirectorId")] Movie movie)
+        public ActionResult Create(MovieCreateViewModel model)
         {
             if (ModelState.IsValid)
             {
-                db.Movies.Add(movie);
-                db.SaveChanges();
+                
+
                 return RedirectToAction("Index");
             }
 
-            ViewBag.DirectorId = new SelectList(db.Directors, "Id", "FirstName", movie.DirectorId);
-            ViewBag.Id = new SelectList(db.Reviews, "ReviewedMovieId", "Content", movie.Id);
-            return View(movie);
+            //ViewBag.DirectorId = new SelectList(db.Directors, "Id", "FirstName", movie.DirectorId);
+            //ViewBag.Id = new SelectList(db.Reviews, "ReviewedMovieId", "Content", movie.Id);
+            return View(model);
         }
 
         // GET: Movie/Edit/5
@@ -139,6 +139,19 @@ namespace LMDB.Web.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        private static byte[] GetBytesFromFile(HttpPostedFileBase file)
+        {
+            if (file == null)
+            {
+                return null;
+            }
+
+            MemoryStream stream = new MemoryStream();
+            file.InputStream.CopyTo(stream);
+            byte[] data = stream.ToArray();
+            return data;
         }
     }
 }
