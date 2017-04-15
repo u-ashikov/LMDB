@@ -115,6 +115,7 @@
     <Compile Include="Manage\ManageLoginsViewModel.cs" />
     <Compile Include="Manage\SetPasswordViewModel.cs" />
     <Compile Include="Manage\VerifyPhoneNumberViewModel.cs" />
+    <Compile Include="Movie\MovieCreateViewModel.cs" />
     <Compile Include="Movie\MovieDetailsViewModel.cs" />
     <Compile Include="Movie\MovieIndexViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

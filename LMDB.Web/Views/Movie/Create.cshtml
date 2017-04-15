@@ -1,51 +1,74 @@
-﻿@model LMDB.Models.Movie
+﻿@model LMDB.ViewModels.Movie.MovieCreateViewModel
+@Styles.Render("~/Styles/CreateMovieForm.css")
 
-@{
-    ViewBag.Title = "Create";
-}
-
-<h2>Create</h2>
-
-
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Movie</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+<div class="row col-md-8">
+    <div class="col-md-4">
+        <div class="login-panel panel panel-default">
+            <div class="panel-heading" id="title">
+                <h3 class="panel-title"><b>Create Movie</b></h3>
             </div>
-        </div>
+            <div class="panel-body">
+                @using (Html.BeginForm("Create", "Movie", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.DateReleased, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DateReleased, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DateReleased, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                    <div class="form-horizontal">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control", placeholder = "Title"} })
+                                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.DirectorId, "DirectorId", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("DirectorId", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.DirectorId, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.DateReleased, new { htmlAttributes = new { @class = "form-control", placeholder = "Date Released" } })
+                                @Html.ValidationMessageFor(model => model.DateReleased, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.EditorFor(m => m.Director, new { htmlAttributes = new { @class = "form-control", placeholder = "Director" } })
+                                @Html.ValidationMessageFor(model => model.Director, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.EditorFor(m => m.Genres, new { htmlAttributes = new { @class = "form-control", placeholder = "Genres" } })
+                                @Html.ValidationMessageFor(model => model.Genres, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        @Html.LabelFor(m => m.Actors)
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.TextAreaFor(m => m.Actors, new { htmlAttributes = new { @class = "form-control", placeholder = "Actors"} })
+                                @Html.ValidationMessageFor(model => model.Actors, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        @Html.LabelFor(m => m.MoviePoster)
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.MoviePoster, new { @class = "form-control", type = "file", accept = "image/*", placeholder = Html.DisplayNameFor(m => m.MoviePoster) })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Create" class="btn btn-success" />
+                            </div>
+                        </div>
+                    </div>
+                }
             </div>
         </div>
     </div>
-}
+</div>
+
 
 <div>
     @Html.ActionLink("Back to List", "Index")

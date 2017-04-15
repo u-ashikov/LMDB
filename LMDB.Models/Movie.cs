@@ -17,6 +17,8 @@
 
         public virtual Review Review { get; set; }
 
+        public byte[] Poster { get; set; }
+
         public virtual ICollection<Actor> Actors { get; set; } = new HashSet<Actor>();
 
         public virtual ICollection<Comment> Comments { get; set; } = new HashSet<Comment>();
