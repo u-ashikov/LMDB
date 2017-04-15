@@ -15,25 +15,25 @@
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<MoviesContext, Configuration>());
         }
 
-        public virtual DbSet<Movie> Movies { get; set; }
+        public virtual IDbSet<Movie> Movies { get; set; }
 
-        public virtual DbSet<Award> Awards { get; set; }
+        public virtual IDbSet<Award> Awards { get; set; }
 
-        public virtual DbSet<Category> Categories { get; set; }
+        public virtual IDbSet<Category> Categories { get; set; }
 
-        public virtual DbSet<Genre> Genres { get; set; }
+        public virtual IDbSet<Genre> Genres { get; set; }
 
-        public virtual DbSet<AwardCategory> AwardCategories { get; set; }
+        public virtual IDbSet<AwardCategory> AwardCategories { get; set; }
 
-        public virtual DbSet<Country> Countries { get; set; }
+        public virtual IDbSet<Country> Countries { get; set; }
 
-        public virtual DbSet<Director> Directors { get; set; }
+        public virtual IDbSet<Director> Directors { get; set; }
 
-        public virtual DbSet<Actor> Actors { get; set; }
+        public virtual IDbSet<Actor> Actors { get; set; }
 
-        public virtual DbSet<Comment> Comments { get; set; }
+        public virtual IDbSet<Comment> Comments { get; set; }
 
-        public virtual DbSet<Review> Reviews { get; set; }
+        public virtual IDbSet<Review> Reviews { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
