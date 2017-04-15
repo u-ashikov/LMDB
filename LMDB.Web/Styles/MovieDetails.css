@@ -98,6 +98,3 @@ body {
   font-size: 200px;
   color: rgba(255, 255, 255, 0.4);
 }
-.moviecard .movie-poster:hover:before {
-  color: rgba(255, 255, 255, 0.8);
-}
