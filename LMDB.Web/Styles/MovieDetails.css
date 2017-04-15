@@ -73,7 +73,7 @@ body {
 }
 .moviecard .movie-poster {
   position: absolute;
-  background: url("http://www.pulpcurry.com/wp-content/uploads/2015/09/Sicario.jpg");
+  border-radius:20px;
   background-color: #dbdbdb;
   background-size: 360px 540px;
   background-repeat: no-repeat;

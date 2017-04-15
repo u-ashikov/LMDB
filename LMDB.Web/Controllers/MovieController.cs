@@ -43,6 +43,9 @@ namespace LMDB.Web.Controllers
             {
                 return HttpNotFound();
             }
+
+            movieDetails.Poster = "data:image/jpeg;base64," + Convert.ToBase64String(movie.Poster);
+
             return View(movieDetails);
         }
 
@@ -61,7 +64,67 @@ namespace LMDB.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                
+                var movie = new Movie()
+                {
+                    Title = model.Title,
+                    DateReleased = model.DateReleased,
+                    Poster = GetBytesFromFile(model.MoviePoster)
+                };
+
+                var director = GetDirectorByName(db, model.Director);
+
+                if (director == null)
+                {
+                    AddDirector(db, model.Director);
+                }
+
+                movie.DirectorId = GetDirectorByName(db, model.Director).Id;
+
+                var actors = model.Actors.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).ToArray();
+
+                foreach (var a in actors)
+                {
+                    var firstName = a.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)[0];
+                    var lastName = a.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)[1];
+
+                    var actor = GetActorByName(db, firstName, lastName);
+
+                    if (actor == null)
+                    {
+                        movie.Actors.Add(new Actor()
+                        {
+                            FirstName = firstName,
+                            LastName = lastName
+                        });
+                    }
+                    else
+                    {
+                        movie.Actors.Add(actor);
+                    }
+                }
+
+                var genres = model.Genres.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+
+                foreach (var g in genres)
+                {
+                    var genre = GetGenreByName(db, g);
+
+                    if (genre == null)
+                    {
+                        movie.Genres.Add(new Genre()
+                        {
+                            Name = g
+                        });
+                    }
+                    else
+                    {
+                        movie.Genres.Add(genre);
+                    }
+                }
+
+                db.Movies.Add(movie);
+                db.SaveChanges();
+
 
                 return RedirectToAction("Index");
             }
@@ -152,6 +215,38 @@ namespace LMDB.Web.Controllers
             file.InputStream.CopyTo(stream);
             byte[] data = stream.ToArray();
             return data;
+        }
+
+        private static Director GetDirectorByName(MoviesContext context,string director)
+        {
+            var firstName = director.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)[0];
+            var lastName = director.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)[1];
+
+             return context.Directors.FirstOrDefault(d => d.FirstName == firstName && d.LastName == lastName);
+        }
+
+        private static void AddDirector(MoviesContext context, string director)
+        {
+            var firstName = director.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)[0];
+            var lastName = director.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)[1];
+
+            context.Directors.Add(new Director()
+            {
+                FirstName = firstName,
+                LastName = lastName
+            });
+
+            context.SaveChanges();
+        }
+
+        private static Actor GetActorByName(MoviesContext context, string firstName,string lastName)
+        {
+            return context.Actors.FirstOrDefault(a => a.FirstName == firstName && a.LastName == lastName);
+        }
+
+        private static Genre GetGenreByName(MoviesContext context, string genre)
+        {
+            return context.Genres.FirstOrDefault(g => g.Name == genre);
         }
     }
 }
