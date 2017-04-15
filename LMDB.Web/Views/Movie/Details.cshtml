@@ -2,47 +2,21 @@
 
 @{
     ViewBag.Title = "Details";
+    var movie = Model;
 }
 
-<h2>Details</h2>
+@Styles.Render("~/Styles/MovieDetails.css")
 
-<div>
-    <h4>Movie</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Director.FirstName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Director.FirstName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Review.Content)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Review.Content)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DateReleased)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DateReleased)
-        </dd>
-
-    </dl>
+<div class="moviecard">
+    <div class="movie-poster play-trailer">Poster</div>
+    <div id="movie-content">
+        <div class="movie-title">@movie.Title<span class="movie-year">@movie.DateReleased.Year</span></div>
+        <div class="movie-details"><span class="movie-genre">@String.Join(", ",movie.Genres.Select(g=>g.Name).ToList())</span></div>
+        <div class="movie-castcrew"><span class="title">Director</span><span class="name">@movie.Director.FirstName @movie.Director.LastName</span></div>
+        <div class="movie-castcrew"><span class="title">Cast</span><span class="name">@String.Join(", ",movie.Actors.Select(a=>$"{a.FirstName} {a.LastName}").ToList())</span></div>
+        <div class="movie-castcrew"><span class="title">Awards</span><span class="name">@String.Join(", ", movie.Awards.Select(a => a.Category.Name).ToList())</span></div>
+        <div class="movie-synopsis">Movie review comes here</div>
+    </div>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |

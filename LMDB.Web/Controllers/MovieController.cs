@@ -31,6 +31,7 @@ namespace LMDB.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             Movie movie = db.Movies.Find(id);
             if (movie == null)
             {
