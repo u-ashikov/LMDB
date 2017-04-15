@@ -220,8 +220,8 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Backgrounds\CreateMovieBackground.jpg" />
     <Content Include="Backgrounds\LoginBackground.jpg" />
-    <Content Include="Backgrounds\MoviesIndexBacground.jpg" />
     <Content Include="Backgrounds\RegisterBackground.jpg" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -259,6 +259,7 @@
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Styles\CreateMovieForm.css" />
     <Content Include="Styles\LoginForm.css" />
     <Content Include="Styles\MovieDetails.css" />
     <Content Include="Styles\MoviesIndex.css" />
