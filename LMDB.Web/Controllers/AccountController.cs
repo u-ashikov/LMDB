@@ -9,12 +9,15 @@
     using Microsoft.Owin.Security;
     using Models;
     using ViewModels.Account;
+    using AutoMapper;
+    using Data;
 
     [Authorize]
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private MoviesContext context = new MoviesContext();
 
         public AccountController()
         {
@@ -137,6 +140,7 @@
         [AllowAnonymous]
         public ActionResult Register()
         {
+            ViewBag.Countries = context.Countries.ToList();
             return View();
         }
 
@@ -149,13 +153,8 @@
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser {
-                    UserName = model.Username,
-                    Email = model.Email,
-                    FirstName = model.FirstName,
-                    LastName = model.LastName,
-                    Gender = model.Gender
-                };
+                var user = Mapper.Map<ApplicationUser>(model);
+
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
