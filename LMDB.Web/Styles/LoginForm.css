@@ -1,0 +1,8 @@
+﻿body {
+    background-image: url('../Backgrounds/LoginBackground.jpg');
+    background-repeat:no-repeat;
+}
+
+.row {
+    margin-top:40px;
+}

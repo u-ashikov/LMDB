@@ -12,3 +12,9 @@
     width:150px;
     font-size:12pt;
 }
+
+body {
+    background-image: url('../Backgrounds/RegisterBackground.jpg');
+    background-repeat:no-repeat;
+    background-position:left;
+}
