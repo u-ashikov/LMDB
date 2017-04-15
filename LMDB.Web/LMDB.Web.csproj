@@ -221,6 +221,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Backgrounds\LoginBackground.jpg" />
+    <Content Include="Backgrounds\MoviesIndexBacground.jpg" />
     <Content Include="Backgrounds\RegisterBackground.jpg" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
