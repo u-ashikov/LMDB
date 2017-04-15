@@ -7,3 +7,8 @@
 #title {
     text-align: center;
 }
+
+.btn {
+    width:150px;
+    font-size:12pt;
+}
