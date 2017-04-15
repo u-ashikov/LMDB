@@ -220,7 +220,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Backgrounds\CreateMovie.jpg" />
+    <Content Include="Backgrounds\CreateMovieBackground.jpg" />
     <Content Include="Backgrounds\LoginBackground.jpg" />
     <Content Include="Backgrounds\RegisterBackground.jpg" />
     <Content Include="Content\bootstrap-theme.css" />
