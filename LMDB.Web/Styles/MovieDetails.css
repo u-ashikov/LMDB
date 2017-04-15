@@ -53,7 +53,6 @@ body {
   padding-top: 12px;
   width: 100%;
   text-overflow: ellipsis;
-  white-space: nowrap;
   overflow: hidden;
 }
 .moviecard .movie-castcrew span.title {
