@@ -8,7 +8,7 @@
 @Styles.Render("~/Styles/MovieDetails.css")
 
 <div class="moviecard">
-    <img src="@movie.Poster" class="movie-poster play-trailer"/>
+    <img src="@movie.Poster" class="movie-poster"/>
     <div id="movie-content">
         <div class="movie-title">@movie.Title<span class="movie-year">@movie.Year</span></div>
         <div class="movie-details"><span class="movie-genre">@String.Join(", ",movie.Genres)</span></div>

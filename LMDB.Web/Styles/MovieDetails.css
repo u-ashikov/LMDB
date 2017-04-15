@@ -85,12 +85,10 @@ body {
   -moz-box-shadow: -2px 2px 7px rgba(0, 0, 0, 0.6);
   -webkit-box-shadow: -2px 2px 7px rgba(0, 0, 0, 0.6);
   box-shadow: -2px 2px 7px rgba(0, 0, 0, 0.6);
-  cursor: pointer;
   transition: all 500ms ease-out;
   z-index: 10;
 }
 .moviecard .movie-poster:before {
-  content: '▸';
   position: absolute;
   top: 50%;
   left: 50%;

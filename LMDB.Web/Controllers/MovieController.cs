@@ -44,7 +44,11 @@ namespace LMDB.Web.Controllers
                 return HttpNotFound();
             }
 
-            movieDetails.Poster = "data:image/jpeg;base64," + Convert.ToBase64String(movie.Poster);
+            if (movie.Poster != null)
+            {
+                movieDetails.Poster = "data:image/jpeg;base64," + Convert.ToBase64String(movie.Poster);
+            }
+            
 
             return View(movieDetails);
         }
