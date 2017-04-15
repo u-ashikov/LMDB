@@ -1,0 +1,182 @@
+﻿@import url(https://fonts.googleapis.com/css?family=Poiret+One);
+/**
+    background: #1C1C1C;
+**/
+
+body {
+    background-image: url('../Backgrounds/MoviesIndexBacground.jpg');
+    background-repeat: repeat;
+}
+
+.wrapper {
+    width: 1055px;
+    margin: 20px;
+    font-family: "Poiret One";
+}
+
+.wrapper .sidebar .menu-2 li a {
+    color: #CCC;
+    text-decoration: none;
+    display: block;
+    padding: 2.5px 10px;
+}
+
+.wrapper .sidebar .menu-2 li a:hover {
+    color: #33CC33;
+    background: rgba(0, 0, 0, .3);
+}
+
+.wrapper .sidebar .menu li a {
+    color: #CCC;
+    text-decoration: none;
+    display: block;
+    padding: 5px 10px;
+}
+
+.wrapper .sidebar .menu li a span{
+    float: right;
+    font-size: 9pt;
+    color: gray;
+}
+
+.wrapper .sidebar .menu.center a div{
+    margin-left: auto;
+    margin-right: 2.5em;
+    height: 92px;
+    width: 115px;
+}
+
+.wrapper .sidebar .menu li a:hover {
+    color: #33CC33;
+    background: rgba(0, 0, 0, .3);
+}
+.wrapper .sidebar .menu li a:hover span{
+    color: white;
+}
+
+.wrapper .sidebar li.active a{
+    color: green;
+    background: rgba(0, 0, 0, .3);
+}
+
+.wrapper .seperator {
+    border-top: 1px solid #111111;
+    border-bottom: 1px solid #353535;
+    margin: 10px;
+    position: relative;
+}
+
+.wrapper .seperator .title {
+    font-family: sans-serif;
+    position: absolute;
+    color: white;
+    text-transform: uppercase;
+    right: 10px;
+    left: 10px;
+    top: -4px;
+    margin: auto;
+    text-align: center;
+    width: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 7pt;
+    background: #1d1d1d;
+}
+
+.wrapper .sidebar {
+    background: #1d1d1d;
+    width: 170px;
+    position: fixed;
+    height: 100%;
+    margin-top: 8px;
+}
+
+.wrapper .main {
+    float: right;
+    width: 880px;
+    vertical-align: top;
+}
+
+.main .content .gallery {
+    font-size: 0px;
+    margin-top: 5px;
+}
+
+.main .content .gallery .item {
+    background-image: url(http://placehold.it/170x240);
+    background-size: 100% 100%;
+    display: inline-block;
+    height: 270px;
+    width: 170px;
+    flex-grow: 1;
+    font-size: 10pt;
+    margin: 2.5px 2.5px 30px 10px;
+    color: #000;
+    position: relative;
+}
+
+.main .content .gallery .item .description {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 0px;
+    padding: 0px;
+    background-color: rgba(0, 0, 0, .85);
+    color: white;
+    overflow: hidden;
+    transition: all .3s;
+}
+
+.main .content .gallery .item .description h2 {
+    font-size: 1.5em;
+    color: #33CC33;
+    font-weight: bold;
+}
+
+.main .content .gallery .item:hover .description {
+    height: 120px;
+    padding: 5px;
+}
+
+.director {
+    padding: 5px;
+    position: absolute;
+    height: 30px;
+    width: 170px;
+    background: #CCCCCC;
+    font-size: 1.2em;
+    color: #1d1d1d;
+}
+
+.director-name {
+    font-weight: bold;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #CCC;
+}
+
+.actions {
+    position: absolute;
+    height: 30px;
+    width: 170px;
+    background-color: #1d1d1d;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #CCC;
+    bottom: -30px
+}
+
+#add-new-movie {
+    display: inline-block;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    margin-left: -30px;
+}

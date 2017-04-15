@@ -31,14 +31,14 @@
                 .ForMember(dest => dest.ProfilePicture, mo => mo.MapFrom(src => GetBytesFromFile(src.ProfilePicture)));
 
                 cfg.CreateMap<Movie, MovieIndexViewModel>()
-                .ForMember(dest => dest.DirectorName,
+                    .ForMember(dest => dest.DirectorName,
                         mo => mo.MapFrom(src => src.Director.FirstName + " " + src.Director.LastName))
-                .ForMember(dest => dest.Actors,
+                    .ForMember(dest => dest.Actors,
                         mo => mo.MapFrom(src => src.Actors.Select(a => a.FirstName + " " + a.LastName).ToList()))
-                .ForMember(dest => dest.Genres,
+                    .ForMember(dest => dest.Genres,
                         mo => mo.MapFrom(src => src.Genres.Select(g => g.Name).ToList()))
-                .ForMember(dest => dest.Likes, mo => mo.MapFrom(src => src.Likes.Count))
-                .ForMember(dest => dest.Dislikes, mo => mo.MapFrom(src => src.Dislikes.Count));
+                    .ForMember(dest => dest.Rating, 
+                        mo => mo.MapFrom(src => (src.Likes.Count - src.Dislikes.Count)/(src.Likes.Count + src.Dislikes.Count + 1) * 10));
 
                 cfg.CreateMap<Movie, MovieDetailsViewModel>()
                 .ForMember(dest => dest.Year, mo => mo.MapFrom(src => src.DateReleased.Year))
@@ -48,7 +48,6 @@
                 .ForMember(d => d.Genres, mo => mo.MapFrom(src => src.Genres.Select(g => g.Name).ToList()))
                 .ForMember(d => d.Awards, mo => mo.MapFrom(src => src.Awards.Select(a => a.Category.Name).ToList()));
             });
-
         }
 
         private static byte[] GetBytesFromFile(HttpPostedFileBase file)

@@ -18,8 +18,7 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort>
-    </IISExpressSSLPort>
+    <IISExpressSSLPort>44327</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -261,6 +260,7 @@
     <Content Include="Scripts\_references.js" />
     <Content Include="Styles\LoginForm.css" />
     <Content Include="Styles\MovieDetails.css" />
+    <Content Include="Styles\MoviesIndex.css" />
     <Content Include="Styles\RegisterForm.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

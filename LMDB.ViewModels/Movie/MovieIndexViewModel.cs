@@ -12,9 +12,7 @@
 
         public DateTime DateReleased { get; set; }
 
-        public int Likes { get; set; }
-
-        public int Dislikes { get; set; }
+        public double Rating { get; set; }
 
         public List<string> Genres { get; set; } = new List<string>();
 
