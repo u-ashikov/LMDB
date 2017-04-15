@@ -1,4 +1,4 @@
-﻿@model IEnumerable<LMDB.Models.Movie>
+﻿@model IEnumerable<LMDB.ViewModels.Movie.MovieIndexViewModel>
 
 @{
     ViewBag.Title = "Index";
@@ -12,10 +12,7 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Director.FirstName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Review.Content)
+            @Html.DisplayNameFor(model => model.DirectorName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Title)
@@ -29,10 +26,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Director.FirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Review.Content)
+            @Html.DisplayFor(modelItem => item.DirectorName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Title)

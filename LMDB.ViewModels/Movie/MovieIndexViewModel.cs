@@ -1,12 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LMDB.ViewModels.Movie
+﻿namespace LMDB.ViewModels.Movie
 {
-    class MovieIndexViewModel
+    using System;
+    using System.Collections.Generic;
+
+    public class MovieIndexViewModel
     {
+        public int Id { get; set; }
+        public string Title { get; set; }
+
+        public string DirectorName { get; set; }
+
+        public DateTime DateReleased { get; set; }
+
+        public int Likes { get; set; }
+
+        public int Dislikes { get; set; }
+
+        public List<string> Genres { get; set; } = new List<string>();
+
+        public List<string> Actors { get; set; } = new List<string>();
     }
 }

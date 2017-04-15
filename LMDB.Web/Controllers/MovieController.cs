@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using LMDB.Data;
 using LMDB.Models;
+using LMDB.ViewModels.Movie;
 
 namespace LMDB.Web.Controllers
 {
@@ -19,7 +20,8 @@ namespace LMDB.Web.Controllers
         public ActionResult Index()
         {
             var movies = db.Movies.Include(m => m.Director).Include(m => m.Review);
-            return View(movies.ToList());
+            var moviesViewModels = AutoMapper.Mapper.Map<List<MovieIndexViewModel>>(movies);
+            return View(moviesViewModels);
         }
 
         // GET: Movie/Details/5
