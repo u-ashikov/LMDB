@@ -1,12 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LMDB.ViewModels.Movie
+﻿namespace LMDB.ViewModels.Movie
 {
-    class MovieDetailsViewModel
+    using System.Collections.Generic;
+
+    public class MovieDetailsViewModel
     {
+        public int Id { get; set; }
+
+        public string Title { get; set; }
+
+        public int Year { get; set; }
+
+        public string Director { get; set; }
+
+        public string Review { get; set; }
+
+        public ICollection<string> Actors { get; set; }
+
+        public ICollection<string> Genres { get; set; }
+
+        public ICollection<string> Awards { get; set; }
     }
 }

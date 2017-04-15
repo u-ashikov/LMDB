@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
-using System.Net;
-using System.Web;
-using System.Web.Mvc;
-using LMDB.Data;
-using LMDB.Models;
-using LMDB.ViewModels.Movie;
-
-namespace LMDB.Web.Controllers
+﻿namespace LMDB.Web.Controllers
 {
+    using System.Collections.Generic;
+    using System.Data.Entity;
+    using System.Net;
+    using System.Web.Mvc;
+    using LMDB.Data;
+    using LMDB.Models;
+    using LMDB.ViewModels.Movie;
+    using AutoMapper;
+
     public class MovieController : Controller
     {
         private MoviesContext db = new MoviesContext();
@@ -20,7 +17,7 @@ namespace LMDB.Web.Controllers
         public ActionResult Index()
         {
             var movies = db.Movies.Include(m => m.Director).Include(m => m.Review);
-            var moviesViewModels = AutoMapper.Mapper.Map<List<MovieIndexViewModel>>(movies);
+            var moviesViewModels = Mapper.Map<List<MovieIndexViewModel>>(movies);
             return View(moviesViewModels);
         }
 
@@ -33,11 +30,13 @@ namespace LMDB.Web.Controllers
             }
 
             Movie movie = db.Movies.Find(id);
+            var movieDetails = Mapper.Map<MovieDetailsViewModel>(movie);
+
             if (movie == null)
             {
                 return HttpNotFound();
             }
-            return View(movie);
+            return View(movieDetails);
         }
 
         // GET: Movie/Create

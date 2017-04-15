@@ -1,7 +1,4 @@
-﻿using System.Linq;
-using LMDB.ViewModels.Movie;
-
-namespace LMDB.Web
+﻿namespace LMDB.Web
 {
     using AutoMapper;
     using LMDB.Models;
@@ -11,6 +8,8 @@ namespace LMDB.Web
     using System.Web.Mvc;
     using System.Web.Optimization;
     using System.Web.Routing;
+    using System.Linq;
+    using LMDB.ViewModels.Movie;
 
     public class MvcApplication : System.Web.HttpApplication
     {
@@ -40,6 +39,14 @@ namespace LMDB.Web
                         mo => mo.MapFrom(src => src.Genres.Select(g => g.Name).ToList()))
                 .ForMember(dest => dest.Likes, mo => mo.MapFrom(src => src.Likes.Count))
                 .ForMember(dest => dest.Dislikes, mo => mo.MapFrom(src => src.Dislikes.Count));
+
+                cfg.CreateMap<Movie, MovieDetailsViewModel>()
+                .ForMember(dest => dest.Year, mo => mo.MapFrom(src => src.DateReleased.Year))
+                .ForMember(d => d.Director, mo => mo.MapFrom(src => src.Director.FirstName + " " + src.Director.LastName))
+                .ForMember(d => d.Review, mo => mo.MapFrom(src => src.Review.Content))
+                .ForMember(d => d.Actors, mo => mo.MapFrom(src => src.Actors.Select(a => $"{a.FirstName} {a.LastName}").ToList()))
+                .ForMember(d => d.Genres, mo => mo.MapFrom(src => src.Genres.Select(g => g.Name).ToList()))
+                .ForMember(d => d.Awards, mo => mo.MapFrom(src => src.Awards.Select(a => a.Category.Name).ToList()));
             });
 
         }

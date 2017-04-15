@@ -1,4 +1,4 @@
-﻿@model LMDB.Models.Movie
+﻿@model LMDB.ViewModels.Movie.MovieDetailsViewModel
 
 @{
     ViewBag.Title = "Details";
@@ -10,11 +10,11 @@
 <div class="moviecard">
     <div class="movie-poster play-trailer">Poster</div>
     <div id="movie-content">
-        <div class="movie-title">@movie.Title<span class="movie-year">@movie.DateReleased.Year</span></div>
-        <div class="movie-details"><span class="movie-genre">@String.Join(", ",movie.Genres.Select(g=>g.Name).ToList())</span></div>
-        <div class="movie-castcrew"><span class="title">Director</span><span class="name">@movie.Director.FirstName @movie.Director.LastName</span></div>
-        <div class="movie-castcrew"><span class="title">Cast</span><span class="name">@String.Join(", ",movie.Actors.Select(a=>$"{a.FirstName} {a.LastName}").ToList())</span></div>
-        <div class="movie-castcrew"><span class="title">Awards</span><span class="name">@String.Join(", ", movie.Awards.Select(a => a.Category.Name).ToList())</span></div>
+        <div class="movie-title">@movie.Title<span class="movie-year">@movie.Year</span></div>
+        <div class="movie-details"><span class="movie-genre">@String.Join(", ",movie.Genres)</span></div>
+        <div class="movie-castcrew"><span class="title">Director</span><span class="name">@movie.Director</span></div>
+        <div class="movie-castcrew"><span class="title">Cast</span><span class="name">@String.Join(", ",movie.Actors)</span></div>
+        <div class="movie-castcrew"><span class="title">Awards</span><span class="name">@(movie.Awards.Count == 0 ? "(no awards)" : String.Join(", ", movie.Awards))</span></div>
         <div class="movie-synopsis">Movie review comes here</div>
     </div>
 </div>
