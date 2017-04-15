@@ -1,4 +1,7 @@
-﻿namespace LMDB.Web.Controllers
+﻿using System;
+using System.Linq;
+
+namespace LMDB.Web.Controllers
 {
     using System.Collections.Generic;
     using System.Data.Entity;
@@ -16,9 +19,11 @@
         // GET: Movie
         public ActionResult Index()
         {
-            var movies = db.Movies.Include(m => m.Director).Include(m => m.Review);
+            var movies = db.Movies.Include(m => m.Director).Include(m => m.Genres);
             var moviesViewModels = Mapper.Map<List<MovieIndexViewModel>>(movies);
-            return View(moviesViewModels);
+            var genres = db.Genres.ToList();
+            var model = Tuple.Create(moviesViewModels, genres);
+            return View(model);
         }
 
         // GET: Movie/Details/5
