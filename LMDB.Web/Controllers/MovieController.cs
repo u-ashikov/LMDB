@@ -151,6 +151,7 @@
 
             //ViewBag.DirectorId = new SelectList(db.Directors, "Id", "FirstName", movie.DirectorId);
             //ViewBag.Id = new SelectList(db.Reviews, "ReviewedMovieId", "Content", movie.Id);
+            return View(model);
         }
 
         // GET: Movie/Edit/5
@@ -161,13 +162,16 @@
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Movie movie = db.Movies.Find(id);
+            var movieEditModel = Mapper.Map<MovieEditViewModel>(movie);
+
             if (movie == null)
             {
                 return HttpNotFound();
             }
+
             ViewBag.DirectorId = new SelectList(db.Directors, "Id", "FirstName", movie.DirectorId);
             ViewBag.Id = new SelectList(db.Reviews, "ReviewedMovieId", "Content", movie.Id);
-            return View(movie);
+            return View(movieEditModel);
         }
 
         // POST: Movie/Edit/5
@@ -175,17 +179,88 @@
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Title,DateReleased,DirectorId")] Movie movie)
+        public ActionResult Edit(MovieEditViewModel editedMovie)
         {
             if (ModelState.IsValid)
             {
+                var movie = db.Movies.Find(editedMovie.Id);
+
+                movie.Title = editedMovie.Title;
+                movie.Genres = new List<Genre>();
+                movie.Actors = new List<Actor>();
+                movie.DateReleased = editedMovie.DateReleased;
+
+                if (editedMovie.MoviePoster != null)
+                {
+                    movie.Poster = GetBytesFromFile(editedMovie.MoviePoster);
+                }
+
+                var director = GetDirectorByName(db, editedMovie.Director);
+
+                if (director == null)
+                {
+                    movie.Director = new Director()
+                    {
+                        FirstName = editedMovie.Director.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)[0],
+                        LastName = editedMovie.Director.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)[1],
+                    };
+                }
+                else
+                {
+                    movie.Director = director;
+                }
+
+                var editedGenres = editedMovie.Genres.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+
+                foreach (var g in editedGenres)
+                {
+                    var genre = GetGenreByName(db, g);
+
+                    if (GetGenreByName(db, g) == null)
+                    {
+                        movie.Genres.Add(new Genre()
+                        {
+                            Name = g
+                        });
+                    }
+                    else
+                    {
+                        movie.Genres.Add(genre);
+                    }
+                }
+
+                var editedActors = editedMovie.Actors.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+
+                foreach (var a in editedActors)
+                {
+                    var firstName = a.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)[0];
+                    var lastName = a.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)[1];
+
+                    var actor = GetActorByName(db, firstName, lastName);
+
+                    if (actor == null)
+                    {
+                        movie.Actors.Add(new Actor()
+                        {
+                            FirstName = firstName,
+                            LastName = lastName
+                        });
+                    }
+                    else
+                    {
+                        movie.Actors.Add(actor);
+                    }
+                }
+
                 db.Entry(movie).State = EntityState.Modified;
                 db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
-            ViewBag.DirectorId = new SelectList(db.Directors, "Id", "FirstName", movie.DirectorId);
-            ViewBag.Id = new SelectList(db.Reviews, "ReviewedMovieId", "Content", movie.Id);
-            return View(movie);
+            //ViewBag.DirectorId = new SelectList(db.Directors, "Id", "FirstName", movie.DirectorId);
+            //ViewBag.Id = new SelectList(db.Reviews, "ReviewedMovieId", "Content", movie.Id);
+
+            return View(editedMovie);
         }
 
         // GET: Movie/Delete/5
