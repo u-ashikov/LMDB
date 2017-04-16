@@ -2,9 +2,11 @@
 @Styles.Render("~/Styles/EditMovie.css")
 
 @{ 
+    var poster = "data:image/jpeg;base64," + Convert.ToBase64String(Model.Poster);
 }
 
 
+<body style="background-image:url(@poster)">
     <div class="row col-md-8">
         <div class="col-md-4">
             <div class="panel panel-default">
