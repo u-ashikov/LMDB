@@ -27,6 +27,16 @@
             return View(model);
         }
 
+        public ActionResult CategoryIndex(string genreName)
+        {
+            var movies = db.Movies.Include(m => m.Director).Include(m => m.Genres)
+                .Where(m => m.Genres.Any(g => g.Name == genreName)).ToList();
+            var moviesViewModels = Mapper.Map<List<MovieIndexViewModel>>(movies);
+            var genres = db.Genres.ToList();
+            var model = Tuple.Create(moviesViewModels, genres);
+            return View(model);
+        }
+
         // GET: Movie/Details/5
         public ActionResult Details(int? id)
         {

@@ -17,5 +17,7 @@
         public List<string> Genres { get; set; } = new List<string>();
 
         public List<string> Actors { get; set; } = new List<string>();
+
+        public int Count { get; set; }
     }
 }

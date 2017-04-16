@@ -6,6 +6,60 @@
     ViewBag.Title = "CategoryIndex";
 }
 
+@*<p>
+    @Html.ActionLink("Add New Movie", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            Director
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateReleased)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rating)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DirectorName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @{
+                    var date = item.DateReleased.ToString("Y");}
+                @Html.DisplayFor(modelItem => date)
+            </td>
+            <td>
+                @{
+                    var rating = item.Rating;
+                    if (rating < 0)
+                    {
+                        rating = 0.1;
+                    }
+                }
+                @Html.DisplayFor(modelItem => rating)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {id = item.Id}) |
+                @Html.ActionLink("Details", "Details", new {id = item.Id}) |
+                @Html.ActionLink("Delete", "Delete", new {id = item.Id})
+            </td>
+        </tr>
+    }
+
+</table>*@
+
 <div class="wrapper">
     <div class="sidebar">
         <div class="seperator"></div>
@@ -34,7 +88,10 @@
         </div>
 
         <ul class="menu">
-            <li class="active"><a href="#">All<span>@Model.Item1.Count</span></a></li>
+            @{ 
+                //TODO: var countAll = Model.Item2.Sum(c => c.Movies.Count);
+            }
+            <li class="active"><a href="@Url.Action("Index", "Movie")">All<span>TODO:</span></a></li>
             @foreach (var category in Model.Item2)
             {
                 <li><a href="@Url.Action("CategoryIndex", "Movie", new {genreName = category.Name})">@category.Name<span>@category.Movies.Count</span></a></li>

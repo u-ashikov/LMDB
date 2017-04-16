@@ -305,6 +305,7 @@
     <Content Include="Views\Movie\Details.cshtml" />
     <Content Include="Views\Movie\Edit.cshtml" />
     <Content Include="Views\Movie\Index.cshtml" />
+    <Content Include="Views\Movie\CategoryIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LMDB.Data\LMDB.Data.csproj">
