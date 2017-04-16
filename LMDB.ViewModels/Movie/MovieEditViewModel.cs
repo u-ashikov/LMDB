@@ -24,5 +24,7 @@
         public string Actors { get; set; }
 
         public HttpPostedFileBase MoviePoster { get; set; }
+
+        public byte[] Poster { get; set; }
     }
 }
