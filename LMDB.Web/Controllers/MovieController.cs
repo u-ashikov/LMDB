@@ -241,12 +241,36 @@
                     }
                 }
 
-                var editedActors = editedMovie.Actors.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+                var editedActors = editedMovie.Actors
+                    .Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
+                    .Select(a => a.Trim())
+                    .ToList();
+
+                var oldActors = movie.Actors.
+                    Select(a => $"{a.FirstName} {a.LastName}")
+                    .ToList();
+
+                foreach (var a in oldActors)
+                {
+                    if (!editedActors.Contains(a))
+                    {
+                        var firstName = a.Split(' ')[0];
+                        var lastName = a.Split(' ')[1];
+
+                        var actorToRemove = db.Actors.FirstOrDefault(act => act.FirstName == firstName && act.LastName == lastName);
+
+                        movie.Actors.Remove(actorToRemove);
+                    }
+                    else
+                    {
+                        editedActors.Remove(a);
+                    }
+                }
 
                 foreach (var a in editedActors)
                 {
-                    var firstName = a.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)[0];
-                    var lastName = a.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)[1];
+                    var firstName = a.Split(' ')[0];
+                    var lastName = a.Split(' ')[1];
 
                     var actor = GetActorByName(db, firstName, lastName);
 
