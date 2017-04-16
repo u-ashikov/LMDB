@@ -186,8 +186,6 @@
                 var movie = db.Movies.Find(editedMovie.Id);
 
                 movie.Title = editedMovie.Title;
-                movie.Genres = new List<Genre>();
-                movie.Actors = new List<Actor>();
                 movie.DateReleased = editedMovie.DateReleased;
 
                 if (editedMovie.MoviePoster != null)
@@ -210,13 +208,27 @@
                     movie.Director = director;
                 }
 
-                var editedGenres = editedMovie.Genres.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+                var editedGenres = editedMovie.Genres.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).ToList();
+                var oldGenres = movie.Genres.Select(g=>g.Name).ToList();
+
+                foreach (var g in oldGenres)
+                {
+                    if (!editedGenres.Contains(g))
+                    {
+                        var genreToRemove = db.Genres.FirstOrDefault(gen => gen.Name == g);
+                        movie.Genres.Remove(genreToRemove);
+                    }
+                    else
+                    {
+                        editedGenres.Remove(g);
+                    }
+                }
 
                 foreach (var g in editedGenres)
                 {
                     var genre = GetGenreByName(db, g);
 
-                    if (GetGenreByName(db, g) == null)
+                    if (genre == null)
                     {
                         movie.Genres.Add(new Genre()
                         {
