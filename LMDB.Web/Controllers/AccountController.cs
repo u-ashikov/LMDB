@@ -11,6 +11,7 @@
     using ViewModels.Account;
     using AutoMapper;
     using Data;
+    using System.Web.Security;
 
     [Authorize]
     public class AccountController : Controller

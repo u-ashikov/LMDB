@@ -3,6 +3,8 @@
     using Models.Enums;
     using System.ComponentModel.DataAnnotations;
     using System.Web;
+    using System.Web.Mvc;
+    using Compare = System.ComponentModel.DataAnnotations.CompareAttribute;
 
     public class RegisterViewModel
     {

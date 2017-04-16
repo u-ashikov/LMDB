@@ -117,6 +117,7 @@
     <Compile Include="Manage\VerifyPhoneNumberViewModel.cs" />
     <Compile Include="Movie\MovieCreateViewModel.cs" />
     <Compile Include="Movie\MovieDetailsViewModel.cs" />
+    <Compile Include="Movie\MovieEditViewModel.cs" />
     <Compile Include="Movie\MovieIndexViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
