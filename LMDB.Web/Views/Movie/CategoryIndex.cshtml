@@ -1,4 +1,6 @@
 ﻿@using System.Globalization
+@using LMDB.Models
+@using Microsoft.Ajax.Utilities
 @model Tuple<List<LMDB.ViewModels.Movie.MovieIndexViewModel>, List<LMDB.Models.Genre>>
 @Styles.Render("~/Styles/MoviesIndex.css")
 
@@ -88,10 +90,16 @@
         </div>
 
         <ul class="menu">
-            @{ 
-                //TODO: var countAll = Model.Item2.Sum(c => c.Movies.Count);
+            @{
+                var moviesList = Model.Item2.Select(g => new {Id = g.Movies.Select(m => m.Id)}).ToList();
+                var all = new List<int>();
+                foreach (var ml in moviesList)
+                {
+                    all.AddRange(ml.Id);
+                }
+                var count = all.Distinct().Count();
             }
-            <li class="active"><a href="@Url.Action("Index", "Movie")">All<span>TODO:</span></a></li>
+            <li class="active"><a href="@Url.Action("Index", "Movie")">All<span>@count</span></a></li>
             @foreach (var category in Model.Item2)
             {
                 <li><a href="@Url.Action("CategoryIndex", "Movie", new {genreName = category.Name})">@category.Name<span>@category.Movies.Count</span></a></li>
