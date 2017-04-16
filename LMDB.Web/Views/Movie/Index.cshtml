@@ -51,7 +51,21 @@
                     <!-- ITEMS -->
                     <div class="item">
                         <div class="director">by: <span class="director-name">@item.DirectorName</span></div>
-                        <span class="rating-static rating-@item.Rating"></span>
+                        @{
+                            var rating = item.Rating;
+                            if (rating < 0.5){rating = 0;}
+                            else if (rating < 2) { rating = 5; }
+                            else if(rating < 3) {rating = 10;}
+                            else if (rating < 4) { rating = 15; }
+                            else if (rating < 4) { rating = 20; }
+                            else if (rating < 6) { rating = 25; }
+                            else if (rating < 7) { rating = 30; }
+                            else if (rating < 8) { rating = 35; }
+                            else if (rating < 9) { rating = 40; }
+                            else if (rating < 10) { rating = 45; }
+                            else { rating = 50; }
+                        }
+                        <span class="rating-static rating-@rating"></span>
                         <div class="description">
                             <h2>@item.Title</h2>
                             <p>
