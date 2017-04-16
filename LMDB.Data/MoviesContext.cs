@@ -11,8 +11,8 @@
         public MoviesContext()
             : base("MoviesContext", throwIfV1Schema: false)
         {
-            //Database.SetInitializer(new DropCreateDatabaseAlways<MoviesContext>());
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<MoviesContext, Configuration>());
+            Database.SetInitializer(new DropCreateDatabaseAlways<MoviesContext>());
+            //Database.SetInitializer(new MigrateDatabaseToLatestVersion<MoviesContext, Configuration>());
         }
 
         public virtual IDbSet<Movie> Movies { get; set; }

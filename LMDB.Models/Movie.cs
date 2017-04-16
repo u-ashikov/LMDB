@@ -2,13 +2,18 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
 
     public class Movie
     {
         public int Id { get; set; }
 
+        [Required]
+        [Index("MovieTitleIndex",IsUnique = true)]
         public string Title { get; set; }
 
+        [Required]
         public DateTime DateReleased { get; set; }
 
         public int DirectorId  { get; set; }

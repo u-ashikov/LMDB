@@ -135,16 +135,22 @@
                     }
                 }
 
-                db.Movies.Add(movie);
-                db.SaveChanges();
-
-
+                try
+                {
+                    db.Movies.Add(movie);
+                    db.SaveChanges();
+                }
+                catch (Exception e)
+                {
+                    ModelState.AddModelError("CreateMovieError", e.Message);
+                    return View(model);
+                }
+                
                 return RedirectToAction("Index");
             }
 
             //ViewBag.DirectorId = new SelectList(db.Directors, "Id", "FirstName", movie.DirectorId);
             //ViewBag.Id = new SelectList(db.Reviews, "ReviewedMovieId", "Content", movie.Id);
-            return View(model);
         }
 
         // GET: Movie/Edit/5

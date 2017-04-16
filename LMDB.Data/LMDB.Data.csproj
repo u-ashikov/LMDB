@@ -86,6 +86,10 @@
     <Compile Include="Migrations\201704151839147_AddMoviePosterField.Designer.cs">
       <DependentUpon>201704151839147_AddMoviePosterField.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201704161241345_AddMovieTitleIndex.cs" />
+    <Compile Include="Migrations\201704161241345_AddMovieTitleIndex.Designer.cs">
+      <DependentUpon>201704161241345_AddMovieTitleIndex.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MoviesContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -134,6 +138,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201704151839147_AddMoviePosterField.resx">
       <DependentUpon>201704151839147_AddMoviePosterField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704161241345_AddMovieTitleIndex.resx">
+      <DependentUpon>201704161241345_AddMovieTitleIndex.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
