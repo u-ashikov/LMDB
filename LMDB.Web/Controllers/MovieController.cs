@@ -63,6 +63,8 @@
         }
 
         // GET: Movie/Create
+
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View();
@@ -72,6 +74,7 @@
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public ActionResult Create(MovieCreateViewModel model)
         {
@@ -83,6 +86,16 @@
                     DateReleased = model.DateReleased,
                     Poster = GetBytesFromFile(model.MoviePoster)
                 };
+
+                var reviewAuthor = db.Users.FirstOrDefault(u => u.UserName == User.Identity.Name);
+                movie.Review =  new Review()
+                {
+                    Content = model.Review,
+                    DatePublished = DateTime.Now,
+                    AuthorId = reviewAuthor.Id
+                };
+
+                var author = User.Identity.Name;
 
                 var director = GetDirectorByName(db, model.Director);
 
@@ -155,6 +168,8 @@
         }
 
         // GET: Movie/Edit/5
+
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -178,6 +193,7 @@
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(MovieEditViewModel editedMovie)
         {
@@ -288,6 +304,8 @@
                     }
                 }
 
+                movie.Review.Content = editedMovie.Review;
+
                 db.Entry(movie).State = EntityState.Modified;
                 db.SaveChanges();
 
@@ -300,6 +318,8 @@
         }
 
         // GET: Movie/Delete/5
+
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -316,6 +336,7 @@
 
         // POST: Movie/Delete/5
         [HttpPost, ActionName("Delete")]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
@@ -324,6 +345,11 @@
             movie.Actors.Clear();
             movie.Genres.Clear();
 
+            if (movie.Review !=null)
+            {
+                db.Reviews.Remove(movie.Review);
+            }
+            
             db.Movies.Remove(movie);
             db.SaveChanges();
             return RedirectToAction("Index");

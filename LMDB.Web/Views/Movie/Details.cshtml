@@ -15,7 +15,7 @@
         <div class="movie-castcrew"><span class="title">Director</span><span class="name">@movie.Director</span></div>
         <div class="movie-castcrew"><span class="title">Cast</span><span class="name">@String.Join(", ",movie.Actors)</span></div>
         <div class="movie-castcrew"><span class="title">Awards</span><span class="name">@(movie.Awards.Count == 0 ? "(no awards)" : String.Join(", ", movie.Awards))</span></div>
-        <div class="movie-synopsis">Movie review comes here</div>
+        <div class="movie-synopsis">@movie.Review</div>
     </div>
 </div>
 <p>

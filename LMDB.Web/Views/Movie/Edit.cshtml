@@ -49,7 +49,7 @@
                             @Html.LabelFor(model => model.Actors, "Actors", htmlAttributes: new { @class = "control-label col-md-2" })
                             <div class="form-group">
                                 <div class="col-md-10">
-                                    @Html.EditorFor(model => model.Actors, new { htmlAttributes = new { @class = "form-control" } })
+                                   @Html.TextAreaFor(m => m.Actors, new { htmlAttributes = new { @class = "form-control", placeholder = "Actors" } })
                                     @Html.ValidationMessageFor(model => model.Actors, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -57,8 +57,16 @@
                             @Html.LabelFor(model => model.Genres, "Genres", htmlAttributes: new { @class = "control-label col-md-2" })
                             <div class="form-group">
                                 <div class="col-md-10">
-                                    @Html.EditorFor(model => model.Genres, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.TextAreaFor(m => m.Genres, new { htmlAttributes = new { @class = "form-control", placeholder = "Genres" } })
                                     @Html.ValidationMessageFor(model => model.Genres, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            @Html.LabelFor(m => m.Review)
+                            <div class="form-group">
+                                <div class="col-md-10">
+                                    @Html.TextAreaFor(m => m.Review, new { htmlAttributes = new { @class = "form-control", placeholder = "Review" } })
+                                    @Html.ValidationMessageFor(model => model.Review, "", new { @class = "text-danger" })
                                 </div>
                             </div>
 

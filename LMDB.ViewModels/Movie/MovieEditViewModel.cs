@@ -23,6 +23,9 @@
         [Required]
         public string Actors { get; set; }
 
+        [Required]
+        public string Review { get; set; }
+
         public HttpPostedFileBase MoviePoster { get; set; }
 
         public byte[] Poster { get; set; }

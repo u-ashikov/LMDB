@@ -30,14 +30,13 @@ namespace LMDB.Web
                 var roleCreated = roleManager.Create(new IdentityRole("Admin"));
                 if (roleCreated.Succeeded)
                 {
-                    var user = userManager.Users.FirstOrDefault(u => u.UserName == "gergan");
+                    var user = userManager.Users.FirstOrDefault(u => u.UserName == "admin");
                     if (user!=null)
                     {
-                        userManager.AddToRole(user.Id, "Admin");
+                        userManager.AddToRole(user.Id,"Admin");
                     } 
                 }
-            }
-            
+            }          
         }
     }
 }
