@@ -49,7 +49,9 @@
                 .ForMember(d => d.Review, mo => mo.MapFrom(src => src.Review.Content))
                 .ForMember(d => d.Actors, mo => mo.MapFrom(src => src.Actors.Select(a => $"{a.FirstName} {a.LastName}").ToList()))
                 .ForMember(d => d.Genres, mo => mo.MapFrom(src => src.Genres.Select(g => g.Name).ToList()))
-                .ForMember(d => d.Awards, mo => mo.MapFrom(src => src.Awards.Select(a => a.Category.Name).ToList()));
+                .ForMember(d => d.Awards, mo => mo.MapFrom(src => src.Awards.Select(a => a.Category.Name).ToList()))
+                .ForMember(dest => dest.Poster,
+                        mo => mo.MapFrom(src => $"../../Posters/{src.Title.Replace(" ", string.Empty).Replace(":", string.Empty)}.jpg"));
 
                 cfg.CreateMap<Movie, MovieEditViewModel>()
                 .ForMember(d=>d.Director,mo=>mo.MapFrom(src=>src.Director.FirstName+" "+src.Director.LastName))
