@@ -1,0 +1,45 @@
+﻿#like,#dislike,#favourite  {
+	display: block;
+	margin: 40px auto 0px;
+    text-align: center;
+    border-radius: 3px;
+    padding: 10px 7px;
+    font-size: 18px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    color: #ffffff;
+    text-decoration: none;
+    -webkit-transition: 0.3s ease;
+    transition: 0.3s ease;
+    float:left;
+    width:100px;
+    height:40px;
+}
+
+#like {
+    background: #000000;
+    box-shadow: 0 10px 20px -8px rgb(98, 96, 96);
+}
+
+#dislike {
+     background: #000000;
+     box-shadow: 0 10px 20px -8px rgb(95, 79, 83);
+      margin-left:10px;
+}
+
+#favourite {
+    background: #000000;
+    box-shadow: 0 10px 20px -8px rgb(98, 96, 96);
+    margin-left:10px;
+}
+
+.like-content .btn-secondary:hover {
+	  transform: translateY(-3px);
+}
+.animate-like {
+	animation-name: likeAnimation;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+	animation-duration: 0.65s;
+}

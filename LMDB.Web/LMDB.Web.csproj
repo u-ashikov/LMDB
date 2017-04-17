@@ -260,6 +260,7 @@
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Styles\ButtonMoviePreference.css" />
     <Content Include="Styles\CreateMovieForm.css" />
     <Content Include="Styles\EditMovie.css" />
     <Content Include="Styles\LoginForm.css" />

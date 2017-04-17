@@ -21,5 +21,11 @@
         public ICollection<string> Genres { get; set; }
 
         public ICollection<string> Awards { get; set; }
+
+        public ICollection<string> Likes { get; set; }
+
+        public ICollection<string> Dislikes { get; set; }
+
+        public ICollection<string> Fans { get; set; }
     }
 }

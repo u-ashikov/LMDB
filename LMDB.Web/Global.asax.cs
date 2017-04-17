@@ -52,6 +52,9 @@
                 .ForMember(d => d.Actors, mo => mo.MapFrom(src => src.Actors.Select(a => $"{a.FirstName} {a.LastName}").ToList()))
                 .ForMember(d => d.Genres, mo => mo.MapFrom(src => src.Genres.Select(g => g.Name).ToList()))
                 .ForMember(d => d.Awards, mo => mo.MapFrom(src => src.Awards.Select(a => a.Category.Name).ToList()))
+                .ForMember(d=>d.Likes, mo=>mo.MapFrom(src=>src.Likes.Select(l=>l.Id).ToList()))
+                .ForMember(d => d.Dislikes, mo => mo.MapFrom(src => src.Dislikes.Select(l => l.Id).ToList()))
+                .ForMember(d => d.Fans, mo => mo.MapFrom(src => src.MovieFans.Select(l => l.Id).ToList()))
                 .ForMember(dest => dest.Poster,
                         mo => mo.MapFrom(src => $"../../Posters/{src.Title.Replace(" ", string.Empty).Replace(":", string.Empty)}.jpg"));
 

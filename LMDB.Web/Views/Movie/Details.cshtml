@@ -1,4 +1,6 @@
 ﻿@model LMDB.ViewModels.Movie.MovieDetailsViewModel
+@Styles.Render("~/Styles/ButtonMoviePreference.css")
+@using Microsoft.AspNet.Identity;
 
 @{
     ViewBag.Title = "Details";
@@ -16,7 +18,30 @@
         <div class="movie-castcrew"><span class="title">Cast</span><span class="name">@String.Join(", ",movie.Actors)</span></div>
         <div class="movie-castcrew"><span class="title">Awards</span><span class="name">@(movie.Awards.Count == 0 ? "(no awards)" : String.Join(", ", movie.Awards))</span></div>
         <div class="movie-synopsis">@movie.Review</div>
-    </div>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <div class="like-content">
+                <form method="post" action="/Movie/Evaluate">
+                    @Html.HiddenFor(model => model.Id)
+
+                    @if (!movie.Likes.Contains(User.Identity.GetUserId()))
+                    {
+                        <button id="like" name="status" value="Like" class="btn btn-secondary like-review" href="/Movie/Evaluate">Like</button>
+                    }
+
+                    @if (!movie.Dislikes.Contains(User.Identity.GetUserId()))
+                    {
+                    <button id="dislike" name="status" value="Dislike" class="btn btn-secondary dislike-review" href="/Movie/Evaluate">Dislike</button>
+                    }
+
+                    @if (!movie.Fans.Contains(User.Identity.GetUserId()))
+                    {
+                    <button id="favourite" name="status" value="Favourite" class="btn btn-secondary favourite-review" href="/Movie/Evaluate">Favourite</button>
+                    }
+                </form>
+                </div>
+        }
+        </div>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |

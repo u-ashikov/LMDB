@@ -355,6 +355,44 @@
             return RedirectToAction("Index");
         }
 
+        [HttpPost]
+        [Authorize]
+        public ActionResult Evaluate(int id,string status)
+        {
+            var movieId = id;
+
+            var movie = db.Movies.Find(id);
+
+            if (movie == null)
+            {
+                return this.RedirectToAction(
+                "Details",
+                new
+                {
+                    id = id
+                });
+            }
+
+            var user = db.Users.FirstOrDefault(u => u.UserName == User.Identity.Name);
+
+            if (status == "Like")
+            {
+                movie.Likes.Add(user);
+            }
+            else if (status == "Dislike")
+            {
+                movie.Dislikes.Add(user);
+            }
+            else if (status == "Favourite")
+            {
+                movie.MovieFans.Add(user);
+            }
+
+            db.SaveChanges();
+
+            return RedirectToAction("Index", "Movie");
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
