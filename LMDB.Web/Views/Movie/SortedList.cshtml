@@ -1,8 +1,9 @@
-﻿@model Tuple<List<LMDB.ViewModels.Movie.MovieIndexViewModel>, List<LMDB.Models.Genre>>
+﻿@using System.Globalization
+@model Tuple<List<LMDB.ViewModels.Movie.MovieIndexViewModel>, List<LMDB.Models.Genre>>
 @Styles.Render("~/Styles/MoviesIndex.css")
 @Scripts.Render("~/Scripts/movies.js")
 @{
-    ViewBag.Title = "CategoryIndex";
+    ViewBag.Title = "SortedList";
 }
 
 <div class="wrapper">
@@ -22,10 +23,10 @@
         </div>
         <ul class="menu-2">
             <li class="active"><a href="#">Relevance</a></li>
-            <li><a href="#">Year</a></li>
-            <li><a href="#">Latest</a></li>
-            <li><a href="#">Comments</a></li>
-            <li><a href="#">Rating</a></li>
+            <li><a href="@Url.Action("SortedList", "Movie", new {sortType = "Year"})">Year</a></li>
+            <li><a href="@Url.Action("SortedList", "Movie", new {sortType = "Latest"})">Latest</a></li>
+            <li><a href="@Url.Action("SortedList", "Movie", new {sortType = "Top"})">Comments</a></li>
+            <li><a href="@Url.Action("SortedList", "Movie", new {sortType = "Rating"})">Rating</a></li>
         </ul>
 
         <div class="seperator">
@@ -55,5 +56,3 @@
 </div>
 
 <div class="row"></div>
-
-

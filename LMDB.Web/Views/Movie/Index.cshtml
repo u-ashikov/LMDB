@@ -23,11 +23,11 @@
             <div class="title">Sort</div>
         </div>
         <ul class="menu-2">
-            <li class="active"><a href="#">All</a></li>
-            <li><a href="#">Year</a></li>
-            <li><a href="#">Latest</a></li>
-            <li><a href="#">Top</a></li>
-            <li><a href="#">Rating</a></li>
+            <li class="active"><a href="#">Relevance</a></li>
+            <li><a href="@Url.Action("SortedList", "Movie", new {sortType = "Year"})">Year</a></li>
+            <li><a href="@Url.Action("SortedList", "Movie", new {sortType = "Latest"})">Latest</a></li>
+            <li><a href="@Url.Action("SortedList", "Movie", new {sortType = "Top"})">Comments</a></li>
+            <li><a href="@Url.Action("SortedList", "Movie", new {sortType = "Rating"})">Rating</a></li>
         </ul>
 
         <div class="seperator">
@@ -35,7 +35,7 @@
         </div>
 
         <ul class="menu">
-            <li class="active"><a href="#">All<span>@Model.Item1.Count</span></a></li>
+            <li class="active"><a href="@Url.Action("Index", "Movie")">All<span>@Model.Item1.Count</span></a></li>
             @foreach (var category in Model.Item2)
             {
                 <li><a href="@Url.Action("CategoryIndex", "Movie", new {genreName = category.Name})">@category.Name<span>@category.Movies.Count</span></a></li>
@@ -43,7 +43,7 @@
         </ul>
     </div>
 
-    <!-- MAIN -->    
+    <!-- MAIN -->
     @Html.Partial("_MoviesListPartial", Model)
 </div>
 

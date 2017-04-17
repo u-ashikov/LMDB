@@ -1,8 +1,9 @@
-﻿@model Tuple<List<LMDB.ViewModels.Movie.MovieIndexViewModel>, List<LMDB.Models.Genre>>
+﻿@using System.Globalization
+@model Tuple<List<LMDB.ViewModels.Movie.MovieIndexViewModel>, List<LMDB.Models.Genre>>
 @Styles.Render("~/Styles/MoviesIndex.css")
 @Scripts.Render("~/Scripts/movies.js")
 @{
-    ViewBag.Title = "CategoryIndex";
+    ViewBag.Title = "SortedListInCategory";
 }
 
 <div class="wrapper">
@@ -21,8 +22,8 @@
             <div class="title">Sort</div>
         </div>
         <ul class="menu-2">
-            <li class="active"><a href="#">Relevance</a></li>
-            <li><a href="#">Year</a></li>
+            <li class="active"><a href="#">All</a></li>
+            <li><a href="@Url.Action("SortedListInCategory", "Movie", new {sortType = "Year", genre=Session["Genre"].ToString()})">Year</a></li>
             <li><a href="#">Latest</a></li>
             <li><a href="#">Comments</a></li>
             <li><a href="#">Rating</a></li>
@@ -55,5 +56,3 @@
 </div>
 
 <div class="row"></div>
-
-

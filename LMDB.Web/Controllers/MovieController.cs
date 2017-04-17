@@ -29,8 +29,53 @@
 
         public ActionResult CategoryIndex(string genreName)
         {
+            Session["Genre"] = genreName;
             var movies = db.Movies.Include(m => m.Director).Include(m => m.Genres)
                 .Where(m => m.Genres.Any(g => g.Name == genreName)).ToList();
+            var moviesViewModels = Mapper.Map<List<MovieIndexViewModel>>(movies);
+            var genres = db.Genres.ToList();
+            var model = Tuple.Create(moviesViewModels, genres);
+            return View(model);
+        }
+
+        public ActionResult SortedList(string sortType)
+        {
+            IEnumerable<Movie> movies = db.Movies.Include(m => m.Director).Include(m => m.Genres);
+            switch (sortType)
+            {
+                case "Year":
+                    movies = movies.OrderBy(m => m.DateReleased).ToList();
+                    break;
+                case "Latest":
+                    movies = movies.OrderByDescending(m => m.DateReleased).ToList();
+                    break;
+                case "Top":
+                    movies = movies.OrderBy(m => m.Comments.Count).ToList();
+                    break;
+                case "Rating":
+                    movies = movies
+                        .OrderByDescending(m => (m.Likes.Count - m.Dislikes.Count)/(m.Likes.Count + m.Dislikes.Count + 1))
+                        .ToList();
+                    break;
+            }
+            
+            var moviesViewModels = Mapper.Map<List<MovieIndexViewModel>>(movies);
+            var genres = db.Genres.ToList();
+            var model = Tuple.Create(moviesViewModels, genres);
+            return View(model);
+        }
+
+        public ActionResult SortedListInCategory(string sortType, string genre)
+        {
+            IEnumerable<Movie> movies = db.Movies.Include(m => m.Director).Include(m => m.Genres)
+                .Where(m => m.Genres.Any(g => g.Name == genre));
+            switch (sortType)
+            {
+                case "Year":
+                    movies = movies.OrderBy(m => m.DateReleased).ToList();
+                    break;
+            }
+
             var moviesViewModels = Mapper.Map<List<MovieIndexViewModel>>(movies);
             var genres = db.Genres.ToList();
             var model = Tuple.Create(moviesViewModels, genres);
