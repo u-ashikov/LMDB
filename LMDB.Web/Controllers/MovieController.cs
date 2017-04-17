@@ -37,6 +37,40 @@
             return View(model);
         }
 
+        public ActionResult UserMovies(string userId)
+        {
+            if (userId == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var userMovies = db.Users.Find(userId).FavouriteMovies.ToList();
+            var userMoviesView = Mapper.Map<List<MovieIndexViewModel>>(userMovies);
+
+            return View(userMoviesView);
+        }
+
+        public ActionResult RemoveMovieFromUserList(string userId,int movieId)
+        {
+            if (userId == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var movieToRemove = db.Movies.Find(movieId);
+
+            if (movieToRemove == null)
+            {
+                return HttpNotFound();
+            }
+
+            var user = db.Users.Find(userId).FavouriteMovies.Remove(movieToRemove);
+
+            db.SaveChanges();
+
+            return View("UserMovies");
+        }
+
         // GET: Movie/Details/5
         public ActionResult Details(int? id)
         {
