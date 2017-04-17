@@ -77,7 +77,7 @@
                         </p>
                         <div class="director">by: <span class="director-name">@item.DirectorName</span></div>
                         @{
-                            var rating = item.Rating;
+                            double rating = ((double)item.Likes - item.Dislikes) / ((double)item.Likes + item.Dislikes + 1) * 10;
                             if (rating < 0.5)
                             {
                                 rating = 0;
