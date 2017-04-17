@@ -1,0 +1,94 @@
+﻿@using System.Globalization
+@model List<LMDB.ViewModels.Movie.MovieIndexViewModel>
+@using Microsoft.AspNet.Identity;
+@Styles.Render("~/Styles/MoviesIndex.css")
+
+
+<div class="wrapper">
+    <!-- MAIN -->
+    <div class="main">
+        <div class="content">
+            <div class="gallery">
+                @foreach (var item in Model)
+                {
+                    <!-- ITEMS -->
+                    <div class="item">
+                        <div class="index-poster">
+                            <img src="@item.Poster" alt="@item.Title poster" height="240" width="170" />
+                        </div>
+                        <div class="description">
+                            <h2>@item.Title</h2>
+                            <p>
+                                @{
+                                    var date = item.DateReleased.ToString("Y");}
+                                @date
+                            </p>
+                            <p>
+                               @String.Join(", ",item.Genres)
+                            </p>
+                        </div>
+                        <p class="actions" style="text-align:center">
+                            @Html.ActionLink("Remove", "RemoveMovieFromUserList", new { movieId = item.Id,userId = User.Identity.GetUserId() }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.Id })
+                        </p>
+                        <div class="director">by: <span class="director-name">@item.DirectorName</span></div>
+                        @{
+                            double rating = ((double)item.Likes - item.Dislikes) / ((double)item.Likes + item.Dislikes + 1) * 10;
+                            if (rating < 0.5)
+                            {
+                                rating = 0;
+                            }
+                            else if (rating < 2)
+                            {
+                                rating = 5;
+                            }
+                            else if (rating < 3)
+                            {
+                                rating = 10;
+                            }
+                            else if (rating < 4)
+                            {
+                                rating = 15;
+                            }
+                            else if (rating < 4)
+                            {
+                                rating = 20;
+                            }
+                            else if (rating < 6)
+                            {
+                                rating = 25;
+                            }
+                            else if (rating < 7)
+                            {
+                                rating = 30;
+                            }
+                            else if (rating < 8)
+                            {
+                                rating = 35;
+                            }
+                            else if (rating < 9)
+                            {
+                                rating = 40;
+                            }
+                            else if (rating < 10)
+                            {
+                                rating = 45;
+                            }
+                            else
+                            {
+                                rating = 50;
+                            }
+                        }
+                        <span class="rating-static rating-@rating"></span>
+                    </div>
+                            }
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row"></div>
+
+
+
+

@@ -28,15 +28,19 @@
                     {
                         <button id="dislike" name="status" value="Dislike" class="btn btn-secondary dislike-review" href="/Movie/Evaluate">Dislike</button>
                     }
-
-                    @if (movie.Dislikes.Contains(User.Identity.GetUserId()))
+                    else if (movie.Dislikes.Contains(User.Identity.GetUserId()))
                     {
                         <button id="like" name="status" value="Like" class="btn btn-secondary like-review" href="/Movie/Evaluate">Like</button>
+                    }
+                    else
+                    {
+                        <button id="like" name="status" value="Like" class="btn btn-secondary like-review" href="/Movie/Evaluate">Like</button>
+                        <button id="dislike" name="status" value="Dislike" class="btn btn-secondary dislike-review" href="/Movie/Evaluate">Dislike</button>
                     }
 
                     @if (!movie.Fans.Contains(User.Identity.GetUserId()))
                     {
-                    <button id="favourite" name="status" value="Favourite" class="btn btn-secondary favourite-review" href="/Movie/Evaluate">Favourite</button>
+                        <button id="favourite" name="status" value="Favourite" class="btn btn-secondary favourite-review" href="/Movie/Evaluate">Favourite</button>
                     }
                 </form>
                 </div>
