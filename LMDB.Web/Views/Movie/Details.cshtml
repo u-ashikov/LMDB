@@ -24,14 +24,14 @@
                 <form method="post" action="/Movie/Evaluate">
                     @Html.HiddenFor(model => model.Id)
 
-                    @if (!movie.Likes.Contains(User.Identity.GetUserId()))
+                    @if (movie.Likes.Contains(User.Identity.GetUserId()))
                     {
-                        <button id="like" name="status" value="Like" class="btn btn-secondary like-review" href="/Movie/Evaluate">Like</button>
+                        <button id="dislike" name="status" value="Dislike" class="btn btn-secondary dislike-review" href="/Movie/Evaluate">Dislike</button>
                     }
 
-                    @if (!movie.Dislikes.Contains(User.Identity.GetUserId()))
+                    @if (movie.Dislikes.Contains(User.Identity.GetUserId()))
                     {
-                    <button id="dislike" name="status" value="Dislike" class="btn btn-secondary dislike-review" href="/Movie/Evaluate">Dislike</button>
+                        <button id="like" name="status" value="Like" class="btn btn-secondary like-review" href="/Movie/Evaluate">Like</button>
                     }
 
                     @if (!movie.Fans.Contains(User.Identity.GetUserId()))

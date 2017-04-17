@@ -377,10 +377,18 @@
 
             if (status == "Like")
             {
+                if (movie.Dislikes.Select(d=>d.Id).Contains(user.Id))
+                {
+                    movie.Dislikes.Remove(user);
+                }
                 movie.Likes.Add(user);
             }
             else if (status == "Dislike")
             {
+                if (movie.Likes.Select(d => d.Id).Contains(user.Id))
+                {
+                    movie.Likes.Remove(user);
+                }
                 movie.Dislikes.Add(user);
             }
             else if (status == "Favourite")
