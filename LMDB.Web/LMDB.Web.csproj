@@ -312,6 +312,7 @@
     <Content Include="Views\Movie\_MoviesListPartial.cshtml" />
     <Content Include="Views\Movie\SortedList.cshtml" />
     <Content Include="Views\Movie\SortedListInCategory.cshtml" />
+    <Content Include="Views\Movie\UserMovies.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LMDB.Data\LMDB.Data.csproj">
