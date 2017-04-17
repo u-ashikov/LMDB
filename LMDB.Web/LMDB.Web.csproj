@@ -310,11 +310,8 @@
     <Content Include="Views\Movie\Edit.cshtml" />
     <Content Include="Views\Movie\Index.cshtml" />
     <Content Include="Views\Movie\CategoryIndex.cshtml" />
-<<<<<<< HEAD
     <Content Include="Views\Movie\UserMovies.cshtml" />
-=======
     <Content Include="Views\Movie\MoviesList.cshtml" />
->>>>>>> origin/master
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LMDB.Data\LMDB.Data.csproj">
