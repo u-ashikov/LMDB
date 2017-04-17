@@ -100,6 +100,7 @@
     <Compile Include="Seeders\DirectorsSeeder.cs" />
     <Compile Include="Seeders\AwardCategoriesSeeder.cs" />
     <Compile Include="Seeders\MoviesSeeder.cs" />
+    <Compile Include="Seeders\UsersSeeder.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -109,6 +110,7 @@
     <None Include="Datasets\directors.csv" />
     <None Include="Datasets\countries.csv" />
     <None Include="Datasets\movies.csv" />
+    <None Include="Datasets\users.csv" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

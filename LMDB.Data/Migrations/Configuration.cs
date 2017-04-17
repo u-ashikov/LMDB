@@ -12,14 +12,15 @@ namespace LMDB.Data.Migrations
         }
 
         protected override void Seed(MoviesContext context)
-        {
-            //CountriesSeeder.Seed(context);
-            //AwardsSeeder.Seed(context);
-            //CategoriesSeeder.Seed(context);
-            //AwardCategoriesSeeder.Seed(context);
-            //DirectorsSeeder.Seed(context);
-            //ActorsSeeder.Seed(context);
-            //MoviesSeeder.Seed(context);
+        { 
+            CountriesSeeder.Seed(context);            
+            AwardsSeeder.Seed(context);
+            CategoriesSeeder.Seed(context);
+            AwardCategoriesSeeder.Seed(context);
+            DirectorsSeeder.Seed(context);
+            ActorsSeeder.Seed(context);
+            MoviesSeeder.Seed(context);
+            UsersSeeder.Seed(context);
         }
     }
 }

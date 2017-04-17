@@ -37,11 +37,13 @@
                     .ForMember(dest => dest.Actors,
                         mo => mo.MapFrom(src => src.Actors.Select(a => a.FirstName + " " + a.LastName).ToList()))
                     .ForMember(dest => dest.Genres,
-                        mo => mo.MapFrom(src => src.Genres.Select(g => g.Name).ToList()))
-                    .ForMember(dest => dest.Rating, 
-                        mo => mo.MapFrom(src => (src.Likes.Count - src.Dislikes.Count)/(src.Likes.Count + src.Dislikes.Count + 1) * 10))
+                        mo => mo.MapFrom(src => src.Genres.Select(g => g.Name).ToList()))                   
                     .ForMember(dest => dest.Poster,
-                        mo => mo.MapFrom(src => $"../../Posters/{src.Title.Replace(" ", string.Empty).Replace(":", string.Empty)}.jpg"));
+                        mo => mo.MapFrom(src => $"../../Posters/{src.Title.Replace(" ", string.Empty).Replace(":", string.Empty)}.jpg"))
+                    .ForMember(dest => dest.Likes,
+                        mo => mo.MapFrom(src => src.Likes.Count))
+                    .ForMember(dest => dest.Dislikes,
+                        mo => mo.MapFrom(src => src.Dislikes.Count));
 
                 cfg.CreateMap<Movie, MovieDetailsViewModel>()
                 .ForMember(dest => dest.Year, mo => mo.MapFrom(src => src.DateReleased.Year))

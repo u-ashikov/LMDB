@@ -12,7 +12,9 @@
 
         public DateTime DateReleased { get; set; }
 
-        public double Rating { get; set; }
+        public int Likes { get; set; }
+
+        public int Dislikes { get; set; }
 
         public string Poster { get; set; }
 
