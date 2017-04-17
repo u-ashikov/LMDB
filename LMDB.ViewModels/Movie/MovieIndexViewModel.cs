@@ -14,6 +14,8 @@
 
         public double Rating { get; set; }
 
+        public string Poster { get; set; }
+
         public List<string> Genres { get; set; } = new List<string>();
 
         public List<string> Actors { get; set; } = new List<string>();

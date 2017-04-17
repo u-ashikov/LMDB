@@ -222,6 +222,7 @@
   <ItemGroup>
     <Content Include="Backgrounds\CreateMovieBackground.jpg" />
     <Content Include="Backgrounds\LoginBackground.jpg" />
+    <Content Include="Backgrounds\MoviesIndexBacground.jpg" />
     <Content Include="Backgrounds\RegisterBackground.jpg" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -326,7 +327,9 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Posters\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
