@@ -18,10 +18,23 @@
                             @date
                         </p>
                         <div class="likes-counter">
-                            <a class="likes glyphicon glyphicon-thumbs-up" href="@Url.Action("Evaluate", "Movie", new {id = item.Id, status = "Like"})"></a>
-                            <span class="likes">@item.Likes</span>
-                            <a class="dislikes glyphicon glyphicon-thumbs-down" href="@Url.Action("Evaluate", "Movie", new {id = item.Id, status = "Dislike"})"></a>         
-                            <span class="dislikes">@item.Dislikes</span>
+                            @{
+                                if (User.Identity.IsAuthenticated)
+                                {
+                                    <a class="likes glyphicon glyphicon-thumbs-up" href="@Url.Action("Evaluate", "Movie", new {id = item.Id, status = "Like"})"></a>
+                                    <span class="likes">@item.Likes</span>
+                                    <a class="dislikes glyphicon glyphicon-thumbs-down" href="@Url.Action("Evaluate", "Movie", new {id = item.Id, status = "Dislike"})"></a>
+                                    <span class="dislikes">@item.Dislikes</span>
+                                }
+                                else
+                                {
+                                    <span class="likes glyphicon glyphicon-thumbs-up"></span>
+                                    <span class="likes">@item.Likes</span>
+                                    <span class="dislikes glyphicon glyphicon-thumbs-down"></span>
+                                    <span class="dislikes">@item.Dislikes</span>
+                                }
+                            }
+                       
                         </div>
                     </div>
                     <p class="actions">

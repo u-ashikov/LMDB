@@ -409,7 +409,6 @@
             return RedirectToAction("Index");
         }
 
-        [HttpPost]
         [Authorize]
         public ActionResult Evaluate(int id,string status)
         {
