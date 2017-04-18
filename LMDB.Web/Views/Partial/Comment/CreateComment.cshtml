@@ -1,0 +1,26 @@
+﻿@model LMDB.ViewModels.Comment.CommentCreateViewModel
+@Styles.Render("~/Styles/CommentForm.css")
+
+@using (Html.BeginForm("CreateComment", "Movie", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="col-md-10 comment-box">
+        @Html.HiddenFor(model => model.CommentedMovieId)
+        <div class="form-group">
+            @Html.TextAreaFor(model => model.Content, 3, 40, htmlAttributes: new { @class= "form-control",style = "width: 100%; max-width: 100%;",placeholder="Add comment..." })
+            @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
+        </div>
+        <br />
+        <div class="form-group">
+            <div class="col-md-10">
+                <input type="submit" value="Submit" class="btn bt" />
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

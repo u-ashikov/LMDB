@@ -12,6 +12,8 @@
     using System.Web;
     using System;
     using System.Linq;
+    using Microsoft.AspNet.Identity;
+    using ViewModels.Comment;
 
     public class MovieController : Controller
     {
@@ -111,6 +113,20 @@
             db.SaveChanges();
 
             return RedirectToAction("UserMovies",new { userId = user.Id});
+        }
+
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateComment(CommentCreateViewModel commentViewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var comment = Mapper.Map<Comment>(commentViewModel);
+
+                var user = User.Identity.GetUserId();
+                var movie = db.Movies.Find(comment.CommentedMovieId);
+            }
+
+            return RedirectToAction("Details", new { id = commentViewModel.CommentedMovieId });
         }
 
         // GET: Movie/Details/5

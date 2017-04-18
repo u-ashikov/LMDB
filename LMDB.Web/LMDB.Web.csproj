@@ -261,6 +261,7 @@
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Styles\CommentForm.css" />
     <Content Include="Styles\CreateMovieForm.css" />
     <Content Include="Styles\EditMovie.css" />
     <Content Include="Styles\EmptyMoviesList.css" />
@@ -314,6 +315,7 @@
     <Content Include="Views\Movie\SortedList.cshtml" />
     <Content Include="Views\Movie\SortedListInCategory.cshtml" />
     <Content Include="Views\Movie\UserMovies.cshtml" />
+    <Content Include="Views\Partial\Comment\CreateComment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LMDB.Data\LMDB.Data.csproj">
