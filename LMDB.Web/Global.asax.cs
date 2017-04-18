@@ -65,7 +65,7 @@
                 .ForMember(d => d.Actors, mo => mo.MapFrom(src => String.Join(",", src.Actors.Select(a => $"{a.FirstName} {a.LastName}").ToList()).ToString()))
                 .ForMember(d => d.Review, mo => mo.MapFrom(src => src.Review.Content));
 
-                cfg.CreateMap<Comment, CommentCreateViewModel>();
+                cfg.CreateMap<CommentCreateViewModel, Comment>();
             });
         }
 

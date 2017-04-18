@@ -5,7 +5,7 @@
     public class CommentCreateViewModel
     {
         [Required]
-        [StringLength(1)]
+        [StringLength(1000)]
         public string Content { get; set; }
 
         public int CommentedMovieId { get; set; }

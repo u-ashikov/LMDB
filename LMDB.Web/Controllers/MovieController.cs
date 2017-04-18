@@ -139,10 +139,18 @@
         {
             if (ModelState.IsValid)
             {
-                var comment = Mapper.Map<Comment>(commentViewModel);
+                var comment = Mapper.Instance.Map<Comment>(commentViewModel);
 
-                var user = User.Identity.GetUserId();
+                var userId = User.Identity.GetUserId();
                 var movie = db.Movies.Find(comment.CommentedMovieId);
+
+                comment.AuthorId = userId;
+                comment.Date = DateTime.Now;
+
+                movie.Comments.Add(comment);
+
+                db.SaveChanges();
+                return RedirectToAction("Details", new { id = commentViewModel.CommentedMovieId });
             }
 
             return RedirectToAction("Details", new { id = commentViewModel.CommentedMovieId });

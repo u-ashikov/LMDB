@@ -10,12 +10,12 @@
 @Styles.Render("~/Styles/MovieDetails.css")
 
 <div class="moviecard">
-    <img src="@movie.Poster" class="movie-poster"/>
+    <img src="@movie.Poster" class="movie-poster" />
     <div id="movie-content">
         <div class="movie-title">@movie.Title<span class="movie-year">@movie.Year</span></div>
-        <div class="movie-details"><span class="movie-genre">@String.Join(", ",movie.Genres)</span></div>
+        <div class="movie-details"><span class="movie-genre">@String.Join(", ", movie.Genres)</span></div>
         <div class="movie-castcrew"><span class="title">Director</span><span class="name">@movie.Director</span></div>
-        <div class="movie-castcrew"><span class="title">Cast</span><span class="name">@String.Join(", ",movie.Actors)</span></div>
+        <div class="movie-castcrew"><span class="title">Cast</span><span class="name">@String.Join(", ", movie.Actors)</span></div>
         <div class="movie-castcrew"><span class="title">Awards</span><span class="name">@(movie.Awards.Count == 0 ? "(no awards)" : String.Join(", ", movie.Awards))</span></div>
         <div class="movie-synopsis">@movie.Review</div>
         @if (User.Identity.IsAuthenticated)
@@ -43,11 +43,29 @@
                         <button id="favourite" name="status" value="Favourite" class="btn btn-secondary favourite-review" href="/Movie/Evaluate">Favourite</button>
                     }
                 </form>
-                </div>
+            </div>
         }
-        </div>
+    </div>
 </div>
-
+<h3>Movie comments :</h3>
+<hr />
+<div class="comments">
+    @foreach (var comment in Model.Comments)
+    {
+        <br />
+        <span class="glyphicon glyphicon-user"> @comment.Author.UserName</span>
+        <br />
+        <span class="glyphicon glyphicon-time"> @comment.Date</span>
+        <p class="comment-content">@comment.Content</p>
+        <br />
+        <div class="admin-panel">
+            <span>@Html.ActionLink("Delete", "DeleteComment", "Comment", new { @style = "float:right" })</span>
+            <span>@Html.ActionLink("Edit", "EditComment", "Comment", new { @style = "float:right" })</span>
+        </div>
+       
+    }
+</div>
+<hr />
 <div class="col-md-12">
     <h3>Create comment:</h3>
     @Html.Partial("~/Views/Partial/Comment/CreateComment.cshtml", new LMDB.ViewModels.Comment.CommentCreateViewModel { CommentedMovieId = movie.Id })

@@ -1,6 +1,7 @@
 ﻿namespace LMDB.ViewModels.Movie
 {
     using System.Collections.Generic;
+    using LMDB.Models;
 
     public class MovieDetailsViewModel
     {
@@ -27,5 +28,7 @@
         public ICollection<string> Dislikes { get; set; }
 
         public ICollection<string> Fans { get; set; }
+
+        public ICollection<Comment> Comments { get; set; }
     }
 }
