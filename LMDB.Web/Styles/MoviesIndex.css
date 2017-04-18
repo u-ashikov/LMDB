@@ -164,7 +164,7 @@ body {
 .likes-counter {
     display: inline;
     position: absolute;
-    float: right;
+    right: 15px;
     font-size: 1.2em;
 }
 
@@ -174,10 +174,6 @@ body {
 
 .likes-counter .dislikes {
     color: #E33E2B;
-}
-
-.dislikes-counter {
-    
 }
 
 a {
