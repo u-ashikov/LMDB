@@ -45,19 +45,23 @@
             IEnumerable<Movie> movies = db.Movies.Include(m => m.Director).Include(m => m.Genres);
             switch (sortType)
             {
+                case "Relevance":
+                    movies = movies.OrderBy(m => m.Id).ToList();
+                    break;
                 case "Year":
                     movies = movies.OrderBy(m => m.DateReleased).ToList();
                     break;
                 case "Latest":
                     movies = movies.OrderByDescending(m => m.DateReleased).ToList();
                     break;
-                case "Top":
+                case "Comments":
                     movies = movies.OrderBy(m => m.Comments.Count).ToList();
                     break;
                 case "Rating":
-                    movies = movies
-                        .OrderByDescending(m => (m.Likes.Count - m.Dislikes.Count)/(m.Likes.Count + m.Dislikes.Count + 1))
-                        .ToList();
+                    movies = from m in movies
+                             orderby ((m.Likes.Count - m.Dislikes.Count)/(m.Likes.Count + m.Dislikes.Count + 0.1)*10) descending 
+                        select m;
+                    Console.WriteLine();
                     break;
             }
             
@@ -73,8 +77,23 @@
                 .Where(m => m.Genres.Any(g => g.Name == genre));
             switch (sortType)
             {
+                case "Relevance":
+                    movies = movies.OrderBy(m => m.Id).ToList();
+                    break;
                 case "Year":
                     movies = movies.OrderBy(m => m.DateReleased).ToList();
+                    break;
+                case "Latest":
+                    movies = movies.OrderByDescending(m => m.DateReleased).ToList();
+                    break;
+                case "Comments":
+                    movies = movies.OrderBy(m => m.Comments.Count).ToList();
+                    break;
+                case "Rating":
+                    movies = from m in movies
+                             orderby ((m.Likes.Count - m.Dislikes.Count) / (m.Likes.Count + m.Dislikes.Count + 0.1) * 10) descending
+                             select m;
+                    Console.WriteLine();
                     break;
             }
 

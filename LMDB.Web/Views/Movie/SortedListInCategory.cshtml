@@ -22,11 +22,11 @@
             <div class="title">Sort</div>
         </div>
         <ul class="menu-2">
-            <li class="active"><a href="#">All</a></li>
+            <li class="active"><a href="@Url.Action("SortedListInCategory", "Movie", new {sortType = "Relevance", genre=Session["Genre"].ToString()})">Relevance</a></li>
             <li><a href="@Url.Action("SortedListInCategory", "Movie", new {sortType = "Year", genre=Session["Genre"].ToString()})">Year</a></li>
-            <li><a href="#">Latest</a></li>
-            <li><a href="#">Comments</a></li>
-            <li><a href="#">Rating</a></li>
+            <li><a href="@Url.Action("SortedListInCategory", "Movie", new {sortType = "Latest", genre=Session["Genre"].ToString()})">Latest</a></li>
+            <li><a href="@Url.Action("SortedListInCategory", "Movie", new {sortType = "Comments", genre=Session["Genre"].ToString()})">Comments</a></li>
+            <li><a href="@Url.Action("SortedListInCategory", "Movie", new {sortType = "Rating", genre=Session["Genre"].ToString()})">Rating</a></li>
         </ul>
 
         <div class="seperator">
