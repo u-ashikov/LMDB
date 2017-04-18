@@ -23,7 +23,7 @@
             <div class="title">Sort</div>
         </div>
         <ul class="menu-2">
-            <li class="active"><a href="@Url.Action("SortedList", "Movie", new {sortType = "Relevance", genre=Session["Genre"].ToString()})">Relevance</a></li>
+            <li class="active"><a href="@Url.Action("SortedList", "Movie", new {sortType = "Relevance"})">Relevance</a></li>
             <li><a href="@Url.Action("SortedList", "Movie", new {sortType = "Year"})">Year</a></li>
             <li><a href="@Url.Action("SortedList", "Movie", new {sortType = "Latest"})">Latest</a></li>
             <li><a href="@Url.Action("SortedList", "Movie", new {sortType = "Top"})">Comments</a></li>
