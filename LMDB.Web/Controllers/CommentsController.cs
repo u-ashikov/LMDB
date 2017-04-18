@@ -71,20 +71,24 @@
         }
 
         // POST: Comments/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Content,AuthorId,CommentedMovieId,Date")] Comment comment)
+        public ActionResult EditComment(CommentEditViewModel comment)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(comment).State = EntityState.Modified;
+                var editedComment = db.Comments.Find(comment.Id);
+
+                editedComment.Content = comment.Content;
+                editedComment.Date = comment.Date;
+
+                db.Entry(editedComment).State = EntityState.Modified;
+
                 db.SaveChanges();
-                return RedirectToAction("Index");
+
+                return RedirectToAction("Index","Movie");
             }
-            //ViewBag.AuthorId = new SelectList(db.ApplicationUsers, "Id", "FirstName", comment.AuthorId);
-            ViewBag.CommentedMovieId = new SelectList(db.Movies, "Id", "Title", comment.CommentedMovieId);
+            
             return View(comment);
         }
 

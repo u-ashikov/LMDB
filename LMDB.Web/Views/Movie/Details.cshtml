@@ -68,7 +68,7 @@
                 if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                 {
                     <div class="admin-panel">
-                        <span>@Html.ActionLink("Delete", "DeleteComment", "Comments", new { @style = "float:right" })</span>
+                        <span>@Html.ActionLink("Delete", "DeleteComment", "Comments", new { id = comment.Id }, new { @style = "float:right" })</span>
                         <span style="float: right">&nbsp&nbsp</span>
                         <span>@Html.ActionLink("Edit", "EditComment", "Comments", new { id = comment.Id }, new { @style = "float:right" })</span>
                     </div>
