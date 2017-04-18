@@ -49,22 +49,30 @@
 </div>
 <h3>Movie comments :</h3>
 <hr />
-<div class="comments">
-    @foreach (var comment in Model.Comments)
-    {
-        <br />
-        <span class="glyphicon glyphicon-user"> @comment.Author.UserName</span>
-        <br />
-        <span class="glyphicon glyphicon-time"> @comment.Date</span>
-        <p class="comment-content">@comment.Content</p>
-        <br />
-        <div class="admin-panel">
-            <span>@Html.ActionLink("Delete", "DeleteComment", "Comment", new { @style = "float:right" })</span>
-            <span>@Html.ActionLink("Edit", "EditComment", "Comment", new { @style = "float:right" })</span>
-        </div>
-       
-    }
-</div>
+@if (Model.Comments.Count == 0)
+{
+    <p class="no-comments"><i>There are no comments !</i></p>
+}
+else
+{
+    <div class="comments">
+        @foreach (var comment in Model.Comments)
+        {
+            <br />
+            <span class="glyphicon glyphicon-user"> @comment.Author.UserName</span>
+            <br />
+            <span class="glyphicon glyphicon-time"> @comment.Date</span>
+            <p class="comment-content">@comment.Content</p>
+            <br />
+            <div class="admin-panel">
+                <span>@Html.ActionLink("Delete", "DeleteComment", "Comment", new { @style = "float:right" })</span>
+                <span style="float: right">&nbsp&nbsp</span>
+                <span>@Html.ActionLink("Edit", "EditComment", "Comment", new { @style = "float:right" })</span>
+            </div>
+
+        }
+    </div>
+}
 <hr />
 <div class="col-md-12">
     <h3>Create comment:</h3>

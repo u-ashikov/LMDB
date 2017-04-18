@@ -62,3 +62,9 @@ h3 {
 .admin-panel {
     margin-top:-25px;
 }
+
+.no-comments {
+    text-align:center;
+    font-size:20px;
+    width:100%;
+}

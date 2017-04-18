@@ -134,7 +134,7 @@
             return RedirectToAction("UserMovies",new { userId = user.Id});
         }
 
-        [ValidateAntiForgeryToken]
+
         public ActionResult CreateComment(CommentCreateViewModel commentViewModel)
         {
             if (ModelState.IsValid)
