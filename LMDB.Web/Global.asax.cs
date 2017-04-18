@@ -66,6 +66,8 @@
                 .ForMember(d => d.Review, mo => mo.MapFrom(src => src.Review.Content));
 
                 cfg.CreateMap<CommentCreateViewModel, Comment>();
+
+                cfg.CreateMap<Comment, CommentEditViewModel>();
             });
         }
 

@@ -1,16 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
-using System.Net;
-using System.Web;
-using System.Web.Mvc;
-using LMDB.Data;
-using LMDB.Models;
-
-namespace LMDB.Web.Controllers
+﻿namespace LMDB.Web.Controllers
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Data;
+    using System.Data.Entity;
+    using System.Linq;
+    using System.Net;
+    using System.Web;
+    using System.Web.Mvc;
+    using LMDB.Data;
+    using LMDB.Models;
+    using AutoMapper;
+    using ViewModels.Comment;
+
     public class CommentsController : Controller
     {
         private MoviesContext db = new MoviesContext();
@@ -20,21 +22,6 @@ namespace LMDB.Web.Controllers
         {
             var comments = db.Comments.Include(c => c.Author).Include(c => c.CommentedMovie);
             return View(comments.ToList());
-        }
-
-        // GET: Comments/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Comment comment = db.Comments.Find(id);
-            if (comment == null)
-            {
-                return HttpNotFound();
-            }
-            return View(comment);
         }
 
         // GET: Comments/Create
@@ -65,20 +52,22 @@ namespace LMDB.Web.Controllers
         }
 
         // GET: Comments/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult EditComment(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             Comment comment = db.Comments.Find(id);
             if (comment == null)
             {
                 return HttpNotFound();
             }
-            //ViewBag.AuthorId = new SelectList(db.ApplicationUsers, "Id", "FirstName", comment.AuthorId);
-            ViewBag.CommentedMovieId = new SelectList(db.Movies, "Id", "Title", comment.CommentedMovieId);
-            return View(comment);
+
+            var commentEditView = Mapper.Instance.Map<CommentEditViewModel>(comment);
+       
+            return View("Edit",commentEditView);
         }
 
         // POST: Comments/Edit/5

@@ -108,6 +108,7 @@
     <Compile Include="Account\SendCodeViewModel.cs" />
     <Compile Include="Account\VerifyCodeViewModel.cs" />
     <Compile Include="Comment\CommentCreateViewModel.cs" />
+    <Compile Include="Comment\CommentEditViewModel.cs" />
     <Compile Include="Manage\AddPhoneNumberViewModel.cs" />
     <Compile Include="Manage\ChangePasswordViewModel.cs" />
     <Compile Include="Manage\ConfigureTwoFactorViewModel.cs" />

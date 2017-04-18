@@ -1,13 +1,12 @@
 ﻿@model LMDB.ViewModels.Movie.MovieDetailsViewModel
 @Styles.Render("~/Styles/ButtonMoviePreference.css")
+@Styles.Render("~/Styles/MovieDetails.css")
 @using Microsoft.AspNet.Identity;
 
 @{
     ViewBag.Title = "Details";
     var movie = Model;
 }
-
-@Styles.Render("~/Styles/MovieDetails.css")
 
 <div class="moviecard">
     <img src="@movie.Poster" class="movie-poster" />
@@ -69,9 +68,9 @@
                 if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                 {
                     <div class="admin-panel">
-                        <span>@Html.ActionLink("Delete", "DeleteComment", "Comment", new { @style = "float:right" })</span>
+                        <span>@Html.ActionLink("Delete", "DeleteComment", "Comments", new { @style = "float:right" })</span>
                         <span style="float: right">&nbsp&nbsp</span>
-                        <span>@Html.ActionLink("Edit", "EditComment", "Comment", new { @style = "float:right" })</span>
+                        <span>@Html.ActionLink("Edit", "EditComment", "Comments", new { id = comment.Id }, new { @style = "float:right" })</span>
                     </div>
                 }
             }

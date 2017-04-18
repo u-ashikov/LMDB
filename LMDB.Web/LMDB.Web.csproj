@@ -273,6 +273,7 @@
     <Content Include="Scripts\_references.js" />
     <Content Include="Styles\CommentForm.css" />
     <Content Include="Styles\CreateMovieForm.css" />
+    <Content Include="Styles\EditComment.css" />
     <Content Include="Styles\EditMovie.css" />
     <Content Include="Styles\EmptyMoviesList.css" />
     <Content Include="Styles\LoginForm.css" />
@@ -328,7 +329,6 @@
     <Content Include="Views\Partial\Comment\CreateComment.cshtml" />
     <Content Include="Views\Comments\Create.cshtml" />
     <Content Include="Views\Comments\Delete.cshtml" />
-    <Content Include="Views\Comments\Details.cshtml" />
     <Content Include="Views\Comments\Edit.cshtml" />
     <Content Include="Views\Comments\Index.cshtml" />
   </ItemGroup>

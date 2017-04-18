@@ -1,0 +1,15 @@
+﻿.row {
+    width:1400px;
+    margin-top:60px;
+}
+
+.btn {
+    margin-bottom:-25px;
+    margin-top:-15px;
+    margin-left:-45px;
+    width: 150px;
+}
+
+#title {
+    text-align:center;
+}
