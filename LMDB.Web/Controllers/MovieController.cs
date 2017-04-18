@@ -464,6 +464,11 @@
             movie.Actors.Clear();
             movie.Genres.Clear();
 
+            foreach (var comment in movie.Comments.ToList())
+            {
+                db.Comments.Remove(comment);
+            }
+
             if (movie.Review !=null)
             {
                 db.Reviews.Remove(movie.Review);
@@ -471,6 +476,7 @@
             
             db.Movies.Remove(movie);
             db.SaveChanges();
+
             return RedirectToAction("Index");
         }
 
