@@ -54,5 +54,7 @@
         {
             return new MoviesContext();
         }
+
+        public System.Data.Entity.DbSet<LMDB.Models.ApplicationUser> ApplicationUsers { get; set; }
     }
 }

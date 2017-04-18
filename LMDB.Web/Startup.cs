@@ -15,7 +15,7 @@ namespace LMDB.Web
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
-            createRolesAndUser();
+            //createRolesAndUser();
         }
 
         private void createRolesAndUser()
