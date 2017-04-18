@@ -40,7 +40,7 @@ namespace LMDB.Web.Controllers
         // GET: Comments/Create
         public ActionResult Create()
         {
-            ViewBag.AuthorId = new SelectList(db.ApplicationUsers, "Id", "FirstName");
+            //ViewBag.AuthorId = new SelectList(db.ApplicationUsers, "Id", "FirstName");
             ViewBag.CommentedMovieId = new SelectList(db.Movies, "Id", "Title");
             return View();
         }
@@ -59,7 +59,7 @@ namespace LMDB.Web.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.AuthorId = new SelectList(db.ApplicationUsers, "Id", "FirstName", comment.AuthorId);
+            //ViewBag.AuthorId = new SelectList(db.ApplicationUsers, "Id", "FirstName", comment.AuthorId);
             ViewBag.CommentedMovieId = new SelectList(db.Movies, "Id", "Title", comment.CommentedMovieId);
             return View(comment);
         }
@@ -76,7 +76,7 @@ namespace LMDB.Web.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.AuthorId = new SelectList(db.ApplicationUsers, "Id", "FirstName", comment.AuthorId);
+            //ViewBag.AuthorId = new SelectList(db.ApplicationUsers, "Id", "FirstName", comment.AuthorId);
             ViewBag.CommentedMovieId = new SelectList(db.Movies, "Id", "Title", comment.CommentedMovieId);
             return View(comment);
         }
@@ -94,7 +94,7 @@ namespace LMDB.Web.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.AuthorId = new SelectList(db.ApplicationUsers, "Id", "FirstName", comment.AuthorId);
+            //ViewBag.AuthorId = new SelectList(db.ApplicationUsers, "Id", "FirstName", comment.AuthorId);
             ViewBag.CommentedMovieId = new SelectList(db.Movies, "Id", "Title", comment.CommentedMovieId);
             return View(comment);
         }
