@@ -2,6 +2,11 @@
 @model List<LMDB.ViewModels.Movie.MovieIndexViewModel>
 @using Microsoft.AspNet.Identity;
 @Styles.Render("~/Styles/MoviesIndex.css")
+@Styles.Render("~/Styles/EmptyMoviesList.css")
+
+@{ 
+    var movies = Model;
+}
 
 
 <div class="wrapper">
@@ -9,7 +14,11 @@
     <div class="main">
         <div class="content">
             <div class="gallery">
-                @foreach (var item in Model)
+                @if (movies.Count == 0)
+                {
+                    <p class="no-movies">There are no favourite movies !</p>
+                }
+                @foreach (var item in movies)
                 {
                     <!-- ITEMS -->
                     <div class="item">

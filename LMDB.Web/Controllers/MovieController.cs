@@ -82,13 +82,35 @@
             return View(model);
         }
 
-        public ActionResult UserMovies()
+        public ActionResult UserMovies(string userId)
         {
-            var firstOrDefault = db.Users.FirstOrDefault(u => u.UserName == User.Identity.Name);
-            if (firstOrDefault == null) return null;
-            var movies = firstOrDefault.FavouriteMovies;
+            var user = db.Users.FirstOrDefault(u => u.Id == userId);
+            if (user == null) return null;
+            var movies = user.FavouriteMovies.ToList();
             var model = Mapper.Instance.Map<List<MovieIndexViewModel>>(movies);
             return View(model);
+        }
+
+        public ActionResult RemoveMovieFromUserList(int movieId,string userId)
+        {
+            if (userId == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var movie = db.Movies.FirstOrDefault(m => m.Id == movieId);
+            var user = db.Users.FirstOrDefault(u => u.Id == userId);
+
+            if (movie == null)
+            {
+                return HttpNotFound();
+            }
+
+            user.FavouriteMovies.Remove(movie);
+
+            db.SaveChanges();
+
+            return RedirectToAction("UserMovies",new { userId = user.Id});
         }
 
         // GET: Movie/Details/5

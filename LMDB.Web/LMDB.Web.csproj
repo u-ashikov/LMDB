@@ -263,6 +263,7 @@
     <Content Include="Scripts\_references.js" />
     <Content Include="Styles\CreateMovieForm.css" />
     <Content Include="Styles\EditMovie.css" />
+    <Content Include="Styles\EmptyMoviesList.css" />
     <Content Include="Styles\LoginForm.css" />
     <Content Include="Styles\MovieDetails.css" />
     <Content Include="Styles\MoviesIndex.css" />
