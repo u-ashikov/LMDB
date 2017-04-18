@@ -21,7 +21,7 @@
         public ActionResult Index()
         {
             var movies = db.Movies.Include(m => m.Director).Include(m => m.Genres);
-            var moviesViewModels = Mapper.Map<List<MovieIndexViewModel>>(movies);
+            var moviesViewModels = Mapper.Instance.Map<List<MovieIndexViewModel>>(movies);
             var genres = db.Genres.ToList();
             var model = Tuple.Create(moviesViewModels, genres);
             return View(model);
@@ -32,7 +32,7 @@
             Session["Genre"] = genreName;
             var movies = db.Movies.Include(m => m.Director).Include(m => m.Genres)
                 .Where(m => m.Genres.Any(g => g.Name == genreName)).ToList();
-            var moviesViewModels = Mapper.Map<List<MovieIndexViewModel>>(movies);
+            var moviesViewModels = Mapper.Instance.Map<List<MovieIndexViewModel>>(movies);
             var genres = db.Genres.ToList();
             var model = Tuple.Create(moviesViewModels, genres);
             return View(model);
@@ -59,7 +59,7 @@
                     break;
             }
             
-            var moviesViewModels = Mapper.Map<List<MovieIndexViewModel>>(movies);
+            var moviesViewModels = Mapper.Instance.Map<List<MovieIndexViewModel>>(movies);
             var genres = db.Genres.ToList();
             var model = Tuple.Create(moviesViewModels, genres);
             return View(model);
@@ -76,9 +76,18 @@
                     break;
             }
 
-            var moviesViewModels = Mapper.Map<List<MovieIndexViewModel>>(movies);
+            var moviesViewModels = Mapper.Instance.Map<List<MovieIndexViewModel>>(movies);
             var genres = db.Genres.ToList();
             var model = Tuple.Create(moviesViewModels, genres);
+            return View(model);
+        }
+
+        public ActionResult UserMovies()
+        {
+            var firstOrDefault = db.Users.FirstOrDefault(u => u.UserName == User.Identity.Name);
+            if (firstOrDefault == null) return null;
+            var movies = firstOrDefault.FavouriteMovies;
+            var model = Mapper.Instance.Map<List<MovieIndexViewModel>>(movies);
             return View(model);
         }
 

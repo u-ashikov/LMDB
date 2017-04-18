@@ -17,6 +17,12 @@
                                 var date = item.DateReleased.ToString("Y");}
                             @date
                         </p>
+                        <div class="likes-counter">
+                            <span class="likes glyphicon glyphicon-thumbs-up">  </span>
+                            <span class="likes">@item.Likes</span>
+                            <span class="dislikes glyphicon glyphicon-thumbs-down"></span>             
+                            <span class="dislikes">@item.Dislikes</span>
+                        </div>
                     </div>
                     <p class="actions">
                         @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
@@ -25,7 +31,17 @@
                     </p>
                     <div class="director">by: <span class="director-name">@item.DirectorName</span></div>
                     @{
-                        double rating = ((double)item.Likes - item.Dislikes) / ((double)item.Likes + item.Dislikes + 1) * 10;
+                        double rating;
+                        var all = item.Likes + item.Dislikes;
+                        if (all == 0)
+                        {
+                            rating = 0;
+                        }
+                        else
+                        {
+                            rating = ((double)item.Likes - item.Dislikes) / ((double)item.Likes + item.Dislikes) * 10;
+                        }
+
                         if (rating < 0.5)
                         {
                             rating = 0;

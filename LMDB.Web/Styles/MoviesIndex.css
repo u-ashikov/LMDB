@@ -126,6 +126,7 @@ body {
     background-color: rgba(0, 0, 0, .85);
     color: white;
     overflow: hidden;
+    margin-top: 0px;
     transition: all .3s;
 }
 
@@ -133,10 +134,11 @@ body {
     font-size: 1.5em;
     color: #33CC33;
     font-weight: bold;
+    margin-top: 8px;
 }
 
 .main .content .gallery .item:hover .description {
-    height: 120px;
+    height: 130px;
     padding: 5px;
 }
 
@@ -157,6 +159,25 @@ body {
 
 .director-name {
     font-weight: bold;
+}
+
+.likes-counter {
+    display: inline;
+    position: absolute;
+    float: right;
+    font-size: 1.2em;
+}
+
+.likes-counter .likes {
+    color: yellowgreen;
+}
+
+.likes-counter .dislikes {
+    color: #E33E2B;
+}
+
+.dislikes-counter {
+    
 }
 
 a {
