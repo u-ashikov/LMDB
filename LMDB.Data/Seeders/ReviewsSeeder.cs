@@ -12,7 +12,7 @@ namespace LMDB.Data.Seeders
         {
             var webRootPath = System.Web.Hosting.HostingEnvironment.MapPath("~");
             if (webRootPath == null) return;
-            var docPath = Path.GetFullPath(Path.Combine(webRootPath, "../LMDB.Data/Datasets/users.csv"));
+            var docPath = Path.GetFullPath(Path.Combine(webRootPath, "../LMDB.Data/Datasets/reviews.csv"));
             var reviews = File.ReadAllText(docPath).Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries).ToArray();
 
             var authors = context.Users;
@@ -21,12 +21,14 @@ namespace LMDB.Data.Seeders
             {
                 var movieId = reviews[i].Split(',')[0];
                 var content = reviews[i].Substring(reviews[i].IndexOf(',') + 1);
+                var author = authors.FirstOrDefault(a => a.UserName == "admin");
+                if (author == null) continue;
 
                 var review = new Review
                 {
                     Content = content,
                     ReviewedMovieId = int.Parse(movieId),
-                    AuthorId = authors.Find(i % authorsLen + 1).Id,
+                    Author = author,
                     DatePublished = DateTime.Now
                 };
             
