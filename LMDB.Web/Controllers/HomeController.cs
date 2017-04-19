@@ -23,7 +23,7 @@ namespace LMDB.Web.Controllers
             {
                 for (int i = 0; i < 8; i++)
                 {
-                    var index = random.Next(0, movies.Count - 1);
+                    var index = random.Next(0, movies.Count + 1);
                     var movie = movies[index];
                     if (movie.Poster == null)
                     {
