@@ -2,36 +2,50 @@
 
 @{
     ViewBag.Title = "Details";
+    var directedMovies = Model.DirectedMovies.Select(m => m.Title).ToList();
 }
 
 <h2>Details</h2>
 
 <div>
-    <h4>Director</h4>
+    <h4>Actor</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Country.Name)
+            Name
+        </dt>
+
+        <dd>
+            @{
+                var name = $"{Model.FirstName} {Model.LastName}";
+            }
+            @Html.DisplayFor(model => name)
+        </dd>
+
+        <dt>
+            Country
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Country.Name)
         </dd>
-
         <dt>
-            @Html.DisplayNameFor(model => model.FirstName)
+            @Html.DisplayNameFor(model => model.Birthdate)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.FirstName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.LastName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.LastName)
+            @{
+                string bd = string.Empty;
+                if (Model.Birthdate != null)
+                {
+                    bd = Model.Birthdate.Value.Date.ToString("dd MMMM yyyy");
+                }
+                else
+                {
+                    bd = "Unknown";
+                }
+            }
+            @Html.DisplayFor(model => bd)
         </dd>
 
         <dt>
@@ -41,23 +55,26 @@
         <dd>
             @Html.DisplayFor(model => model.Biography)
         </dd>
-
         <dt>
-            @Html.DisplayNameFor(model => model.Birthdate)
+            @Html.DisplayNameFor(model => model.DirectedMovies)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Birthdate)
+            @{
+                for (int i = 0; i < Model.DirectedMovies.Count; i++)
+                {
+                    var movie = Model.DirectedMovies.ToList()[i];
+                    if (i < Model.DirectedMovies.Count - 1)
+                    {
+                        <span>@Html.ActionLink(movie.Title, "Details", "Movie", new { id = movie.Id }, null), </span>
+                    }
+                    else
+                    {
+                        <span>@Html.ActionLink(movie.Title, "Details", "Movie", new { id = movie.Id }, null)</span>
+                    }
+                }
+            }
         </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Picture)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Picture)
-        </dd>
-
     </dl>
 </div>
 <p>

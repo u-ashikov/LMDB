@@ -11,6 +11,8 @@
 
         public int Year { get; set; }
 
+        public int DirectorId { get; set; }
+
         public string Director { get; set; }
 
         public string Review { get; set; }
