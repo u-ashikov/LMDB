@@ -41,16 +41,16 @@ namespace LMDB.Data.Seeders
                 };
                 if (i%3 == 0)
                 {
-                    for (int j = 0; j < 10; j++)
+                    for (int j = 1; j < 25; j++)
                     {
-                        user.DislikedMovies.Add(context.Movies.Find(i*j%moviesCount + 1));
+                        user.DislikedMovies.Add(context.Movies.Find(i * j * 3 %moviesCount + 1));
                     }
                 }
                 else
                 {
-                    for (int j = 0; j < i * 5 % 30; j++)
+                    for (int j = 0; j < i * 5 % 50; j++)
                     {
-                        user.LikedMovies.Add(context.Movies.Find(i * j % moviesCount + 1));
+                        user.LikedMovies.Add(context.Movies.Find(i * j * 2 % moviesCount + 1));
                     }
                 }
 

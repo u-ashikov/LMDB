@@ -53,7 +53,7 @@
                    movie.Genres.Add(genre == null ? new Genre { Name = genreName }:genre);
                }
 
-                for (int j = 0; j < 6; j++)
+                for (int j = 1; j < 7; j++)
                 {
                     var actor = actors.Find(j * i % actorsCount + 1);
                     movie.Actors.Add(actor);
