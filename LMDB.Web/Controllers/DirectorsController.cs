@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using LMDB.Data;
 using LMDB.Models;
+using PagedList;
 
 namespace LMDB.Web.Controllers
 {
@@ -16,10 +17,11 @@ namespace LMDB.Web.Controllers
         private MoviesContext db = new MoviesContext();
 
         // GET: Directors
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
-            var directors = db.Directors.Include(d => d.Country);
-            return View(directors.ToList());
+            var directors = db.Directors.Include(d => d.Country).Include(d => d.Awards).ToList()
+                .ToPagedList(page ?? 1, 15);
+            return View(directors);
         }
 
         // GET: Directors/Details/5

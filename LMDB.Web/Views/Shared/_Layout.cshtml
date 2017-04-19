@@ -28,7 +28,12 @@
                     @if (User.Identity.IsAuthenticated)
                     {
                         <li>@Html.ActionLink("My Movies", "UserMovies", "Movie", new { userId = User.Identity.GetUserId() }, null)</li>
-                    }                 
+                    }
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                    {
+                        <li>@Html.ActionLink("Actors", "Index", "Actors")</li>
+                        <li>@Html.ActionLink("Directors", "Index", "Directors")</li>
+                    }
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
