@@ -105,7 +105,7 @@
             Comment comment = db.Comments.Find(id);
             db.Comments.Remove(comment);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Details", "Movie", new {id = comment.Id});
         }
 
         protected override void Dispose(bool disposing)
