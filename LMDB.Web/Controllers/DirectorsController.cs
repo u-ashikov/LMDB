@@ -9,6 +9,8 @@ using System.Web.Mvc;
 using LMDB.Data;
 using LMDB.Models;
 using PagedList;
+using LMDB.ViewModels.Director;
+using AutoMapper;
 
 namespace LMDB.Web.Controllers
 {
@@ -40,28 +42,39 @@ namespace LMDB.Web.Controllers
         }
 
         // GET: Directors/Create
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
-            ViewBag.CountryId = new SelectList(db.Countries, "Id", "Name");
-            return View();
+            var countries = db.Countries.Select(c => c.Name);
+            var viewModel = new DirectorCreateViewModel()
+            {
+                Countries = new SelectList(countries)
+            };
+            return View(viewModel);
         }
 
         // POST: Directors/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,FirstName,LastName,Biography,Birthdate,Picture,CountryId")] Director director)
+        public ActionResult Create(DirectorCreateViewModel model)
         {
             if (ModelState.IsValid)
             {
-                db.Directors.Add(director);
+                var director = Mapper.Instance.Map<Director>(model);
+
+                var existingDirector = db.Directors.FirstOrDefault(d => d.FirstName == director.FirstName && d.LastName == director.LastName);
+                if (db.Directors.)
+                db.Directors.Add(model);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CountryId = new SelectList(db.Countries, "Id", "Name", director.CountryId);
-            return View(director);
+            var countries = db.Countries.Select(c => c.Name);
+            model.Countries = new SelectList(countries);
+            return View(model);
         }
 
         // GET: Directors/Edit/5
