@@ -49,10 +49,10 @@
                     movies = movies.OrderBy(m => m.Id).ToList();
                     break;
                 case "Year":
-                    movies = movies.OrderBy(m => m.DateReleased).ToList();
+                    movies = movies.OrderByDescending(m => m.DateReleased).ToList();
                     break;
                 case "Latest":
-                    movies = movies.OrderByDescending(m => m.DateReleased).ToList();
+                    movies = movies.OrderByDescending(m => m.Id).ToList();
                     break;
                 case "Comments":
                     movies = movies.OrderBy(m => m.Comments.Count).ToList();
