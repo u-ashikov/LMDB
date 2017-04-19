@@ -21,6 +21,7 @@
         // POST: Comments/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         public ActionResult CreateComment(CommentCreateViewModel commentViewModel)
         {
             if (ModelState.IsValid)
@@ -43,6 +44,7 @@
         }
 
         // GET: Comments/Edit/5
+        [Authorize]
         public ActionResult EditComment(int? id)
         {
             if (id == null)
@@ -56,13 +58,18 @@
                 return HttpNotFound();
             }
 
-            var commentEditView = Mapper.Instance.Map<CommentEditViewModel>(comment);
-       
-            return View("Edit",commentEditView);
+            if ((User.Identity.IsAuthenticated && comment.AuthorId == User.Identity.GetUserId()) || User.IsInRole("Admin"))
+            {
+                var commentEditView = Mapper.Instance.Map<CommentEditViewModel>(comment);
+
+                return View("Edit", commentEditView);
+            }
+            return RedirectToAction("Login", "Account");
         }
 
         // POST: Comments/Edit/5
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public ActionResult EditComment(CommentEditViewModel comment)
         {
@@ -76,13 +83,14 @@
 
                 db.SaveChanges();
 
-                return RedirectToAction("Index","Movie");
+                return RedirectToAction("Details","Movie",new { id=editedComment.CommentedMovieId});
             }
 
             return RedirectToAction("EditComment", new {id = comment.Id });
         }
 
         // GET: Comments/Delete/5
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -94,18 +102,24 @@
             {
                 return HttpNotFound();
             }
-            return View(comment);
+
+            if ((User.Identity.IsAuthenticated && comment.AuthorId == User.Identity.GetUserId()) || User.IsInRole("Admin"))
+            {
+                return View(comment);
+            }
+            return RedirectToAction("Login", "Account");           
         }
 
         // POST: Comments/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult DeleteConfirmed(int id)
         {
             Comment comment = db.Comments.Find(id);
             db.Comments.Remove(comment);
             db.SaveChanges();
-            return RedirectToAction("Details", "Movie", new {id = comment.Id});
+            return RedirectToAction("Details", "Movie", new {id = comment.CommentedMovieId});
         }
 
         protected override void Dispose(bool disposing)

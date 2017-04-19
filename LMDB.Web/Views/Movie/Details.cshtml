@@ -65,7 +65,7 @@
                 <span class="glyphicon glyphicon-time"> @comment.Date</span>
                 <p class="comment-content">@comment.Content</p>
                 <br />
-                if (User.Identity.IsAuthenticated)
+                if ((User.Identity.IsAuthenticated && User.Identity.GetUserId() == comment.AuthorId) || User.IsInRole("Admin"))
                 {
                     <div class="admin-panel">
                         <span>@Html.ActionLink("Delete", "Delete", "Comments", new { id = comment.Id }, new { @style = "float:right" })</span>
