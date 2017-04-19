@@ -17,12 +17,13 @@ namespace LMDB.Data.Seeders
 
             var authors = context.Users;
             var authorsLen = authors.Count();
+            var author = authors.FirstOrDefault(a => a.UserName == "admin");
+            if (author == null) return;
+
             for (int i = 1; i < reviews.Length; i++)
             {
                 var movieId = reviews[i].Split(',')[0];
                 var content = reviews[i].Substring(reviews[i].IndexOf(',') + 1);
-                var author = authors.FirstOrDefault(a => a.UserName == "admin");
-                if (author == null) continue;
 
                 var review = new Review
                 {
@@ -32,7 +33,6 @@ namespace LMDB.Data.Seeders
                     DatePublished = DateTime.Now
                 };
             
-
                 context.Reviews.AddOrUpdate(r => r.Content, review);
             }
 
