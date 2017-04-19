@@ -10,17 +10,43 @@
     @if (!User.Identity.IsAuthenticated)
     {
         <h3><i>Please Login or Register</i></h3>
-    } 
-    <div id="wrapper">
-        <div id="image">
-            <div class="image i1"><img src="@posters[0]"></div>
-            <div class="image i2"><img src="@posters[1]"></div>
-            <div class="image i3"><img src="@posters[2]"></div>
-            <div class="image i4"><img src="@posters[3]"></div>
-            <div class="image i5"><img src="@posters[4]"></div>
-            <div class="image i6"><img src="@posters[5]"></div>
-            <div class="image i7"><img src="@posters[6]"></div>
-            <div class="image i8"><img src="@posters[7]"></div>
+    }
+    @if (posters.Count != 0)
+    {
+        <div id="wrapper">
+            <div id="image">
+                <div class="image i1"><img src="@posters[0]">
+                </div>
+                <div class="image i2"><img src="@posters[1]">
+                </div>
+                <div class="image i3"><img src="@posters[2]">
+                </div>
+                <div class="image i4"><img src="@posters[3]">
+                </div>
+                <div class="image i5"><img src="@posters[4]">
+                </div>
+                <div class="image i6"><img src="@posters[5]">
+                </div>
+                <div class="image i7"><img src="@posters[6]">
+                </div>
+                <div class="image i8"><img src="@posters[7]">
+                </div>
+            </div>
         </div>
-    </div>
+    }
+    else
+    {
+        <div id="wrapper">
+            <div id="image">
+                <div class="image i1"><img src="https://dl.dropbox.com/u/80409395/Codepen/Noe-in-leaves.jpg"></div>
+                <div class="image i2"><img src="https://dl.dropbox.com/u/80409395/Codepen/Nat-sitting.jpg"></div>
+                <div class="image i3"><img src="https://dl.dropbox.com/u/80409395/Codepen/Nat-noodles.jpg"></div>
+                <div class="image i4"><img src="https://dl.dropbox.com/u/80409395/Codepen/Charlie-smiling.jpg"></div>
+                <div class="image i5"><img src="https://dl.dropbox.com/u/80409395/Codepen/Girls-in-leaves.jpg"></div>
+                <div class="image i6"><img src="https://dl.dropbox.com/u/80409395/Codepen/Natalie-smiling.jpg"></div>
+                <div class="image i7"><img src="https://dl.dropbox.com/u/80409395/Codepen/Charlie-sleeping.jpg"></div>
+                <div class="image i8"><img src="https://dl.dropbox.com/u/80409395/Codepen/Sledding.jpg"></div>
+            </div>
+        </div>
+    }
 </body>
