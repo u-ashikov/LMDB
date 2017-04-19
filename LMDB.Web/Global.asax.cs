@@ -49,7 +49,7 @@
                 .ForMember(dest => dest.Year, mo => mo.MapFrom(src => src.DateReleased.Year))
                 .ForMember(d => d.Director, mo => mo.MapFrom(src => src.Director.FirstName + " " + src.Director.LastName))
                 .ForMember(d => d.Review, mo => mo.MapFrom(src => src.Review.Content))
-                .ForMember(d => d.Actors, mo => mo.MapFrom(src => src.Actors.Select(a => $"{a.FirstName} {a.LastName}").ToList()))
+                .ForMember(d => d.Actors, mo => mo.MapFrom(src => src.Actors))
                 .ForMember(d => d.Genres, mo => mo.MapFrom(src => src.Genres.Select(g => g.Name).ToList()))
                 .ForMember(d => d.Awards, mo => mo.MapFrom(src => src.Awards.Select(a => a.Category.Name).ToList()))
                 .ForMember(d=>d.Likes, mo=>mo.MapFrom(src=>src.Likes.Select(l=>l.Id).ToList()))

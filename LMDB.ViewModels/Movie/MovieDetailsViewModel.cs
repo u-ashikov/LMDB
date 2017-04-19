@@ -17,7 +17,7 @@
 
         public string Poster { get; set; }
 
-        public ICollection<string> Actors { get; set; }
+        public ICollection<Actor> Actors { get; set; }
 
         public ICollection<string> Genres { get; set; }
 

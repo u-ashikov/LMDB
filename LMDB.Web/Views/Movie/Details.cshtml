@@ -14,7 +14,16 @@
         <div class="movie-title">@movie.Title<span class="movie-year">@movie.Year</span></div>
         <div class="movie-details"><span class="movie-genre">@String.Join(", ", movie.Genres)</span></div>
         <div class="movie-castcrew"><span class="title">Director</span><span class="name">@movie.Director</span></div>
-        <div class="movie-castcrew"><span class="title">Cast</span><span class="name">@String.Join(", ", movie.Actors)</span></div>
+        <div class="movie-castcrew">
+            <span class="title">Cast</span>
+            @{
+                foreach (var act in movie.Actors)
+                {
+                    var actorName = $"{act.FirstName} {act.LastName}";
+                    <span>@Html.ActionLink(actorName, "Details", "Actors", new { id = act.Id }, null), </span>
+                }
+            }
+        </div>
         <div class="movie-castcrew"><span class="title">Awards</span><span class="name">@(movie.Awards.Count == 0 ? "(no awards)" : String.Join(", ", movie.Awards))</span></div>
         <div class="movie-synopsis">@movie.Review</div>
         @if (User.Identity.IsAuthenticated)

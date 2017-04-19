@@ -11,27 +11,40 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Country.Name)
+           Name
+        </dt>
+
+        <dd>
+            @{
+                var name = $"{Model.FirstName} {Model.LastName}";
+            }
+            @Html.DisplayFor(model => name)
+        </dd>
+
+        <dt>
+            Country
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Country.Name)
         </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FirstName)
+        <dt>  
+            @Html.DisplayNameFor(model => model.Birthdate)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.FirstName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.LastName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.LastName)
+            @{
+                string bd = string.Empty;
+                if (Model.Birthdate != null)
+                {
+                    bd = Model.Birthdate.Value.Date.ToString("dd MMMM yyyy");
+                }
+                else
+                {
+                    bd = "Unknown";
+                }
+            }
+            @Html.DisplayFor(model => bd)
         </dd>
 
         <dt>
@@ -41,26 +54,11 @@
         <dd>
             @Html.DisplayFor(model => model.Biography)
         </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Birthdate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Birthdate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Picture)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Picture)
-        </dd>
-
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Edit", "Edit", new {id = Model.Id}) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+
+
