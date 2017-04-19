@@ -162,7 +162,10 @@
 
                 var country = context.Countries.FirstOrDefault(c => c.Name == model.Country);
 
-                user.OriginCountryId = country.Id;
+                if (country != null)
+                {
+                    user.OriginCountryId = country.Id;
+                }              
 
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
