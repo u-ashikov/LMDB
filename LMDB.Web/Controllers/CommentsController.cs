@@ -12,43 +12,34 @@
     using LMDB.Models;
     using AutoMapper;
     using ViewModels.Comment;
+    using Microsoft.AspNet.Identity;
 
     public class CommentsController : Controller
     {
         private MoviesContext db = new MoviesContext();
 
-        // GET: Comments
-        public ActionResult Index()
-        {
-            var comments = db.Comments.Include(c => c.Author).Include(c => c.CommentedMovie);
-            return View(comments.ToList());
-        }
-
-        // GET: Comments/Create
-        public ActionResult Create()
-        {
-            //ViewBag.AuthorId = new SelectList(db.ApplicationUsers, "Id", "FirstName");
-            ViewBag.CommentedMovieId = new SelectList(db.Movies, "Id", "Title");
-            return View();
-        }
-
         // POST: Comments/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Content,AuthorId,CommentedMovieId,Date")] Comment comment)
+        public ActionResult CreateComment(CommentCreateViewModel commentViewModel)
         {
             if (ModelState.IsValid)
             {
-                db.Comments.Add(comment);
+                var comment = Mapper.Instance.Map<Comment>(commentViewModel);
+
+                var userId = User.Identity.GetUserId();
+                var movie = db.Movies.Find(comment.CommentedMovieId);
+
+                comment.AuthorId = userId;
+                comment.Date = DateTime.Now;
+
+                movie.Comments.Add(comment);
+
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details","Movie",new { id = commentViewModel.CommentedMovieId });
             }
 
-            //ViewBag.AuthorId = new SelectList(db.ApplicationUsers, "Id", "FirstName", comment.AuthorId);
-            ViewBag.CommentedMovieId = new SelectList(db.Movies, "Id", "Title", comment.CommentedMovieId);
-            return View(comment);
+            return RedirectToAction("Details","Movie",new { id = commentViewModel.CommentedMovieId });
         }
 
         // GET: Comments/Edit/5

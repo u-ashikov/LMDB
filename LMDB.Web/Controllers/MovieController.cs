@@ -134,28 +134,6 @@
             return RedirectToAction("UserMovies",new { userId = user.Id});
         }
 
-
-        public ActionResult CreateComment(CommentCreateViewModel commentViewModel)
-        {
-            if (ModelState.IsValid)
-            {
-                var comment = Mapper.Instance.Map<Comment>(commentViewModel);
-
-                var userId = User.Identity.GetUserId();
-                var movie = db.Movies.Find(comment.CommentedMovieId);
-
-                comment.AuthorId = userId;
-                comment.Date = DateTime.Now;
-
-                movie.Comments.Add(comment);
-
-                db.SaveChanges();
-                return RedirectToAction("Details", new { id = commentViewModel.CommentedMovieId });
-            }
-
-            return RedirectToAction("Details", new { id = commentViewModel.CommentedMovieId });
-        }
-
         // GET: Movie/Details/5
         public ActionResult Details(int? id)
         {
