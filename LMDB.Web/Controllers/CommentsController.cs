@@ -87,8 +87,8 @@
 
                 return RedirectToAction("Index","Movie");
             }
-            
-            return View(comment);
+
+            return RedirectToAction("EditComment", new {id = comment.Id });
         }
 
         // GET: Comments/Delete/5
