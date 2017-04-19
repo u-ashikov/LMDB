@@ -9,5 +9,7 @@
         [Required]
         [StringLength(1000)]
         public string Content { get; set; }
+
+        public int CommentedMovieId { get; set; }
     }
 }
