@@ -29,8 +29,7 @@
             Mapper.Initialize(cfg =>
             {
                 cfg.CreateMap<RegisterViewModel, ApplicationUser>()
-                .ForMember(dest => dest.UserName, mo => mo.MapFrom(src => src.Username))
-                .ForMember(dest => dest.ProfilePicture, mo => mo.MapFrom(src => GetBytesFromFile(src.ProfilePicture)));
+                .ForMember(dest => dest.UserName, mo => mo.MapFrom(src => src.Username));
 
                 cfg.CreateMap<Movie, MovieIndexViewModel>()
                     .ForMember(dest => dest.DirectorName,

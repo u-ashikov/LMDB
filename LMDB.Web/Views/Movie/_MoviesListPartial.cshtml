@@ -34,14 +34,24 @@
                                     <span class="dislikes">@item.Dislikes</span>
                                 }
                             }
-                       
+
                         </div>
                     </div>
-                    <p class="actions">
-                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-                    </p>
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                    {
+                        <p class="actions">
+                            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                        </p>
+                    }
+                    else
+                    {
+                        <p class="actions" style="text-align:center">                       
+                            @Html.ActionLink("Details", "Details", new { id = item.Id })    
+                        </p>
+                    }
+
                     <div class="director">by: <span class="director-name">@item.DirectorName</span></div>
                     @{
                         double rating;
