@@ -1,6 +1,7 @@
 ﻿namespace LMDB.ViewModels.Account
 {
     using Models.Enums;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.Web;
     using System.Web.Mvc;
@@ -28,8 +29,10 @@
         [Required]
         public Gender Gender { get; set; }
 
+        public string Country { get; set; }
+
         [Display(Name = "Country")]
-        public int? OriginCountryId { get; set; }
+        public IEnumerable<SelectListItem> Countries { get; set; }
 
         [Required]
         [EmailAddress]

@@ -141,8 +141,12 @@
         [AllowAnonymous]
         public ActionResult Register()
         {
-            ViewBag.Countries = context.Countries.ToList();
-            return View();
+            var countries = context.Countries.Select(c => c.Name);
+            var viewModel = new RegisterViewModel()
+            {
+                Countries = new SelectList(countries)
+            };
+            return View(viewModel);
         }
 
         //
@@ -155,6 +159,10 @@
             if (ModelState.IsValid)
             {
                 var user = Mapper.Map<ApplicationUser>(model);
+
+                var country = context.Countries.FirstOrDefault(c => c.Name == model.Country);
+
+                user.OriginCountryId = country.Id;
 
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
@@ -173,6 +181,8 @@
             }
 
             // If we got this far, something failed, redisplay form
+            var countries = context.Countries.Select(c => c.Name);
+            model.Countries = new SelectList(countries);
             return View(model);
         }
 

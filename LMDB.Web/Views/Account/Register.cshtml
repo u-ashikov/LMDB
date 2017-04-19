@@ -39,16 +39,13 @@
                         </div>
                     </div>
 
-                    @Html.LabelFor(m => m.OriginCountryId)
+                    @Html.LabelFor(m => m.Country)
                     <div class="form-group">
                         <div class="col-md-10">
-                            @Html.DropDownListFor(m => m.OriginCountryId,
-       new SelectList(ViewBag.Countries, "Id", "Name"),
-              "Select country",
-              new { @class = "form-control" })
-                            @Html.ValidationMessageFor(m => m.OriginCountryId, "", new { @class = "text-danger" })
+                            @Html.DropDownListFor(m => m.Country, Model.Countries, "Select Country", new { @class = "form-control" })
                         </div>
-                    </div>
+                            @Html.ValidationMessageFor(m => m.Country, "", new { @class = "text-danger" })
+                        </div>
 
                     <div class="form-group">
                         <div class="col-md-10">
