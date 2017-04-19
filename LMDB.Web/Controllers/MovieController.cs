@@ -401,7 +401,19 @@
                     }
                 }
 
-                movie.Review.Content = editedMovie.Review;
+                if (movie.Review == null)
+                {
+                    movie.Review = new Review()
+                    {
+                        AuthorId = User.Identity.GetUserId(),
+                        Content = editedMovie.Review,
+                        DatePublished = DateTime.Now
+                    };
+                }
+                else
+                {
+                    movie.Review.Content = editedMovie.Review;
+                }
 
                 db.Entry(movie).State = EntityState.Modified;
                 db.SaveChanges();
