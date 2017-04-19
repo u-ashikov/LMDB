@@ -276,7 +276,6 @@
     <Content Include="Styles\ButtonMoviePreference.css" />
     <Content Include="Styles\Carousel.css" />
     <Content Include="Styles\CommentForm.css" />
-    <Content Include="Styles\CreateDirectorForm.css" />
     <Content Include="Styles\CreateMovieForm.css" />
     <Content Include="Styles\EditComment.css" />
     <Content Include="Styles\EditMovie.css" />

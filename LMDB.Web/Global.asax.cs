@@ -12,7 +12,6 @@
     using LMDB.ViewModels.Movie;
     using System;
     using ViewModels.Comment;
-    using ViewModels.Director;
 
     public class MvcApplication : System.Web.HttpApplication
     {
@@ -68,9 +67,6 @@
                 cfg.CreateMap<CommentCreateViewModel, Comment>();
 
                 cfg.CreateMap<Comment, CommentEditViewModel>();
-
-                cfg.CreateMap<DirectorCreateViewModel, Director>()
-                .ForMember(d => d.Picture, mo => mo.MapFrom(src => GetBytesFromFile(src.Picture)));
             });
         }
 

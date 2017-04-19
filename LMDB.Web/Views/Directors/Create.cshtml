@@ -1,68 +1,74 @@
-﻿@model LMDB.ViewModels.Director.DirectorCreateViewModel
-@Styles.Render("~/Styles/CreateDirectorForm.css")
+﻿@model LMDB.Models.Director
 
-<div class="row col-md-8">
-    <div class="col-md-4">
-        <div class="login-panel panel panel-default">
-            <div class="panel-heading" id="title">
-                <h3 class="panel-title"><b>Create Director</b></h3>
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Director</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
             </div>
-            <div class="panel-body">
-                @using (Html.BeginForm("Create", "Directors", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
-                {
-                    @Html.AntiForgeryToken()
-                    <h4>Create a new director.</h4>
-                    <hr />
-                    @Html.ValidationSummary("", new { @class = "text-danger" })
-                    <div class="form-group">
-                        <div class="col-md-10">
-                            @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", placeholder = Html.DisplayNameFor(m => m.FirstName) })
-                        </div>
-                    </div>
+        </div>
 
-                    <div class="form-group">
-                        <div class="col-md-10">
-                            @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", placeholder = Html.DisplayNameFor(m => m.LastName) })
-                        </div>
-                    </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
-                    @Html.LabelFor(m => m.Biography)
-                    <div class="form-group">
-                        <div class="col-md-10">
-                            @Html.TextAreaFor(m => m.Biography, new { @class = "form-control" })
-                        </div>
-                    </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Biography, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Biography, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Biography, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
-                    @Html.LabelFor(m => m.Country)
-                    <div class="form-group">
-                        <div class="col-md-10">
-                            @Html.DropDownListFor(m => m.Country, Model.Countries, "Select Country", new { @class = "form-control" })
-                        </div>
-                        @Html.ValidationMessageFor(m => m.Country, "", new { @class = "text-danger" })
-                    </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Birthdate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Birthdate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Birthdate, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
-                        <div class="form-group">
-                            <div class="col-md-10">
-                                @Html.TextBoxFor(m => m.Birthdate, new { @class = "form-control", placeholder = Html.DisplayNameFor(m => m.Birthdate) })
-                            </div>
-                        </div>
-                        @Html.LabelFor(m => m.Picture)
-                        <div class="form-group">
-                            <div class="col-md-10">
-                                @Html.TextBoxFor(m => m.Picture, new { @class = "form-control", type = "file", accept = "image/*", placeholder = Html.DisplayNameFor(m => m.Picture) })
-                            </div>
-                        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Picture, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Picture, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Picture, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
-                        <div class="form-group">
-                            <div class="col-md-offset-2 col-md-10">
-                                <input type="submit" class="btn btn-sm btn-success" value="Create" />
-                            </div>
-                        </div>
-                }
+        <div class="form-group">
+            @Html.LabelFor(model => model.CountryId, "CountryId", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("CountryId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.CountryId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
             </div>
         </div>
     </div>
-</div>
+}
 
 <div>
     @Html.ActionLink("Back to List", "Index")
