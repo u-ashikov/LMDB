@@ -38,8 +38,10 @@
                         mo => mo.MapFrom(src => src.Actors.Select(a => a.FirstName + " " + a.LastName).ToList()))
                     .ForMember(dest => dest.Genres,
                         mo => mo.MapFrom(src => src.Genres.Select(g => g.Name).ToList()))                   
-                    .ForMember(dest => dest.Poster,
+                    .ForMember(dest => dest.PosterFromFolder,
                         mo => mo.MapFrom(src => $"../../Posters/{src.Title.Replace(" ", string.Empty).Replace(":", string.Empty)}.jpg"))
+                    .ForMember(dest => dest.Poster,
+                        mo => mo.MapFrom(src => "data:image/jpeg;base64," + Convert.ToBase64String(src.Poster)))
                     .ForMember(dest => dest.Likes,
                         mo => mo.MapFrom(src => src.Likes.Count))
                     .ForMember(dest => dest.Dislikes,

@@ -18,6 +18,8 @@
 
         public string Poster { get; set; }
 
+        public string PosterFromFolder { get; set; }
+
         public List<string> Genres { get; set; } = new List<string>();
 
         public List<string> Actors { get; set; } = new List<string>();
