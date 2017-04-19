@@ -1,6 +1,5 @@
 ﻿namespace LMDB.ViewModels.Comment
 {
-    using System;
     using System.ComponentModel.DataAnnotations;
 
     public class CommentEditViewModel
@@ -10,8 +9,5 @@
         [Required]
         [StringLength(1000)]
         public string Content { get; set; }
-
-        [Required]
-        public DateTime Date { get; set; }
     }
 }

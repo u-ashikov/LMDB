@@ -80,7 +80,6 @@
                 var editedComment = db.Comments.Find(comment.Id);
 
                 editedComment.Content = comment.Content;
-                editedComment.Date = comment.Date;
 
                 db.Entry(editedComment).State = EntityState.Modified;
 
