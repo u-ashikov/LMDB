@@ -194,7 +194,7 @@
 
                 var author = User.Identity.Name;
 
-                var director = GetDirectorByName(db, model.Director);
+                var director = GetDirectorByName(db, model.Director.Trim());
 
                 if (director == null)
                 {
@@ -203,7 +203,7 @@
 
                 movie.DirectorId = GetDirectorByName(db, model.Director).Id;
 
-                var actors = model.Actors.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).ToArray();
+                var actors = model.Actors.Trim().Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).ToArray();
 
                 foreach (var a in actors)
                 {
@@ -226,7 +226,7 @@
                     }
                 }
 
-                var genres = model.Genres.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+                var genres = model.Genres.Trim().Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
 
                 foreach (var g in genres)
                 {
@@ -298,7 +298,7 @@
             {
                 var movie = db.Movies.Find(editedMovie.Id);
 
-                movie.Title = editedMovie.Title;
+                movie.Title = editedMovie.Title.Trim();
                 movie.DateReleased = editedMovie.DateReleased;
 
                 if (editedMovie.MoviePoster != null)
@@ -306,7 +306,7 @@
                     movie.Poster = GetBytesFromFile(editedMovie.MoviePoster);
                 }
 
-                var director = GetDirectorByName(db, editedMovie.Director);
+                var director = GetDirectorByName(db, editedMovie.Director.Trim());
 
                 if (director == null)
                 {
@@ -321,7 +321,7 @@
                     movie.Director = director;
                 }
 
-                var editedGenres = editedMovie.Genres.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).ToList();
+                var editedGenres = editedMovie.Genres.Trim().Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).ToList();
                 var oldGenres = movie.Genres.Select(g=>g.Name).ToList();
 
                 foreach (var g in oldGenres)
@@ -355,6 +355,7 @@
                 }
 
                 var editedActors = editedMovie.Actors
+                    .Trim()
                     .Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
                     .Select(a => a.Trim())
                     .ToList();
