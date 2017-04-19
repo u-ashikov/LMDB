@@ -40,6 +40,23 @@
                     var awardIndex = random.Next(0, awards.Count - 1);
                     director.Awards.Add(awards[awardIndex]);
                 }
+                if (i % 5 == 0)
+                {
+                    for (int j = 0; j < 5; j++)
+                    {
+                        var awardIndex = random.Next(0, awards.Count - 1);
+                        director.Awards.Add(awards[awardIndex]);
+                    }
+                }
+
+                if (i % 10 == 0)
+                {
+                    for (int j = 0; j < 7; j++)
+                    {
+                        var awardIndex = random.Next(0, awards.Count - 1);
+                        director.Awards.Add(awards[awardIndex]);
+                    }
+                }
 
                 context.Directors.AddOrUpdate(d => new { d.FirstName, d.LastName }, director);
             }

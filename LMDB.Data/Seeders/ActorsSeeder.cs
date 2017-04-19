@@ -40,6 +40,33 @@
                     actor.Awards.Add(awards[awardIndex]);
                 }
 
+                if (i % 3 == 0)
+                {
+                    for (int j = 0; j < 3; j++)
+                    {
+                        var awardIndex = rand.Next(0, awards.Count - 1);
+                        actor.Awards.Add(awards[awardIndex]);
+                    }
+                }
+
+                if (i % 5 == 0)
+                {
+                    for (int j = 0; j < 5; j++)
+                    {
+                        var awardIndex = rand.Next(0, awards.Count - 1);
+                        actor.Awards.Add(awards[awardIndex]);
+                    }
+                }
+
+                if (i % 10 == 0)
+                {
+                    for (int j = 0; j < 7; j++)
+                    {
+                        var awardIndex = rand.Next(0, awards.Count - 1);
+                        actor.Awards.Add(awards[awardIndex]);
+                    }
+                }
+
                 context.Actors.AddOrUpdate(a => new
                 {
                     a.FirstName,

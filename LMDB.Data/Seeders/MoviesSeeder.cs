@@ -65,6 +65,14 @@
                     movie.Awards.Add(awards[awardIndex]);
                 }
 
+                if (i % 6 == 0)
+                {
+                    var awardIndex = rand.Next(0, awards.Count - 1);
+                    var awardIndex2 = rand.Next(0, awards.Count - 1);
+                    movie.Awards.Add(awards[awardIndex]);
+                    movie.Awards.Add(awards[awardIndex2]);
+                }
+
                 context.Movies.AddOrUpdate(m => m.Title, movie);
                 context.SaveChanges();
             }        
