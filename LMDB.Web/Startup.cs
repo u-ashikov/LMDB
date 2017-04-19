@@ -25,16 +25,17 @@ namespace LMDB.Web
             var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
 
-            if (!roleManager.Roles.Any())
+            if (!roleManager.Roles.Any(r=>r.Name == "admin"))
             {
                 var roleCreated = roleManager.Create(new IdentityRole("Admin"));
                 if (roleCreated.Succeeded)
                 {
-                    var user = userManager.Users.FirstOrDefault(u => u.UserName == "admin");
-                    if (user!=null)
+                    if (!context.Users.Any(u=>u.UserName == "admin"))
                     {
-                        userManager.AddToRole(user.Id,"Admin");
-                    } 
+                        var user = new ApplicationUser{ UserName = "admin"};
+                        userManager.Create(user, "!Asd123");
+                        userManager.AddToRole(user.Id, "Admin");
+                    }                   
                 }
             }          
         }
