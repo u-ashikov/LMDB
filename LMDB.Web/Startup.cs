@@ -25,7 +25,7 @@ namespace LMDB.Web
             var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
 
-            if (!roleManager.Roles.Any(r=>r.Name == "admin"))
+            if (!roleManager.Roles.Any(r=>r.Name == "Admin"))
             {
                 var roleCreated = roleManager.Create(new IdentityRole("Admin"));
                 if (roleCreated.Succeeded)
