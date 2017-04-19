@@ -47,16 +47,14 @@
             }
             @Html.DisplayFor(model => bd)
         </dd>
-
         <dt>
-            @Html.DisplayNameFor(model => model.Biography)
+            &nbsp;
         </dt>
-
         <dd>
-            @Html.DisplayFor(model => model.Biography)
+            &nbsp;
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.DirectedMovies)
+           Directed Movies
         </dt>
 
         <dd>
@@ -66,15 +64,44 @@
                     var movie = Model.DirectedMovies.ToList()[i];
                     if (i < Model.DirectedMovies.Count - 1)
                     {
-                        <span>@Html.ActionLink(movie.Title, "Details", "Movie", new { id = movie.Id }, null), </span>
+                        <span>@Html.ActionLink(movie.Title, "Details", "Movie", new {id = movie.Id}, null), </span>
                     }
                     else
                     {
-                        <span>@Html.ActionLink(movie.Title, "Details", "Movie", new { id = movie.Id }, null)</span>
+                        <span>@Html.ActionLink(movie.Title, "Details", "Movie", new {id = movie.Id}, null)</span>
                     }
                 }
             }
         </dd>
+        @{
+            if (Model.Awards.Count > 0)
+            {
+                <dt>
+                    Awards
+                </dt>
+                <dd>
+                        @{
+                            for (int i = 0; i < Model.Awards.Count; i++)
+                            {
+                                var award = Model.Awards.ToList()[i];
+                                <p>@award.Award.Name for <span style="font-weight: bold">@award.Category.Name</span></p>
+                            }
+                        }
+                </dd>
+              }
+        }
+        @{
+            if (Model.Biography != null)
+            {
+                <dt>
+                    @Html.DisplayNameFor(model => model.Biography)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Biography)
+                </dd>
+            }
+        }  
     </dl>
 </div>
 <p>

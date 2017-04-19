@@ -474,8 +474,6 @@
         [Authorize]
         public ActionResult Evaluate(int id,string status)
         {
-            var movieId = id;
-
             var movie = db.Movies.Find(id);
 
             if (movie == null)

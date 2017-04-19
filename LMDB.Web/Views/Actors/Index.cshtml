@@ -35,7 +35,7 @@
                 @{
                     var fullName = $"{item.FirstName} {item.LastName}";
                 }
-                @fullName
+                @Html.ActionLink(fullName, "Details", new {id = item.Id})
             </td>
             <td>
                 @{
@@ -64,18 +64,12 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Awards.Count)
             </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new {id = item.Id}) |
-                @Html.ActionLink("Details", "Details", new {id = item.Id}) |
-                @Html.ActionLink("Delete", "Delete", new {id = item.Id})
-            </td>
         </tr>
     }
 
 </table>
 
+<div class="pager">@Html.PagedListPager(Model, page => Url.Action("Index", new { page }), new PagedListRenderOptions() { Display = PagedListDisplayMode.IfNeeded, DisplayPageCountAndCurrentLocation = true })</div>
 <p>
     @Html.ActionLink("Back to Home", "Index", "Home")
 </p>
-
-<div class="pager">@Html.PagedListPager(Model, page => Url.Action("Index", new { page }), new PagedListRenderOptions() { Display = PagedListDisplayMode.IfNeeded, DisplayPageCountAndCurrentLocation = true })</div>
