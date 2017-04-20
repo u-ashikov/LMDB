@@ -1,6 +1,7 @@
 ﻿@{
     ViewBag.Title = "Home Page";
     var posters = ViewBag.Posters;
+    var movieIds = ViewBag.MovieIds;
 }
 
 @Styles.Render("~/Styles/Carousel.css")
@@ -15,21 +16,29 @@
     {
         <div id="wrapper">
             <div id="image">
-                <div class="image i1"><img src="@posters[0]">
+                <div class="image i1">
+                    <a style="height: 100px; width: 100px; text-decoration: none" href="@Url.Action("Details", "Movie", new {id = movieIds[0]})"><img src="@posters[0]"></a>                   
                 </div>
-                <div class="image i2"><img src="@posters[1]">
+                <div class="image i2">
+                    <a style="height: 100px; width: 100px; text-decoration: none" href="@Url.Action("Details", "Movie", new {id = movieIds[1]})"><img src="@posters[1]"></a>           
                 </div>
-                <div class="image i3"><img src="@posters[2]">
+                <div class="image i3">
+                    <a style="height: 100px; width: 100px; text-decoration: none" href="@Url.Action("Details", "Movie", new {id = movieIds[2]})"><img src="@posters[2]"></a>
                 </div>
-                <div class="image i4"><img src="@posters[3]">
+                <div class="image i4">
+                    <a style="height: 100px; width: 100px; text-decoration: none" href="@Url.Action("Details", "Movie", new {id = movieIds[3]})"><img src="@posters[3]"></a>
                 </div>
-                <div class="image i5"><img src="@posters[4]">
+                <div class="image i5">
+                    <a style="height: 100px; width: 100px; text-decoration: none" href="@Url.Action("Details", "Movie", new {id = movieIds[4]})"><img src="@posters[4]"></a>
                 </div>
-                <div class="image i6"><img src="@posters[5]">
+                <div class="image i6">
+                    <a style="height: 100px; width: 100px; text-decoration: none" href="@Url.Action("Details", "Movie", new {id = movieIds[5]})"><img src="@posters[5]"></a>
                 </div>
-                <div class="image i7"><img src="@posters[6]">
+                <div class="image i7">
+                    <a style="height: 100px; width: 100px; text-decoration: none" href="@Url.Action("Details", "Movie", new {id = movieIds[6]})"><img src="@posters[6]"></a>
                 </div>
-                <div class="image i8"><img src="@posters[7]">
+                <div class="image i8">
+                    <a style="height: 100px; width: 100px; text-decoration: none" href="@Url.Action("Details", "Movie", new {id = movieIds[7]})"><img src="@posters[7]"></a>
                 </div>
             </div>
         </div>

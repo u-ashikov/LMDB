@@ -16,7 +16,7 @@ namespace LMDB.Web.Controllers
             var context = new MoviesContext();
             var randomPosters = new List<string>();
             string poster = string.Empty;
-
+            var ids = new List<int>();
             context.Movies.Load();
             var movies = AutoMapper.Mapper.Instance.Map<List<MovieIndexViewModel>>(context.Movies.Local);
             try
@@ -33,14 +33,14 @@ namespace LMDB.Web.Controllers
                     {
                         poster = movie.Poster;
                     }
-
+                    ids.Add(movie.Id);
                     randomPosters.Add(poster);
                 }
             }
             catch (Exception) { ViewBag.Posters = randomPosters; }
 
             ViewBag.Posters = randomPosters;
-
+            ViewBag.MovieIds = ids;
             return View();
         }
 
