@@ -23,7 +23,16 @@
                     <!-- ITEMS -->
                     <div class="item">
                         <div class="index-poster">
-                            <img src="@item.Poster" alt="@item.Title poster" height="240" width="170" />
+                            @{
+                                if (item.Poster == null)
+                                {
+                                    <img src="@item.PosterFromFolder" alt="@item.Title poster" height="240" width="170" />
+                                }
+                                else
+                                {
+                                    <img src="@item.Poster" alt="@item.Title poster" height="240" width="170" />
+                                }
+                            }        
                         </div>
                         <div class="description">
                             <h2>@item.Title</h2>
