@@ -87,15 +87,14 @@ body {
 .wrapper .sidebar {
     background: #1d1d1d;
     width: 170px;
-    position: fixed;
-    height: 100%;
+    position: absolute;
+    height: 130%;
     margin-top: 8px;
 }
 
 .wrapper .main {
     float: right;
     width: 880px;
-    vertical-align: top;
 }
 
 .main .content .gallery {
